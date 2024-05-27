@@ -17,9 +17,9 @@
 
 <body>
     @include('layout.sidebar')
-    <div class="lg:ps-72 flex-col flex gap-6 min-h-[70vh]">
+    <div class="lg:ps-72">
         @include('layout.navbar')
-        <div class="">
+        <div class="flex-col flex gap-6 min-h-[70vh]">
             @yield('content')
         </div>
     </div>

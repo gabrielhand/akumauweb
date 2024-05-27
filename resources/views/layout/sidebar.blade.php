@@ -1,4 +1,4 @@
-<div class="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-72 lg:flex-col">
+<div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
     <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-sidebar pb-4">
         <div class="flex h-16 md:h-[4.5rem] shrink-0 items-center px-10 bg-white shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1)]">
             <figure class="hidden lg:block cursor-pointer w-full h-[60%] relative justify-end"><img alt="logo" loading="lazy"
@@ -58,8 +58,8 @@
                                                     d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z">
                                                 </path>
                                             </svg>Semua Game</a></li>
-                                    <li><a class="{{ request()->is('cektransaksi') ? 'text-purple-600' : 'text-black' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
-                                            href="/cektransaksi"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    <li><a class="{{ request()->is('cari') ? 'text-purple-600' : 'text-black' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                            href="/cari"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                 class="text-sidebar-menu-fg group-hover:text-sidebar-menu-active h-5 w-5 shrink-0"

@@ -19,6 +19,7 @@
             position: relative;
             background-size: cover;
             background-position: center;
+            border-radius: 1rem;
         }
         .swiper-slide img {
             transform: rotate(-12deg);
