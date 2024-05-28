@@ -18,8 +18,10 @@
                     style="overflow: scroll;">
                     <div style="min-width: 100%; display: table;">
                         <div class="flex w-max space-x-4 pb-4">
+                            <button id="Semua-tab" onclick="showContent('Semua')" class="inline-flex items-center justify-center text-sm font-medium ring-offset-background focus:brightness-50 focus-visible:brightness-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none 
+                            disabled:opacity-50 brightness-75 transition duration-300 hover:brightness-50 h-10 py-2 rounded-full bg-transparent border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0 text-foreground/50">Semua</button>
                             @foreach ($tipes as $tipe)
-                                <button onclick="showTabContent('{{ $tipe->name }}')" id="{{ $tipe->name }}-tab"
+                                <button id="{{ $tipe->name }}-tab" onclick="showContent('{{ $tipe->name }}')" 
                                     class="inline-flex items-center justify-center text-sm font-medium ring-offset-background focus:brightness-50 focus-visible:brightness-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none 
                                 disabled:opacity-50 brightness-75 transition duration-300 hover:brightness-50 h-10 py-2 rounded-full bg-transparent border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0 text-foreground/50">{{ $tipe->name }}</button>
                             @endforeach
@@ -30,13 +32,12 @@
         </div>
         <div class="space-y-9">
             @foreach ($kategoriByTipe as $tipe => $kategori)
-                <div id="{{ $tipe }}-content" class="tab-content {{ $tipe === 'Game' ? '' : 'hidden' }}">
-                    <h1 class="lg:text-xl md:text-lg sm:text-sm font-medium mb-5 text-black" id="h1">
-                        {{ $tipe }}</h1>
-                    <div class="grid 2xl:grid-cols-6 md:grid-cols-5 grid-cols-3 gap-3 md:gap-4 transition duration-300">
+                <div id="{{ $tipe }}-content" class="tipe-content hidden opacity-0 transition-opacity duration-300 ease-in-out">
+                    <h1 id="h1-kategori" class="lg:text-xl md:text-lg sm:text-sm font-medium mb-5">{{ $tipe }}</h1>
+                    <div class="grid 2xl:grid-cols-6 md:grid-cols-5 grid-cols-3 gap-3 md:gap-4">
                         @foreach ($kategori as $jsgori)
                             <a href="{{ url('') . '/order/' . $jsgori->kode }}">
-                                <div 
+                                <div data-radix-aspect-ratio-wrapper=""
                                     style="position: relative; width: 100%; padding-bottom: 150%;">
                                     <div style="position: absolute; inset: 0px;">
                                         <div
@@ -45,9 +46,9 @@
                                                 <div
                                                     class="absolute inset-0 p-3 z-10 flex flex-col items-center justify-between">
                                                     <div class="w-full grow flex flex-col items-center justify-center ">
-                                                        <figure style="width: 40px;"><img alt="icon" loading="lazy"
-                                                                width="40" height="40" decoding="async"
-                                                                data-nimg="1"
+                                                        <figure style="width: 40px;">
+                                                            <img alt="icon" loading="lazy" width="40"
+                                                                height="40" decoding="async" data-nimg="1"
                                                                 class="object-center object-contain h-[30px] lg:h-[40px]"
                                                                 src="{{ $logo_header }}" style="color: transparent;">
                                                         </figure>
@@ -79,17 +80,45 @@
                 </div>
             @endforeach
         </div>
-        </div>
-        <script>
-            function showTabContent(tipe) {
-                // Hide all tab contents
-                document.querySelectorAll('.tab-content').forEach(content => {
-                    content.classList.add('hidden');
-                });
-
-                // Show the selected tab content
-                document.getElementById(`${tipe}-content`).classList.remove('hidden');
-            }
-        </script>
     </section>
 </section>
+
+<script>
+    function showContent(tipe) {
+        const contents = document.querySelectorAll("div[id$='-content']");
+        const headers = document.querySelectorAll("#h1-kategori");
+
+        contents.forEach(content => {
+            content.classList.add("opacity-0");
+            content.classList.add("hidden");
+        });
+
+        headers.forEach(header => {
+            header.classList.add("hidden");
+        });
+
+        if (tipe === "Semua") {
+            contents.forEach(content => {
+                content.classList.remove("hidden");
+                setTimeout(() => {
+                    content.classList.remove("opacity-0");
+                }, 100);
+            });
+            headers.forEach(header => {
+                header.classList.remove("hidden");
+            });
+        } else {
+            const targetContent = document.getElementById(`${tipe}-content`);
+            if (targetContent) {
+                targetContent.classList.remove("hidden");
+                setTimeout(() => {
+                    targetContent.classList.remove("opacity-0");
+                }, 100);
+            }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("Semua-tab").click();
+    });
+</script>

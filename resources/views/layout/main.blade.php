@@ -19,9 +19,10 @@
     @include('layout.sidebar')
     <div class="lg:ps-72">
         @include('layout.navbar')
-        <div class="flex-col flex gap-6 min-h-[70vh]">
+        <div class="flex-col flex gap-6 min-h-[70vh] mb-5">
             @yield('content')
         </div>
+        @include('layout.footer')
     </div>
 </body>
 
