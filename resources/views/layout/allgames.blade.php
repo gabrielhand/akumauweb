@@ -36,7 +36,7 @@
                     <div class="grid 2xl:grid-cols-6 md:grid-cols-5 grid-cols-3 gap-3 md:gap-4 transition duration-300">
                         @foreach ($kategori as $jsgori)
                             <a href="{{ url('') . '/order/' . $jsgori->kode }}">
-                                <div data-radix-aspect-ratio-wrapper=""
+                                <div 
                                     style="position: relative; width: 100%; padding-bottom: 150%;">
                                     <div style="position: absolute; inset: 0px;">
                                         <div
