@@ -70,7 +70,7 @@
                                 </ul>
                                 <ul>
                                     <h2 class="mb-2 text-xs ml-2 light-dark-text font-medium">NAVIGASI</h2>
-                                    <li><a class="{{ request()->is('/services') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                    <li><a class="{{ request()->is('services') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
                                             href="/services"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -90,7 +90,7 @@
                                                 <line x1="3" x2="3.01" y1="18" y2="18">
                                                 </line>
                                             </svg>Daftar Layanan</a></li>
-                                    <li><a class="{{ request()->is('/FAQ') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                    <li><a class="{{ request()->is('FAQ') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
                                             href="/FAQ"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -101,7 +101,7 @@
                                                 <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
                                                 <path d="M12 17h.01"></path>
                                             </svg>FAQ</a></li>
-                                    <li><a class="{{ request()->is('/dukungan') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                    <li><a class="{{ request()->is('dukungan') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
                                             href="/dukungan"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -165,7 +165,7 @@
                 </div>
                 <div class="pl-28 pr-3 flex flex-col justify-around h-full z-30 py-2">
                     <p class="font-semibold text-sm light-dark-text">Join Grup Centra Gaming Store</p><a target="_blank"
-                        class="h-5 py-4 rounded-full bg-purple-500 hover:bg-purple-700 light-dark-text text-sm flex items-center justify-center font-medium"
+                        class="h-5 py-4 rounded-full bg-purple-500 hover:bg-purple-700 text-white text-sm flex items-center justify-center font-medium"
                         href="https://wa.me/6281333111036">Join Group</a>
                 </div>
             </div>

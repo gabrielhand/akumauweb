@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/login.css', 'resources/js/app.js'])
     <title>{{ $judul_web }}</title>
     <link rel="icon" href="{{ $logo_header }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,13 +14,8 @@
 </head>
 
 <body>
-    @include('layout.sidebar')
-    <div class="lg:ps-72">
-        @include('layout.navbar')
-        <div class="flex-col flex gap-6 min-h-[70vh] mb-5 bg-main-content">
-            @yield('content')
-        </div>
-        @include('layout.footer')
+    <div class="main flex flex-row h-screen overflow-y-auto">
+        @yield('content')
     </div>
 </body>
 

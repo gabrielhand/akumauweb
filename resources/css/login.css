@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --main-light: #ffffff;
+    --bg-header-light: #ffffff;
+    --light-text: #161721;
+
+    --main-dark: #000000;
+    --bg-header-dark: #161721;
+    --dark-text: #ffffff;
+}
+
+[data-theme="light"] {
+    --light-dark-text: var(--light-text);
+    --bg-header: var(--bg-header-light);
+    --main: var(--main-light);
+}
+
+[data-theme="dark"] {
+    --light-dark-text: var(--dark-text);
+    --bg-header: var(--bg-header-dark);
+    --main: var(--main-dark);
+}
+
+.main {
+    background-color: var(--main);
+}
+
+.main::-webkit-scrollbar {
+    width: 6px;
+}
+
+.main::-webkit-scrollbar-thumb {
+    background-color: #6b7280;
+    border-radius: 10px;
+}
+
+.main::-webkit-scrollbar-track {
+    background: #d1d5db;
+}
+
+.bg-header {
+    background-color: var(--bg-header);
+}
+
+.light-dark-text {
+    color: var(--light-dark-text);
+}

@@ -25,12 +25,12 @@
     </section>
     <section id="pilih-kategori" class="md:px-6 px-4">
         <div class="flex justify-between items-center">
-            <h1 class="lg:text-xl md:text-lg sm:text-sm font-semibold mb-5">Pilih Kategori</h1>
+            <h1 class="lg:text-xl md:text-lg sm:text-sm font-medium mb-5 light-dark-text">Pilih Kategori</h1>
             <div class="w-1/3">
-                <p class="text-xs md:text-sm font-semibold mb-2"> </p>
+                <p class="text-xs md:text-sm font-semibold mb-2"></p>
                 <div class="relative w-full">
                     <button
-                        class="mb-4 relative w-full cursor-default py-1.5 pl-4 pr-10 text-left sm:text-sm h-10 focus:ring-2 focus:outline-none focus:ring-indigo-600 rounded-xl md:w-full bg-transparent text-foreground border border-blue-500 focus:outline-blue-500 focus:outline-1"
+                        class="mb-4 relative w-full cursor-default py-1.5 pl-4 pr-10 text-left sm:text-sm h-10 focus:ring-2 focus:outline-none focus:ring-violet-600 rounded-xl md:w-full bg-transparent light-dark-text border border-purple-500 focus:outline-purple-500 focus:outline-1"
                         id="headlessui-listbox-button-:r7s:" type="button" aria-haspopup="listbox" aria-expanded="false"
                         data-headlessui-state="" fdprocessedid="rctoh"><span class="block truncate">Pilih
                             Kategori</span><span
@@ -74,20 +74,20 @@
             <div class="flex flex-col gap-y-6" id="splide02-track">
                 <div class="flex w-max space-x-4 pb-4">
                     <button
-                        class="inline-flex items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 h-10 py-2 rounded-full bg-transparent text-foreground border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0"
+                        class="inline-flex light-dark-text items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 h-10 py-2 rounded-full bg-transparent text-foreground border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0"
                         fdprocessedid="qg7mz">Semua</button>
                     @foreach ($tipes as $tipe)
                         <button id="{{ $tipe->name }}-tab"
-                            class="inline-flex items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 h-10 py-2 rounded-full bg-transparent text-foreground border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0">{{ $tipe->name }}</button>
+                            class="inline-flex light-dark-text items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 h-10 py-2 rounded-full bg-transparent text-foreground border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0">{{ $tipe->name }}</button>
                     @endforeach
                 </div>
             </div>
         </div>
         <div class="relative overflow-hidden">
             <div class="py-4" id="scroll-container">
-                <div class="relative flex gap-3 py-1 h-auto whitespace-nowrap overflow-x-auto no-scrollbar">
+                <div class="relative flex gap-x-2 py-1 h-auto whitespace-nowrap overflow-x-auto no-scrollbar">
                     @foreach ($allKategori as $kat)
-                        <div class="flex flex-col items-center flex-none rounded-xl border border-1 border-primary shadow-sm overflow-hidden shrink-0 w-[80px] md:w-[140px] lg:w-[116.25px]">
+                        <div class="flex flex-col items-center flex-none rounded-xl border border-1 border-primary shadow-sm overflow-hidden shrink-0 w-[110px] h-[160px] md:w-[120px] md:h-[180px] lg:w-[116.25px] lg:h-[170px]">
                             <div class="relative w-full h-full">
                                 <div class="overflow-hidden rounded-xl">
                                     <div class="relative w-full h-full">
@@ -156,7 +156,7 @@
                             @foreach ($allKategori as $kat)
                                 @foreach ($kat->layanan as $layanan)
                                     <tr
-                                        class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                                        class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted light-dark-text">
                                         <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">
                                             {{ $layanan->provider_id }}</td>
                                         <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">{{ $kat->nama }}
@@ -164,7 +164,7 @@
                                         <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
                                             {{ $layanan->layanan }}</td>
                                         <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                                            {{ $layanan->harga_reseller }}</td>
+                                            Rp {{ $layanan->harga_reseller }}</td>
                                         <td>
                                             <div
                                                 class="inline-flex items-center border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 rounded-full py-1 px-4 text-white text-xs md:text-sm whitespace-nowrap bg-green-500">
