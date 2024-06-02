@@ -1,5 +1,5 @@
 <section id="best-seller" class="md:px-6 px-4">
-    <h1 class="lg:text-xl md:text-lg sm:text-sm font-semibold mb-5">⭐ Paling Banyak Dicari</h1>
+    <h1 class="lg:text-xl md:text-lg sm:text-sm font-semibold mb-5 light-dark-text">⭐ Paling Banyak Dicari</h1>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
         @php $count = 0 @endphp
         @foreach ($kategori as $jsgori)

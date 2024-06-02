@@ -154,585 +154,34 @@
                                 tabindex="0" style="outline: none;">
                                 <div class="flex flex-col mb-4">
                                     <div class="w-full grid lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-4">
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="week2login" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="week2login">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">Weekly Diamonds
-                                                                Pass 2 Minggu</p>
-                                                            <p class="text-[13px]">Rp 55.000</p>
+                                        @foreach ($nominal as $nom)
+                                            @if ($nom->sub_category_id == $subkat['id'])
+                                                <div>
+                                                    <button type="button" role="radio" aria-checked="false"
+                                                        data-state="unchecked" value="[object Object]"
+                                                        class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
+                                                        id="" tabindex="-1"></button><input type="radio"
+                                                        name="nominal" id="nominal-{{ $nom->id }}"
+                                                        value="{{ $nom->id }}" data-type="diamond"
+                                                        onchange="select_product('{{ $nom->id }}', '{{ $nom->layanan }}', '{{ $nom->harga }}');"
+                                                        style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"
+                                                        {{ Request::get('fs') == $nom->id ? 'checked' : '' }} /><label
+                                                        for="nominal-{{ $nom->id }}">
+                                                        <div
+                                                            class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-slate-200 text-[#111010] h-full">
+                                                            <div class="flex items-center gap-4 w-[80%] text-sm">
+                                                                <div class="flex flex-col gap-1.5">
+                                                                    <p class="text-[13px] font-medium leading-6">
+                                                                        {{ $nom->layanan }}</p>
+                                                                    <p class="text-[13px]">Rp {{ number_format($nom->harga) }}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="relative w-[20%] h-10 py-1"></div>
                                                         </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
+                                                    </label>
                                                 </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML275_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML275_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">275 Diamond</p>
-                                                            <p class="text-[13px]">Rp 70.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="WDP3" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="WDP3">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">Weekly Diamond
-                                                                Pass 3 Minggu</p>
-                                                            <p class="text-[13px]">Rp 75.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML440_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML440_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">440 Diamond</p>
-                                                            <p class="text-[13px]">Rp 102.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="TwilightPass1" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="TwilightPass1">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">Twilight Pass</p>
-                                                            <p class="text-[13px]">Rp 120.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML565_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML565_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">565 Diamond</p>
-                                                            <p class="text-[13px]">Rp 122.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="WDP5" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="WDP5">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">Weekly Diamond
-                                                                Pass 5 Minggu</p>
-                                                            <p class="text-[13px]">Rp 125.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML730_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML730_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">730 Diamond</p>
-                                                            <p class="text-[13px]">Rp 155.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="WDP7" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="WDP7">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">Weekly Diamond
-                                                                Pass 7 Minggu</p>
-                                                            <p class="text-[13px]">Rp 175.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML840_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML840_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">840 Diamond</p>
-                                                            <p class="text-[13px]">Rp 177.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML1005_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML1005_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">1005 Diamond</p>
-                                                            <p class="text-[13px]">Rp 213.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="WDP9" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="WDP9">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">Weekly Diamond
-                                                                Pass 9 Minggu</p>
-                                                            <p class="text-[13px]">Rp 225.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML1155_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML1155_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">1155 Diamond</p>
-                                                            <p class="text-[13px]">Rp 236.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML1430_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML1430_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">1430 Diamond</p>
-                                                            <p class="text-[13px]">Rp 294.997</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML1765_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML1765_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">1765 Diamond</p>
-                                                            <p class="text-[13px]">Rp 360.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML2040_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML2040_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">2040 Diamond</p>
-                                                            <p class="text-[13px]">Rp 415.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML2330_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML2330_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">2330 Diamond</p>
-                                                            <p class="text-[13px]">Rp 470.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML2975_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML2975_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">2975 Diamond</p>
-                                                            <p class="text-[13px]">Rp 585.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML3540_vILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML3540_vILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">3540 Diamond</p>
-                                                            <p class="text-[13px]">Rp 690.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML4130_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML4130_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">4130 Diamond</p>
-                                                            <p class="text-[13px]">Rp 800.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="MLAIRPLANE" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="MLAIRPLANE">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">Border Airplane
-                                                            </p>
-                                                            <p class="text-[13px]">Rp 850.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML5015_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML5015_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">5015 Diamond</p>
-                                                            <p class="text-[13px]">Rp 975.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="MLBB6000_Vilog" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="MLBB6000_Vilog">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">6000 Diamond</p>
-                                                            <p class="text-[13px]">Rp 1.150.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML7155_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML7155_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">7155 Diamond</p>
-                                                            <p class="text-[13px]">Rp 1.370.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML8975_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML8975_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">8975 Diamond</p>
-                                                            <p class="text-[13px]">Rp 1.700.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML10130_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML10130_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">10130 Diamond</p>
-                                                            <p class="text-[13px]">Rp 1.900.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="ML12000_VILOG" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="ML12000_VILOG">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">12000 Diamond</p>
-                                                            <p class="text-[13px]">Rp 2.225.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="18000DM" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="18000DM">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">18.000 Diamonds
-                                                            </p>
-                                                            <p class="text-[13px]">Rp 3.350.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="24000DM" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="24000DM">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">24.000 Diamonds
-                                                            </p>
-                                                            <p class="text-[13px]">Rp 4.450.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
-                                        <div><button type="button" role="radio" aria-checked="false"
-                                                data-state="unchecked" value="[object Object]"
-                                                class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                id="30000DM" tabindex="-1"
-                                                data-radix-collection-item=""></button><input type="radio"
-                                                aria-hidden="true" tabindex="-1" value="[object Object]"
-                                                style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"><label
-                                                for="30000DM">
-                                                <div
-                                                    class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-productDetail-denom text-productDetail-denom-fg border-productDetail-denom/70 h-full">
-                                                    <div class="flex items-center gap-4 w-[80%] text-sm">
-                                                        <div class="flex flex-col gap-1.5">
-                                                            <p class="text-[13px] font-medium leading-6">30.000 Diamonds
-                                                            </p>
-                                                            <p class="text-[13px]">Rp 5.500.000</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="relative w-[20%] h-10 py-1"></div>
-                                                </div>
-                                            </label></div>
+                                            @endif
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -1048,8 +497,7 @@
                     </div>
                 </div>
                 <div class="col-span-12 lg:col-span-5 md:col-span-12 lg:mt-0 mt-8 rounded-xl h-full space-y-4">
-                    <div class="border shadow-sm bg-slate-200 text-black rounded-xl p-4"
-                        id="detailAccount">
+                    <div class="border shadow-sm bg-slate-200 text-black rounded-xl p-4" id="detailAccount">
                         <h3 class="text-sm md:text-lg font-medium flex items-center gap-4">Masukkan Detil Akun<button
                                 class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap visible"
                                 type="button" fdprocessedid="5e80x"><svg xmlns="http://www.w3.org/2000/svg"
@@ -1066,8 +514,8 @@
                                     <p class="text-xs md:text-sm font-semibold mb-2">User ID </p>
                                     <div class="relative flex items-center"><input name="id" autocomplete="off"
                                             autosave="false" type="text"
-                                            class="text-sm w-full text-black focus:outline-none focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-blue-500 focus:outline-1"
-                                            placeholder="User ID" fdprocessedid="hrjtzd"></div>
+                                            class="text-sm w-full text-black focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-purple-500 focus:outline-1"
+                                            placeholder="User ID"></div>
                                 </div>
                             </div>
                             <div class="w-full">
@@ -1075,7 +523,7 @@
                                     <p class="text-xs md:text-sm font-semibold mb-2">Server </p>
                                     <div class="relative flex items-center"><input name="other_id" autocomplete="off"
                                             autosave="false" type="text"
-                                            class="text-sm w-full text-black focus:outline-none focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-blue-500 focus:outline-1"
+                                            class="text-sm w-full text-black focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-purple-500 focus:outline-1"
                                             placeholder="Masukkan Server" fdprocessedid="mgk96m"></div>
                                 </div>
                             </div>
@@ -1086,22 +534,20 @@
                             Server Kamu, Klik Avatar Pada Pojok Kiri Atas Layar Akan Muncul ID &amp; Server Kamu Di Bawah
                             Nickname. Contoh: 12345678 (1234).</p>
                     </div>
-                    <div class="border shadow-sm bg-productDetail-card text-productDetail-card-fg rounded-xl p-4"
-                        id="choosePaymentMethod">
+                    <div class="border shadow-sm bg-slate-200 text-black rounded-xl p-4" id="choosePaymentMethod">
                         <h3 class="text-sm md:text-lg font-medium">Pilih Pembayaran</h3>
                         <div class="mt-4 space-y-2" data-orientation="vertical">
                             <div data-state="closed" data-orientation="vertical"
                                 class="border-b bg-productDetail-accord rounded-xl grayscale">
                                 <h3 data-orientation="vertical" data-state="closed" class="flex"><button
                                         type="button" aria-controls="radix-:r66:" aria-expanded="false"
-                                        data-state="closed" disabled="" data-orientation="vertical"
-                                        id="radix-:r65:"
+                                        data-state="closed" disabled="" data-orientation="vertical" id="radix-:r65:"
                                         class="flex flex-1 items-center justify-between font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180 p-2 text-white"
                                         data-radix-collection-item="">
                                         <p class="text-black font-bold text-sm">QRIS</p><svg
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
                                             class="h-4 w-4 shrink-0 transition-transform duration-200">
                                             <path d="m6 9 6 6 6-6"></path>
                                         </svg>
@@ -1113,21 +559,19 @@
                                 </div>
                                 <h3 data-orientation="vertical" data-state="closed" class="flex"><button
                                         type="button" aria-controls="radix-:r66:" aria-expanded="false"
-                                        data-state="closed" disabled="" data-orientation="vertical"
-                                        id="radix-:r65:"
+                                        data-state="closed" disabled="" data-orientation="vertical" id="radix-:r65:"
                                         class="flex-1 items-center font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180 bg-productDetail-accord-bottom rounded-b-xl flex p-3 justify-end overflow-hidden gap-4 text-black"
                                         data-radix-collection-item="">
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="QRIS" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="QRIS" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fqr.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fqr.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fqr.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fqr.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fqr.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fqr.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fqr.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fqr.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fqr.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fqr.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fqr.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                                             </figure>
                                         </div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
                                             class="h-4 w-4 shrink-0 transition-transform duration-200">
                                             <path d="m6 9 6 6 6-6"></path>
                                         </svg>
@@ -1137,14 +581,13 @@
                                 class="border-b bg-productDetail-accord rounded-xl grayscale">
                                 <h3 data-orientation="vertical" data-state="closed" class="flex"><button
                                         type="button" aria-controls="radix-:r68:" aria-expanded="false"
-                                        data-state="closed" disabled="" data-orientation="vertical"
-                                        id="radix-:r67:"
+                                        data-state="closed" disabled="" data-orientation="vertical" id="radix-:r67:"
                                         class="flex flex-1 items-center justify-between font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180 p-2 text-white"
                                         data-radix-collection-item="">
                                         <p class="text-black font-bold text-sm">Ewallet</p><svg
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
                                             class="h-4 w-4 shrink-0 transition-transform duration-200">
                                             <path d="m6 9 6 6 6-6"></path>
                                         </svg>
@@ -1156,14 +599,12 @@
                                 </div>
                                 <h3 data-orientation="vertical" data-state="closed" class="flex"><button
                                         type="button" aria-controls="radix-:r68:" aria-expanded="false"
-                                        data-state="closed" disabled="" data-orientation="vertical"
-                                        id="radix-:r67:"
+                                        data-state="closed" disabled="" data-orientation="vertical" id="radix-:r67:"
                                         class="flex-1 items-center font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180 bg-productDetail-accord-bottom rounded-b-xl flex p-3 justify-end overflow-hidden gap-4 text-black"
                                         data-radix-collection-item="">
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="OVO APPS" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="OVO APPS" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
@@ -1206,9 +647,8 @@
                                             </figure>
                                         </div>
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="OVO QRIS" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="OVO QRIS" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fovo.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
@@ -1241,8 +681,8 @@
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                                             </figure>
                                         </div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
                                             class="h-4 w-4 shrink-0 transition-transform duration-200">
                                             <path d="m6 9 6 6 6-6"></path>
                                         </svg>
@@ -1252,14 +692,13 @@
                                 class="border-b bg-productDetail-accord rounded-xl grayscale">
                                 <h3 data-orientation="vertical" data-state="closed" class="flex"><button
                                         type="button" aria-controls="radix-:r6a:" aria-expanded="false"
-                                        data-state="closed" disabled="" data-orientation="vertical"
-                                        id="radix-:r69:"
+                                        data-state="closed" disabled="" data-orientation="vertical" id="radix-:r69:"
                                         class="flex flex-1 items-center justify-between font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180 p-2 text-white"
                                         data-radix-collection-item="">
                                         <p class="text-black font-bold text-sm">Retail</p><svg
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
                                             class="h-4 w-4 shrink-0 transition-transform duration-200">
                                             <path d="m6 9 6 6 6-6"></path>
                                         </svg>
@@ -1271,23 +710,20 @@
                                 </div>
                                 <h3 data-orientation="vertical" data-state="closed" class="flex"><button
                                         type="button" aria-controls="radix-:r6a:" aria-expanded="false"
-                                        data-state="closed" disabled="" data-orientation="vertical"
-                                        id="radix-:r69:"
+                                        data-state="closed" disabled="" data-orientation="vertical" id="radix-:r69:"
                                         class="flex-1 items-center font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180 bg-productDetail-accord-bottom rounded-b-xl flex p-3 justify-end overflow-hidden gap-4 text-black"
                                         data-radix-collection-item="">
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="Alfamart" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="Alfamart" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                                             </figure>
                                         </div>
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="Alfamidi" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="Alfamidi" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fmini.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fmini.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fmini.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fmini.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fmini.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fmini.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fmini.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fmini.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fmini.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fmini.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fmini.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
@@ -1303,18 +739,16 @@
                                             </figure>
                                         </div>
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="Lawson" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="Lawson" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Flawson.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Flawson.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Flawson.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Flawson.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Flawson.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Flawson.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Flawson.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Flawson.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Flawson.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Flawson.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Flawson.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                                             </figure>
                                         </div>
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="Dandan" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="Dandan" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fdandan.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fdandan.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fdandan.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fdandan.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fdandan.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fdandan.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fdandan.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fdandan.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fdandan.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fdandan.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fdandan.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
@@ -1339,9 +773,8 @@
                                             </figure>
                                         </div>
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="Alfamart" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="Alfamart" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Falfa.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
@@ -1356,8 +789,8 @@
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                                             </figure>
                                         </div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
                                             class="h-4 w-4 shrink-0 transition-transform duration-200">
                                             <path d="m6 9 6 6 6-6"></path>
                                         </svg>
@@ -1367,14 +800,13 @@
                                 class="border-b bg-productDetail-accord rounded-xl grayscale">
                                 <h3 data-orientation="vertical" data-state="closed" class="flex"><button
                                         type="button" aria-controls="radix-:r6c:" aria-expanded="false"
-                                        data-state="closed" disabled="" data-orientation="vertical"
-                                        id="radix-:r6b:"
+                                        data-state="closed" disabled="" data-orientation="vertical" id="radix-:r6b:"
                                         class="flex flex-1 items-center justify-between font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180 p-2 text-white"
                                         data-radix-collection-item="">
                                         <p class="text-black font-bold text-sm">Virtual Account</p><svg
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
                                             class="h-4 w-4 shrink-0 transition-transform duration-200">
                                             <path d="m6 9 6 6 6-6"></path>
                                         </svg>
@@ -1386,50 +818,44 @@
                                 </div>
                                 <h3 data-orientation="vertical" data-state="closed" class="flex"><button
                                         type="button" aria-controls="radix-:r6c:" aria-expanded="false"
-                                        data-state="closed" disabled="" data-orientation="vertical"
-                                        id="radix-:r6b:"
+                                        data-state="closed" disabled="" data-orientation="vertical" id="radix-:r6b:"
                                         class="flex-1 items-center font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180 bg-productDetail-accord-bottom rounded-b-xl flex p-3 justify-end overflow-hidden gap-4 text-black"
                                         data-radix-collection-item="">
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="CIMB VA" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="CIMB VA" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fcimb.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fcimb.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fcimb.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fcimb.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fcimb.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fcimb.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fcimb.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fcimb.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fcimb.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fcimb.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fcimb.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                                             </figure>
                                         </div>
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="BNC VA" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="BNC VA" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbnc.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbnc.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbnc.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbnc.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbnc.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbnc.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbnc.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbnc.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbnc.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbnc.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbnc.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                                             </figure>
                                         </div>
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="BCA VA" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="BCA VA" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbca.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbca.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbca.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbca.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbca.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbca.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbca.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbca.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbca.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbca.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbca.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                                             </figure>
                                         </div>
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="BRI VA" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="BRI VA" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbri.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbri.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbri.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbri.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbri.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbri.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbri.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbri.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbri.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbri.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbri.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                                             </figure>
                                         </div>
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="BNI VA" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="BNI VA" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbni.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbni.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbni.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbni.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbni.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbni.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbni.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbni.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbni.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbni.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fbni.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
@@ -1463,16 +889,15 @@
                                             </figure>
                                         </div>
                                         <div class="relative lg:w-14 md:w-12 w-8 h-full">
-                                            <figure><img alt="BSI VA" loading="lazy" decoding="async"
-                                                    data-nimg="fill" class="object-contain"
-                                                    sizes="(max-width: 768px) 100vw, 100px"
+                                            <figure><img alt="BSI VA" loading="lazy" decoding="async" data-nimg="fill"
+                                                    class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
                                                     srcset="/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbsi.png&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbsi.png&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbsi.png&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbsi.png&amp;w=1024&amp;q=75 1024w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbsi.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbsi.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbsi.png&amp;w=1600&amp;q=75 1600w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbsi.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbsi.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbsi.png&amp;w=3840&amp;q=75 3840w"
                                                     src="https://mobafams.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fbsi.png&amp;w=3840&amp;q=75"
                                                     style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                                             </figure>
                                         </div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
                                             class="h-4 w-4 shrink-0 transition-transform duration-200">
                                             <path d="m6 9 6 6 6-6"></path>
                                         </svg>
@@ -1482,8 +907,7 @@
                                 class="border-b bg-productDetail-accord rounded-xl grayscale">
                                 <h3 data-orientation="vertical" data-state="closed" class="flex"><button
                                         type="button" aria-controls="radix-:r6e:" aria-expanded="false"
-                                        data-state="closed" disabled="" data-orientation="vertical"
-                                        id="radix-:r6d:"
+                                        data-state="closed" disabled="" data-orientation="vertical" id="radix-:r6d:"
                                         class="flex flex-1 items-center justify-between font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180 p-2 text-white"
                                         data-radix-collection-item="">
                                         <p class="text-black font-bold text-sm">Pulsa</p><svg
@@ -1593,15 +1017,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="border shadow-sm bg-productDetail-card text-productDetail-card-fg rounded-xl p-4">
+                    <div class="border shadow-sm bg-slate-200 text-black rounded-xl p-4">
                         <h3 class="text-sm md:text-lg font-medium">Kode Promo</h3>
                         <div class="w-full mt-6">
                             <div class="flex flex-col w-full">
                                 <div class="relative flex items-center"><input name="promo_voucher" autocomplete="off"
                                         autosave="false" type="text"
-                                        class="text-sm w-full text-black focus:outline-none focus:ring-0 h-10 pl-4 pr-10 rounded-l-xl text focus:outline-blue-500 focus:outline-1"
+                                        class="text-sm w-full ring-1 ring-gray-500 ring-inset text-black focus:outline-none focus:ring-0 h-10 pl-4 pr-10 rounded-l-xl text focus:outline-purple-500 focus:outline-1"
                                         placeholder="Masukan Kode Promo" fdprocessedid="9o5kai"><button
-                                        class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 bg-productDetail-btn text-white hover:bg-blue-500/80 h-10 px-4 py-2 rounded-l-none rounded-r-xl whitespace-nowrap"
+                                        class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 bg-purple-400 text-white hover:bg-purple-500/80 h-10 px-4 py-2 rounded-l-none rounded-r-xl whitespace-nowrap"
                                         disabled="" type="button"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="24" height="24" viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -1613,7 +1037,7 @@
                                 tidak mempunyai kode promo abaikan saja</p>
                         </div>
                     </div>
-                    <div class="border shadow-sm bg-productDetail-card text-productDetail-card-fg rounded-xl p-4"
+                    <div class="border shadow-sm bg-slate-200 text-productDetail-card-fg rounded-xl p-4"
                         id="confirmPayment">
                         <h3 class="text-sm md:text-lg font-medium">Selesaikan Pembayaran</h3>
                         <div class="mt-6 space-y-2">
@@ -1630,7 +1054,7 @@
                                 otomatis saya menyutujui <a class="underline" href="/termandconditional">Ketentuan
                                     Layanan</a></p>
                         </div><button
-                            class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap bg-productDetail-btn text-white hover:bg-blue-500/80 h-10 py-2 mt-5 px-8"
+                            class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap bg-purple-500 text-white hover:bg-purple-500/80 h-10 py-2 mt-5 px-8"
                             fdprocessedid="eyrqnn"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -1949,4 +1373,37 @@
             </div>
         </form>
     </section>
+    <script>
+        function select_product(id, name, price) {
+
+            $('html, body').animate({
+                scrollTop: $("#section-method").offset().top
+            }, 400);
+
+            $(".nom-radio").removeClass('active');
+            $("#nominal" + id).addClass('active');
+
+            $("input[name=nominal]").val(id);
+            $("#nominal1").text(name);
+            $("#nominal").text(name);
+            $("#price1").text(price);
+            $("#price").text(price);
+
+            $.ajax({
+                url: "<?php echo route('ajax.price'); ?>",
+                dataType: "json",
+                type: "POST",
+                data: {
+                    "_token": "<?php echo csrf_token(); ?>",
+                    "nominal": id // Menggunakan id sebagai nominal dalam pengiriman data
+                },
+                success: function(res) {
+                    changeHarga(res.harga);
+                }
+            });
+
+
+
+        }
+    </script>
 @endsection

@@ -19,4 +19,5 @@ class Kategoris extends Model
     {
         return $this->belongsTo(Tipes::class);
     }
+
 }

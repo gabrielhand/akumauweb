@@ -8,6 +8,7 @@ use App\Models\Methods;
 use App\Models\Pembelians;
 use App\Models\Setting_Web;
 use App\Models\SubCategories;
+use App\Models\Vouchers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,6 +57,50 @@ class OrderController extends Controller
             'harga' => $layanan,
             'logo_header' =>  $logoHeader ? $logoHeader->logo_header : null,
             'pay_method' => Methods::all()
+        ]);
+    }
+
+    public function price(Request $request)
+    {
+        if (Auth::check()) {
+            if (Auth::user()->role == "Member") {
+                $data = Layanans::where('id', $request->nominal)->select('harga_member AS harga', 'is_flash_sale', 'expired_flash_sale', 'harga_flash_sale')->first();
+            } else if (Auth::user()->role == "Reseller" || Auth::user()->role == "Admin") {
+                $data = Layanans::where('id', $request->nominal)->select('harga_reseller AS harga', 'is_flash_sale', 'expired_flash_sale', 'harga_flash_sale')->first();
+            }
+        } else {
+            $data = Layanans::where('id', $request->nominal)->select('harga_member AS harga', 'is_flash_sale', 'expired_flash_sale', 'harga_flash_sale')->first();
+        }
+
+        if ($data->is_flash_sale == 1 && $data->expired_flash_sale >= date('Y-m-d')) {
+
+            $data->harga = $data->harga_flash_sale;
+
+        }
+
+        if (isset($request->voucher)) {
+            $voucher = Vouchers::where('kode', $request->voucher)->first();
+
+            if (!$voucher) {
+                $data->harga = $data->harga;
+            } else {
+                if ($voucher->stock == 0) {
+                    $data->harga = $data->harga;
+                } else {
+                    $potongan = $data->harga * ($voucher->promo / 100);
+                    if ($potongan > $voucher->max_potongan) {
+                        $potongan = $voucher->max_potongan;
+                    }
+
+                    $data->harga = $data->harga - $potongan;
+                }
+            }
+
+        }
+
+        return response()->json([
+            'status' => true,
+            'harga' => "Rp. " . number_format($data->harga, 0, '.', ',')
         ]);
     }
 }

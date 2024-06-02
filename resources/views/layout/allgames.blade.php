@@ -18,11 +18,11 @@
                     style="overflow: scroll;">
                     <div style="min-width: 100%; display: table;">
                         <div class="flex w-max space-x-4 pb-4">
-                            <button id="Semua-tab" onclick="showContent('Semua')" class="inline-flex items-center justify-center text-sm font-medium ring-offset-background focus:brightness-50 focus-visible:brightness-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none 
+                            <button id="Semua-tab" onclick="showContent('Semua')" class="Semua-tab focus:brightness-50 inline-flex items-center justify-center text-sm font-medium ring-offset-background focus-visible:brightness-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none 
                             disabled:opacity-50 brightness-75 transition duration-300 hover:brightness-50 h-10 py-2 rounded-full bg-transparent border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0 text-foreground/50">Semua</button>
                             @foreach ($tipes as $tipe)
                                 <button id="{{ $tipe->name }}-tab" onclick="showContent('{{ $tipe->name }}')" 
-                                    class="inline-flex items-center justify-center text-sm font-medium ring-offset-background focus:brightness-50 focus-visible:brightness-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none 
+                                    class="{{ $tipe->name }}-tab focus:brightness-50 inline-flex items-center justify-center text-sm font-medium ring-offset-background focus-visible:brightness-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none 
                                 disabled:opacity-50 brightness-75 transition duration-300 hover:brightness-50 h-10 py-2 rounded-full bg-transparent border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0 text-foreground/50">{{ $tipe->name }}</button>
                             @endforeach
                         </div>
@@ -81,44 +81,44 @@
             @endforeach
         </div>
     </section>
-</section>
-
-<script>
-    function showContent(tipe) {
-        const contents = document.querySelectorAll("div[id$='-content']");
-        const headers = document.querySelectorAll("#h1-kategori");
-
-        contents.forEach(content => {
-            content.classList.add("opacity-0");
-            content.classList.add("hidden");
-        });
-
-        headers.forEach(header => {
-            header.classList.add("hidden");
-        });
-
-        if (tipe === "Semua") {
+    
+    <script>
+        function showContent(tipe) {
+            const contents = document.querySelectorAll("div[id$='-content']");
+            const headers = document.querySelectorAll("#h1-kategori");
+    
             contents.forEach(content => {
-                content.classList.remove("hidden");
-                setTimeout(() => {
-                    content.classList.remove("opacity-0");
-                }, 100);
+                content.classList.add("opacity-0");
+                content.classList.add("hidden");
             });
+    
             headers.forEach(header => {
-                header.classList.remove("hidden");
+                header.classList.add("hidden");
             });
-        } else {
-            const targetContent = document.getElementById(`${tipe}-content`);
-            if (targetContent) {
-                targetContent.classList.remove("hidden");
-                setTimeout(() => {
-                    targetContent.classList.remove("opacity-0");
-                }, 100);
+    
+            if (tipe === "Semua") {
+                contents.forEach(content => {
+                    content.classList.remove("hidden");
+                    setTimeout(() => {
+                        content.classList.remove("opacity-0");
+                    }, 100);
+                });
+                headers.forEach(header => {
+                    header.classList.remove("hidden");
+                });
+            } else {
+                const targetContent = document.getElementById(`${tipe}-content`);
+                if (targetContent) {
+                    targetContent.classList.remove("hidden");
+                    setTimeout(() => {
+                        targetContent.classList.remove("opacity-0");
+                    }, 100);
+                }
             }
         }
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("Semua-tab").click();
-    });
-</script>
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("Semua-tab").click();
+        });
+    </script>
+</section>

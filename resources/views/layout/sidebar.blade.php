@@ -1,12 +1,12 @@
 <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
     <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-sidebar pb-4">
-        <div class="flex h-16 md:h-[4.5rem] shrink-0 items-center px-10 bg-white shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1)]">
+        <div class="flex h-16 md:h-[4.5rem] shrink-0 items-center px-10 bg-navbar-bg sidebar-shadow">
             <figure class="hidden lg:block cursor-pointer w-full h-[60%] relative justify-end"><img alt="logo" loading="lazy"
                     decoding="async" data-nimg="fill" class="object-contain object-center logo"
                     style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
                     sizes="(max-width: 768px) 100vw, 100px" src="{{ $logo_header }}"
                     onclick="window.location.href='{{ route('home') }}'"></figure>
-            <span class="logoName text-2xl font-semibold bebas-neue-regular justify-start"
+            <span class="logoName text-2xl font-semibold bebas-neue-regular justify-start light-dark-text"
                 onclick="window.location. href='{{ route('home') }}'">{{ ENV('APP_NAME') }}</span>
         </div>
         <div dir="ltr" class="relative overflow-hidden h-[90%] rounded-lg drop-shadow-lg"
@@ -27,10 +27,10 @@
                 <div style="min-width:100%;display:table">
                     <nav class="flex flex-1 flex-col px-4">
                         <ul class="flex flex-1 flex-col gap-y-7">
-                            <li class="border rounded-lg bg-sidebar-menu bg-slate-200 px-2.5 py-5 space-y-4 mb-5">
+                            <li class="rounded-lg bg-sidebar-menu px-2.5 py-5 space-y-4 mb-5">
                                 <ul>
-                                    <h2 class="mb-2 text-xs ml-2 text-sidebar-menu-fg/80 font-medium">MENU</h2>
-                                    <li><a class="{{ request()->is('/') ? 'text-purple-600' : 'text-black'}} hover:text-purple-600 text-sidebar-menu-active group flex gap-x-3 p-1.5 text-sm leading-6 items-center"
+                                    <h2 class="mb-2 text-xs ml-2 light-dark-text font-medium">MENU</h2>
+                                    <li><a class="{{ request()->is('/') ? 'text-purple-600' : 'light-dark-text'}} hover:text-purple-600 text-sidebar-menu-active group flex gap-x-3 p-1.5 text-sm leading-6 items-center"
                                             href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -40,7 +40,7 @@
                                                 <rect width="7" height="9" x="14" y="12" rx="1"></rect>
                                                 <rect width="7" height="5" x="3" y="16" rx="1"></rect>
                                             </svg>Beranda</a></li>
-                                    <li><a class="{{ request()->is('allgames') ? 'text-purple-600' : 'text-black'}} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                    <li><a class="{{ request()->is('allgames') ? 'text-purple-600' : 'light-dark-text'}} hover:text-purple-600 hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
                                             href="/allgames"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -58,7 +58,7 @@
                                                     d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z">
                                                 </path>
                                             </svg>Semua Game</a></li>
-                                    <li><a class="{{ request()->is('cari') ? 'text-purple-600' : 'text-black' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                    <li><a class="{{ request()->is('cari') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
                                             href="/cari"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -69,8 +69,8 @@
                                             </svg>Cek Transaksi</a></li>
                                 </ul>
                                 <ul>
-                                    <h2 class="mb-2 text-xs ml-2 text-sidebar-menu-fg/80 font-medium">NAVIGASI</h2>
-                                    <li><a class="{{ request()->is('/services') ? 'text-purple-600' : 'text-black' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                    <h2 class="mb-2 text-xs ml-2 light-dark-text font-medium">NAVIGASI</h2>
+                                    <li><a class="{{ request()->is('/services') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
                                             href="/services"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -90,7 +90,7 @@
                                                 <line x1="3" x2="3.01" y1="18" y2="18">
                                                 </line>
                                             </svg>Daftar Layanan</a></li>
-                                    <li><a class="{{ request()->is('/FAQ') ? 'text-purple-600' : 'text-black' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                    <li><a class="{{ request()->is('/FAQ') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
                                             href="/FAQ"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -101,7 +101,7 @@
                                                 <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
                                                 <path d="M12 17h.01"></path>
                                             </svg>FAQ</a></li>
-                                    <li><a class="{{ request()->is('/dukungan') ? 'text-purple-600' : 'text-black' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                    <li><a class="{{ request()->is('/dukungan') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
                                             href="/dukungan"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -113,7 +113,7 @@
                                                 </path>
                                             </svg>Dukungan Pelanggan</a></li>
                                     <li><a target="_blank"
-                                            class="group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                            class="group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center light-dark-text"
                                             href="https://docs.mobafams.com"><svg xmlns="http://www.w3.org/2000/svg"
                                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -124,20 +124,20 @@
                                             </svg>API</a></li>
                                 </ul>
                                 <ul>
-                                    <h2 class="mb-2 text-xs ml-2 text-sidebar-menu-fg/80 font-medium">PENGGUNA</h2>
-                                    <li><a class="text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                    <h2 class="mb-2 text-xs ml-2 light-dark-text font-medium">PENGGUNA</h2>
+                                    <li><a class="light-dark-text light-dark-text group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
                                             href="/login"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round"
-                                                class="text-sidebar-menu-fg group-hover:text-sidebar-menu-active h-5 w-5 shrink-0"
+                                                class="h-5 w-5 shrink-0"
                                                 aria-hidden="true">
                                                 <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
                                                 <polyline points="10 17 15 12 10 7"></polyline>
                                                 <line x1="15" x2="3" y1="12" y2="12">
                                                 </line>
                                             </svg>Masuk</a></li>
-                                    <li><a class="text-sidebar-menu-fg hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                    <li><a class="light-dark-text group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
                                             href="/login"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -156,7 +156,7 @@
         </div>
         <div class="px-4 drop-shadow-lg">
             <div
-                class="border shadow-sm bg-sidebar-card text-sidebar-card-fg h-28 relative p-0 border-sidebar-card-border rounded-none border-none bg-slate-200">
+                class="shadow-sm h-28 relative p-0 rounded-none bg-sidebar-card">
                 <div class="absolute -top-14">
                     <figure style="width:100px"><img alt="object-1" width="100" height="100" decoding="async"
                             data-nimg="1" class="h-44 w-auto object-cover" style=""
@@ -164,8 +164,8 @@
                             loading="lazy" sizes="(max-width: 768px) 100vw, 100px"></figure>
                 </div>
                 <div class="pl-28 pr-3 flex flex-col justify-around h-full z-30 py-2">
-                    <p class="font-bold text-sm">Join Grup Mobafams</p><a target="_blank"
-                        class="h-5 py-4 rounded-full bg-purple-500 hover:bg-purple-700 text-white text-sm flex items-center justify-center font-semibold"
+                    <p class="font-semibold text-sm light-dark-text">Join Grup Centra Gaming Store</p><a target="_blank"
+                        class="h-5 py-4 rounded-full bg-purple-500 hover:bg-purple-700 light-dark-text text-sm flex items-center justify-center font-medium"
                         href="https://wa.me/6281333111036">Join Group</a>
                 </div>
             </div>

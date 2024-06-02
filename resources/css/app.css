@@ -1,7 +1,204 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
 
-body{
-    font-family: 'Poppins', sans-serif;
-}
+    body{
+        font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+        --main-light: #ffffff;
+        --navbar-bg-light: #ffffff;
+        --sidebar-light: #ffffff;
+        --sidebar-menu-light: #e1e5ed;
+        --light-text: #161721;
+        --sidebar-card-light: #e1e5ed;
+        
+        --main-dark: #000000;
+        --navbar-bg-dark: #161721;
+        --sidebar-dark: #1d1928;
+        --sidebar-menu-dark: #21222e;
+        --dark-text: #ffffff; 
+        --sidebar-card-dark: #312740;
+        --hero-grad-from: 249,100%,99%,0.21;
+        --hero-grad-to-dark: 231,87%,87%,1;
+    }
+
+    *,:after,:before {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgba(59,130,246,.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia:
+    }
+
+    ::backdrop {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgba(59,130,246,.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia:
+    }
+
+    [data-theme='light'] {
+        --navbar-bg: var(--navbar-bg-light);
+        --sidebar-menu: var(--sidebar-menu-light);
+        --light-dark-text: var(--light-text);
+        --main: var(--main-light);
+        --sidebar: var(--sidebar-light);
+        --sidebar-card: var(--sidebar-card-light);
+    }
+
+    [data-theme='dark'] {
+        --navbar-bg: var(--navbar-bg-dark);
+        --sidebar-menu: var(--sidebar-menu-dark);
+        --light-dark-text: var(--dark-text);
+        --main: var(--main-dark);
+        --sidebar: var(--sidebar-dark);
+        --sidebar-card: var(--sidebar-card-dark);
+    }
+
+    .bg-main-content {
+        background-color : var(--main);
+    }
+
+    .bg-sidebar {
+        background-color: var(--sidebar);
+    }
+
+    .bg-navbar-bg {
+        background-color: var(--navbar-bg);
+    }
+
+    .header-shadow {
+        z-index: 40;
+        box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .sidebar-shadow {
+        box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+
+    .bg-sidebar-menu {
+        background-color: var(--sidebar-menu);
+    }
+
+    .bg-sidebar-card {
+        background-color: var(--sidebar-card);
+    }
+
+    .light-dark-text {
+        color: var(--light-dark-text);
+    }
+    
+    .to-home-banner-gradTo {
+        --tw-gradient-to: hsla(var(--hero-grad-to)) var(--tw-gradient-to-position);
+    }
+
+    .from-home-banner-gradFrom {
+        --tw-gradient-from: hsla(var(--hero-grad-from)) var(--tw-gradient-from-position);
+        --tw-gradient-to: hsla(249,20%,7%,0.21,0) var(--tw-gradient-to-position);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    }
+    .bg-gradient-to-b {
+        background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    #scroll-container.active {
+        cursor: grabbing; /* Optional: visual feedback for dragging */
+        cursor: -webkit-grabbing;
+    }
