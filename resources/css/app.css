@@ -11,7 +11,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #6b7280;
+    background-color: #9CA38F;
     border-radius: 10px;
 }
 
@@ -237,4 +237,17 @@ body::-webkit-scrollbar-track {
 #scroll-container.active {
     cursor: grabbing; /* Optional: visual feedback for dragging */
     cursor: -webkit-grabbing;
+}
+
+.menu-kategori::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu-kategori::-webkit-scrollbar-thumb {
+    background-color: #9CA38F;
+    border-radius: 10px;
+}
+
+.menu-kategori::-webkit-scrollbar-track {
+    background: #d1d5db;
 }

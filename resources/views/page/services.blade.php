@@ -30,25 +30,38 @@
                 <p class="text-xs md:text-sm font-semibold mb-2"></p>
                 <div class="relative w-full">
                     <button
-                        class="mb-4 relative w-full cursor-default py-1.5 pl-4 pr-10 text-left sm:text-sm h-10 focus:ring-2 focus:outline-none focus:ring-violet-600 rounded-xl md:w-full bg-transparent light-dark-text border border-purple-500 focus:outline-purple-500 focus:outline-1"
-                        id="headlessui-listbox-button-:r7s:" type="button" aria-haspopup="listbox" aria-expanded="false"
-                        data-headlessui-state="" fdprocessedid="rctoh"><span class="block truncate">Pilih
-                            Kategori</span><span
-                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4"><svg
+                        class="mb-2 relative w-full cursor-default py-1.5 pl-4 pr-10 text-left sm:text-sm h-10 focus:ring-2 focus:outline-none focus:ring-violet-600 rounded-xl md:w-full bg-transparent light-dark-text border border-purple-500 focus:outline-purple-500 focus:outline-1"
+                        id="btn-kategori" type="button" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="block truncate">Pilih Kategori</span>
+                        <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4"><svg
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 aria-hidden="true" data-slot="icon" class="h-5 w-5 text-gray-400">
                                 <path fill-rule="evenodd"
                                     d="M11.47 4.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1-1.06 1.06L12 6.31 8.78 9.53a.75.75 0 0 1-1.06-1.06l3.75-3.75Zm-3.75 9.75a.75.75 0 0 1 1.06 0L12 17.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-3.75 3.75a.75.75 0 0 1-1.06 0l-3.75-3.75a.75.75 0 0 1 0-1.06Z"
                                     clip-rule="evenodd"></path>
                             </svg></span></button>
+                    <ul
+                        class="menu-kategori hidden absolute z-10 w-full bg-gray-100 border border-purple-500 text-black rounded-lg h-60 overflow-y-auto">
+                        @foreach ($kategoriNames as $index => $kategoriName)
+                            <li data-kategori="{{ $kategoriName }}"
+                                class="flex justify-between ps-4 pe-3 py-2 group hover:bg-purple-500 text-xs lg:text-sm md:text-sm {{ $index == 0 ? 'hover:rounded-tl-md' : '' }} {{ $index == count($kategoriNames) - 1 ? 'hover:rounded-bl-md' : '' }}">
+                                <a class="group-hover:text-white">{{ $kategoriName }}</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                    class="bi bi-check2 hidden text-purple-600 group-hover:text-white" viewBox="0 0 16 16">
+                                    <path
+                                        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                                </svg>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
-    <section class="md:px-6 px-4">
+    {{-- <section class="md:px-6 px-4">
         <div class="flex flex-col-reverse justify-between md:flex-row">
             <div dir="ltr" class="relative overflow-hidden w-full whitespace-nowrap" orientation="horizontal"
-                style="position: relative; --radix-scroll-area-corner-width: 0px; --radix-scroll-area-corner-height: 0px;">
+                style="position: relative;">
                 <style>
                     [data-radix-scroll-area-viewport] {
                         scrollbar-width: none;
@@ -60,22 +73,21 @@
                         display: none
                     }
                 </style>
-                <div data-radix-scroll-area-viewport="" class="h-full w-full rounded-[inherit]" style="overflow: scroll;">
+                <div class="no-scrollbar h-full w-full rounded-[inherit]" style="overflow: scroll;">
                     <div style="min-width: 100%; display: table;">
 
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <section class="md:px-6 px-4">
         <div class="splide is-overflow is-initialized splide--slide splide--ltr splide--draggable is-active" id="splide02"
             role="region" aria-roledescription="carousel" style="padding: 0px;">
             <div class="flex flex-col gap-y-6" id="splide02-track">
                 <div class="flex w-max space-x-4 pb-4">
                     <button
-                        class="inline-flex light-dark-text items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 h-10 py-2 rounded-full bg-transparent text-foreground border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0"
-                        fdprocessedid="qg7mz">Semua</button>
+                        class="inline-flex light-dark-text items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 h-10 py-2 rounded-full bg-transparent text-foreground border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0">Semua</button>
                     @foreach ($tipes as $tipe)
                         <button id="{{ $tipe->name }}-tab"
                             class="inline-flex light-dark-text items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 h-10 py-2 rounded-full bg-transparent text-foreground border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0">{{ $tipe->name }}</button>
@@ -87,7 +99,8 @@
             <div class="py-4" id="scroll-container">
                 <div class="relative flex gap-x-2 py-1 h-auto whitespace-nowrap overflow-x-auto no-scrollbar">
                     @foreach ($allKategori as $kat)
-                        <div class="flex flex-col items-center flex-none rounded-xl border border-1 border-primary shadow-sm overflow-hidden shrink-0 w-[110px] h-[160px] md:w-[120px] md:h-[180px] lg:w-[116.25px] lg:h-[170px]">
+                        <div data-kategori="{{ $kat->nama }}"
+                            class="slider-kategori flex flex-col items-center flex-none rounded-xl border border-1 border-primary shadow-sm overflow-hidden shrink-0 w-[110px] h-[160px] md:w-[120px] md:h-[180px] lg:w-[116.25px] lg:h-[170px]">
                             <div class="relative w-full h-full">
                                 <div class="overflow-hidden rounded-xl">
                                     <div class="relative w-full h-full">
@@ -128,42 +141,36 @@
         </div>
 
         <!-- Table Component -->
-        <div class="mt-4">
-            <div class="border text-card-foreground shadow-sm p-2 rounded-xl border-none bg-sidebar-menu">
+        <div id="table-layanan" class="mt-4">
+            <div class="border shadow-sm p-2 rounded-xl border-none bg-sidebar-menu">
                 <div class="relative w-full overflow-auto">
                     <table class="w-full caption-bottom text-sm">
-                        <thead class="[&amp;_tr]:border-b">
-                            <tr
-                                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted border-none">
-                                <th
-                                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                        <thead class="">
+                            <tr class="transition-colors hover-tbl-layanan border-none">
+                                <th class="h-12 px-4 text-left align-middle font-medium">
                                     PID</th>
-                                <th
-                                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                <th class="h-12 px-4 text-left align-middle font-medium">
                                     KATEGORI</th>
-                                <th
-                                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                <th class="h-12 px-4 text-left align-middle font-medium">
                                     LAYANAN</th>
-                                <th
-                                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                <th class="h-12 px-4 text-left align-middle font-medium">
                                     HARGA</th>
-                                <th
-                                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                <th class="h-12 px-4 text-left align-middle font-medium">
                                     STATUS</th>
                             </tr>
                         </thead>
-                        <tbody class="[&amp;_tr:last-child]:border-0">
+                        <tbody id="list-layanan" class="">
                             @foreach ($allKategori as $kat)
                                 @foreach ($kat->layanan as $layanan)
-                                    <tr
-                                        class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted light-dark-text">
-                                        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">
+                                    <tr data-kategori="{{ $kat->nama }}"
+                                        class="hover-tbl-layanan transition-colors light-dark-text p-5">
+                                        <td class="px-4 py-6 align-middle font-medium">
                                             {{ $layanan->provider_id }}</td>
-                                        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">{{ $kat->nama }}
+                                        <td class="px-4 py-6 align-middle">{{ $kat->nama }}
                                         </td>
-                                        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                                        <td class="px-4 py-6 align-middle">
                                             {{ $layanan->layanan }}</td>
-                                        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                                        <td class="px-4 py-6 align-middle">
                                             Rp {{ $layanan->harga_reseller }}</td>
                                         <td>
                                             <div
@@ -174,6 +181,30 @@
                                 @endforeach
                             @endforeach
                         </tbody>
+                        <style>
+                            :root {
+                                --hover-tbl-light: #f1f5f9;
+                                --hover-tbl-dark: rgb(59 7 100 / 0.5);
+                            }
+
+                            [data-theme="light"] {
+                                --hover-tbl: var(--hover-tbl-light);
+                            }
+
+                            [data-theme="dark"] {
+                                --hover-tbl: var(--hover-tbl-dark);
+                            }
+
+                            .hover-tbl-layanan:hover {
+                                background-color: var(--hover-tbl);
+                            }
+
+                            .border-tbl-layanan {
+                                border-color: var(--hover-tbl);
+                                border-style: solid;
+                                border-width: 1px;
+                            }
+                        </style>
                     </table>
                 </div>
             </div>
@@ -210,6 +241,62 @@
                 const walk = (x - startX) * 2; // Adjust the scroll speed if necessary
                 slider.scrollLeft = scrollLeft - walk;
             });
+
+            const kategoriItems = document.querySelectorAll('.slider-kategori, .menu-kategori li');
+            const tableSection = document.getElementById('table-layanan');
+
+            kategoriItems.forEach((item) => {
+                item.addEventListener('click', () => {
+
+                    const selectedCategory = item.getAttribute('data-kategori');
+
+                    // Highlight kategori terpilih
+                    kategoriItems.forEach(i => {
+                        i.classList.remove('border-blue-500', 'font-semibold');
+                        const checkmark = i.querySelector('.bi-check2');
+                        if (checkmark) checkmark.classList.add('hidden');
+                    });
+                    item.classList.add('border-blue-500', 'font-semibold');
+                    const checkmark = item.querySelector('.bi-check2');
+                    if (checkmark) checkmark.classList.remove('hidden');
+
+                    // Update button text
+                    const btnKategori = document.getElementById('btn-kategori');
+                    if (btnKategori) {
+                        btnKategori.querySelector('span').textContent = selectedCategory;
+                    }
+
+                    // Filter layanan
+                    const layananRows = document.querySelectorAll('#list-layanan tr');
+                    layananRows.forEach(row => {
+                        if (row.getAttribute('data-kategori') === selectedCategory) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+
+                    const menuKategoriList = document.querySelector('.menu-kategori');
+                    if (menuKategoriList) {
+                        menuKategoriList.classList.add('hidden');
+                    }
+
+                    const yOffset = -92;
+                    const yPosition = tableSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({
+                        top: yPosition,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            const btnKategori = document.getElementById('btn-kategori');
+            if (btnKategori) {
+                btnKategori.addEventListener('click', () => {
+                    const menuKategoriList = document.querySelector('.menu-kategori');
+                    menuKategoriList.classList.toggle('hidden');
+                });
+            }
         });
     </script>
 @endsection

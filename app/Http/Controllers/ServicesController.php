@@ -16,6 +16,7 @@ class ServicesController extends Controller
         $logoHeader = Setting_Web::select('logo_header')->first();
         $kategori = Kategoris::where('status', 'active')->with('tipe', 'layanans')->get();
         $tipes = Tipes::all()->pluck('name');
+        $kategoriName = Kategoris::where('status', 'active')->pluck('nama');
 
         // Gabungkan semua kategori dan layanan terkait dalam satu array
         $allKategori = collect();
@@ -25,7 +26,7 @@ class ServicesController extends Controller
                 return $kategori->tipe->name === $tipe;
             });
             foreach ($filteredKategori as $kat) {
-                $kat->layanan = $kat->layanans;  // Pastikan setiap kategori memiliki layanan terkait
+                $kat->layanan = $kat->layanans;
                 $allKategori->push($kat);
             }
         }
@@ -34,7 +35,8 @@ class ServicesController extends Controller
             'judul_web' => $judulWeb ? $judulWeb->judul_web : null,
             'logo_header' =>  $logoHeader ? $logoHeader->logo_header : null,
             'tipes' => Tipes::all(),
-            'allKategori' => $allKategori,  // Pass the combined category and service data
+            'allKategori' => $allKategori, 
+            'kategoriNames' => $kategoriName,
         ]);
     }
 }
