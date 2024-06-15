@@ -1,36 +1,38 @@
 <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
     <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-sidebar pb-4">
         <div class="flex h-16 md:h-[4.5rem] shrink-0 items-center px-10 bg-navbar-bg sidebar-shadow">
-            <figure class="hidden lg:block cursor-pointer w-full h-[60%] relative justify-end"><img alt="logo" loading="lazy"
-                    decoding="async" data-nimg="fill" class="object-contain object-center logo"
+            <figure class="hidden lg:block cursor-pointer w-full h-[60%] relative justify-end">
+                <img alt="logo" loading="lazy" decoding="async" data-nimg="fill"
+                    class="object-contain object-center logo"
                     style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
                     sizes="(max-width: 768px) 100vw, 100px" src="{{ $logo_header }}"
-                    onclick="window.location.href='{{ route('home') }}'"></figure>
+                    onclick="window.location.href='{{ route('home') }}'">
+            </figure>
             <span class="logoName text-2xl font-semibold bebas-neue-regular justify-start light-dark-text"
                 onclick="window.location. href='{{ route('home') }}'">{{ ENV('APP_NAME') }}</span>
         </div>
         <div dir="ltr" class="relative overflow-hidden h-[90%] rounded-lg drop-shadow-lg"
-            style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px">
-            <style>
-                [data-radix-scroll-area-viewport] {
-                    scrollbar-width: none;
-                    -ms-overflow-style: none;
-                    -webkit-overflow-scrolling: touch;
-                }
-
-                [data-radix-scroll-area-viewport]::-webkit-scrollbar {
-                    display: none
-                }
-            </style>
-            <div data-radix-scroll-area-viewport="" class="h-full w-full rounded-[inherit]"
-                style="overflow: hidden scroll;">
+            style="position:relative;">
+            <div class="theme-scrollbar h-full w-full rounded-[inherit]" style="overflow: hidden scroll;">
                 <div style="min-width:100%;display:table">
                     <nav class="flex flex-1 flex-col px-4">
+                        @auth
+                            <div class="mb-5">
+                                <button
+                                    class="inline-flex items-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap bg-primary hover:bg-primary/90 bg-gradient-to-r from-purple-700 via-purple-800 to-gray-900 text-white h-12 justify-start p-2 gap-x-4 w-full">
+                                    <figure style="width: 50px;"><img alt="gift" loading="lazy" width="50"
+                                            height="50" decoding="async" data-nimg="1" class=""
+                                            sizes="(max-width: 768px) 100vw, 100px"
+                                            src="https://mobafams.com/_next/image?url=%2Fimages%2F3d%2Fgift.png&amp;w=3840&amp;q=75"
+                                            style="color: transparent;"></figure>Klaim Kode Voucher
+                                </button>
+                            </div>
+                        @endauth
                         <ul class="flex flex-1 flex-col gap-y-7">
                             <li class="rounded-lg bg-sidebar-menu px-2.5 py-5 space-y-4 mb-5">
                                 <ul>
                                     <h2 class="mb-2 text-xs ml-2 light-dark-text font-medium">MENU</h2>
-                                    <li><a class="{{ request()->is('/') ? 'text-purple-600' : 'light-dark-text'}} hover:text-purple-600 text-sidebar-menu-active group flex gap-x-3 p-1.5 text-sm leading-6 items-center"
+                                    <li><a class="{{ request()->is('/') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 text-sidebar-menu-active group flex gap-x-3 p-1.5 text-sm leading-6 items-center"
                                             href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -40,7 +42,7 @@
                                                 <rect width="7" height="9" x="14" y="12" rx="1"></rect>
                                                 <rect width="7" height="5" x="3" y="16" rx="1"></rect>
                                             </svg>Beranda</a></li>
-                                    <li><a class="{{ request()->is('allgames') ? 'text-purple-600' : 'light-dark-text'}} hover:text-purple-600 hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                    <li><a class="{{ request()->is('allgames') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 hover:text-sidebar-menu-active group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
                                             href="/allgames"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -125,28 +127,70 @@
                                 </ul>
                                 <ul>
                                     <h2 class="mb-2 text-xs ml-2 light-dark-text font-medium">PENGGUNA</h2>
-                                    <li><a class="light-dark-text light-dark-text group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
-                                            href="/login"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                height="24" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="h-5 w-5 shrink-0"
-                                                aria-hidden="true">
-                                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-                                                <polyline points="10 17 15 12 10 7"></polyline>
-                                                <line x1="15" x2="3" y1="12" y2="12">
-                                                </line>
-                                            </svg>Masuk</a></li>
-                                    <li><a class="light-dark-text group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
-                                            href="/login"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                height="24" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="text-sidebar-menu-fg group-hover:text-sidebar-menu-active h-5 w-5 shrink-0"
-                                                aria-hidden="true">
-                                                <circle cx="12" cy="8" r="5"></circle>
-                                                <path d="M20 21a8 8 0 1 0-16 0"></path>
-                                            </svg>Daftar</a></li>
+                                    @auth
+                                        <li>
+                                            <a class="{{ request()->is('me') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                                href="/me">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="text-sidebar-menu-active h-5 w-5 shrink-0" aria-hidden="true">
+                                                    <rect width="7" height="9" x="3" y="3" rx="1">
+                                                    </rect>
+                                                    <rect width="7" height="5" x="14" y="3" rx="1">
+                                                    </rect>
+                                                    <rect width="7" height="9" x="14" y="12" rx="1">
+                                                    </rect>
+                                                    <rect width="7" height="5" x="3" y="16" rx="1">
+                                                    </rect>
+                                                </svg>Profile
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="{{ request()->is('riwayat') ? 'text-purple-600' : 'light-dark-text' }} hover:text-purple-600 group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                                href="/riwayat">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="text-sidebar-menu-fg group-hover:text-sidebar-menu-active h-5 w-5 shrink-0"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M16 22h2c.5 0 1-.2 1.4-.6.4-.4.6-.9.6-1.4V7.5L14.5 2H6c-.5 0-1 .2-1.4.6C4.2 3 4 3.5 4 4v3">
+                                                    </path>
+                                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                                    <circle cx="8" cy="16" r="6"></circle>
+                                                    <path d="M9.5 17.5 8 16.25V14"></path>
+                                                </svg>Riwayat Pesanan
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a class="light-dark-text light-dark-text group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                                href="/login"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" class="h-5 w-5 shrink-0" aria-hidden="true">
+                                                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                                                    <polyline points="10 17 15 12 10 7"></polyline>
+                                                    <line x1="15" x2="3" y1="12" y2="12">
+                                                    </line>
+                                                </svg>Masuk
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="light-dark-text group flex gap-x-3 p-1.5 rounded-md text-sm leading-6 items-center"
+                                                href="/daftar"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    class="text-sidebar-menu-fg group-hover:text-sidebar-menu-active h-5 w-5 shrink-0"
+                                                    aria-hidden="true">
+                                                    <circle cx="12" cy="8" r="5"></circle>
+                                                    <path d="M20 21a8 8 0 1 0-16 0"></path>
+                                                </svg>Daftar
+                                            </a>
+                                        </li>
+                                    @endauth
                                 </ul>
                             </li>
                         </ul>
@@ -155,16 +199,16 @@
             </div>
         </div>
         <div class="px-4 drop-shadow-lg">
-            <div
-                class="shadow-sm h-28 relative p-0 rounded-none bg-sidebar-card">
+            <div class="shadow-sm h-28 relative p-0 rounded-none bg-sidebar-card">
                 <div class="absolute -top-14">
                     <figure style="width:100px"><img alt="object-1" width="100" height="100" decoding="async"
                             data-nimg="1" class="h-44 w-auto object-cover" style=""
-                            src="/assets/logo/art.png"
-                            loading="lazy" sizes="(max-width: 768px) 100vw, 100px"></figure>
+                            src="/assets/logo/art.png" loading="lazy" sizes="(max-width: 768px) 100vw, 100px">
+                    </figure>
                 </div>
                 <div class="pl-28 pr-3 flex flex-col justify-around h-full z-30 py-2">
-                    <p class="font-semibold text-sm light-dark-text">Join Grup Centra Gaming Store</p><a target="_blank"
+                    <p class="font-semibold text-sm light-dark-text">Join Grup Centra Gaming Store</p><a
+                        target="_blank"
                         class="h-5 py-4 rounded-full bg-purple-500 hover:bg-purple-700 text-white text-sm flex items-center justify-center font-medium"
                         href="https://wa.me/6281333111036">Join Group</a>
                 </div>

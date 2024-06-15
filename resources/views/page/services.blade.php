@@ -83,14 +83,12 @@
     </section> --}}
     <section class="md:px-6 px-4">
         <div class="splide is-overflow is-initialized splide--slide splide--ltr splide--draggable is-active" id="splide02"
-            role="region" aria-roledescription="carousel" style="padding: 0px;">
-            <div class="flex flex-col gap-y-6" id="splide02-track">
+            role="region" style="padding: 0px;">
+            <div class="flex flex-col gap-y-6">
                 <div class="flex w-max space-x-4 pb-4">
-                    <button
-                        class="inline-flex light-dark-text items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 h-10 py-2 rounded-full bg-transparent text-foreground border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0">Semua</button>
                     @foreach ($tipes as $tipe)
-                        <button id="{{ $tipe->name }}-tab"
-                            class="inline-flex light-dark-text items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 h-10 py-2 rounded-full bg-transparent text-foreground border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0">{{ $tipe->name }}</button>
+                        <button data-tipe="{{ $tipe->id }}" id="{{ $tipe->name }}-tab"
+                            class="tipe-tab inline-flex brightness-50 light-dark-text items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-90 h-10 py-2 rounded-full bg-transparent border hover:bg-transparent px-6 whitespace-nowrap shrink-0">{{ $tipe->name }}</button>
                     @endforeach
                 </div>
             </div>
@@ -99,7 +97,7 @@
             <div class="py-4" id="scroll-container">
                 <div class="relative flex gap-x-2 py-1 h-auto whitespace-nowrap overflow-x-auto no-scrollbar">
                     @foreach ($allKategori as $kat)
-                        <div data-kategori="{{ $kat->nama }}"
+                        <div data-tipe="{{ $kat->tipe_id }}" data-kategori="{{ $kat->nama }}"
                             class="slider-kategori flex flex-col items-center flex-none rounded-xl border border-1 border-primary shadow-sm overflow-hidden shrink-0 w-[110px] h-[160px] md:w-[120px] md:h-[180px] lg:w-[116.25px] lg:h-[170px]">
                             <div class="relative w-full h-full">
                                 <div class="overflow-hidden rounded-xl">
@@ -147,68 +145,70 @@
                     <table class="w-full caption-bottom text-sm">
                         <thead class="">
                             <tr class="transition-colors hover-tbl-layanan border-none">
-                                <th class="h-12 px-4 text-left align-middle font-medium">
-                                    PID</th>
-                                <th class="h-12 px-4 text-left align-middle font-medium">
-                                    KATEGORI</th>
-                                <th class="h-12 px-4 text-left align-middle font-medium">
-                                    LAYANAN</th>
-                                <th class="h-12 px-4 text-left align-middle font-medium">
-                                    HARGA</th>
-                                <th class="h-12 px-4 text-left align-middle font-medium">
-                                    STATUS</th>
+                                <th class="h-12 px-4 text-left align-middle font-medium">PID</th>
+                                <th class="h-12 px-4 text-left align-middle font-medium">KATEGORI</th>
+                                <th class="h-12 px-4 text-left align-middle font-medium">LAYANAN</th>
+                                <th class="h-12 px-4 text-left align-middle font-medium">HARGA</th>
+                                <th class="h-12 px-4 text-left align-middle font-medium">STATUS</th>
                             </tr>
                         </thead>
                         <tbody id="list-layanan" class="">
                             @foreach ($allKategori as $kat)
-                                @foreach ($kat->layanan as $layanan)
-                                    <tr data-kategori="{{ $kat->nama }}"
-                                        class="hover-tbl-layanan transition-colors light-dark-text p-5">
-                                        <td class="px-4 py-6 align-middle font-medium">
-                                            {{ $layanan->provider_id }}</td>
-                                        <td class="px-4 py-6 align-middle">{{ $kat->nama }}
-                                        </td>
-                                        <td class="px-4 py-6 align-middle">
-                                            {{ $layanan->layanan }}</td>
-                                        <td class="px-4 py-6 align-middle">
-                                            Rp {{ $layanan->harga_reseller }}</td>
-                                        <td>
-                                            <div
-                                                class="inline-flex items-center border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 rounded-full py-1 px-4 text-white text-xs md:text-sm whitespace-nowrap bg-green-500">
-                                                {{ $layanan->status }}</div>
-                                        </td>
+                                @if ($kat->layanan->isEmpty())
+                                    <tr class="hover-tbl-layanan border-tbl-layanan transition-colors light-dark-text p-5">
+                                        <td class="light-dark-text text-center">-</td>
+                                        <td class="px-4 py-6 text-start light-dark-text">{{ $kat->nama }}</td>
+                                        <td colspan="3" class="px-4 py-6 text-start light-dark-text">Whoops, maaf belum
+                                            ada layanan untuk kategori ini!</td>
                                     </tr>
-                                @endforeach
+                                @else
+                                    @foreach ($kat->layanan as $layanan)
+                                        <tr data-kategori="{{ $kat->nama }}"
+                                            class="hover-tbl-layanan border-tbl-layanan transition-colors light-dark-text p-5">
+                                            <td class="px-4 py-6 align-middle font-medium">{{ $layanan->provider_id }}
+                                            </td>
+                                            <td class="px-4 py-6 align-middle">{{ $kat->nama }}</td>
+                                            <td class="px-4 py-6 align-middle">{{ $layanan->layanan }}</td>
+                                            <td class="px-4 py-6 align-middle">Rp {{ $layanan->harga_reseller }}, -</td>
+                                            <td>
+                                                <div
+                                                    class="inline-flex items-center border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 rounded-full py-1 px-4 text-white text-xs md:text-sm whitespace-nowrap bg-green-500">
+                                                    {{ $layanan->status }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                             @endforeach
                         </tbody>
-                        <style>
-                            :root {
-                                --hover-tbl-light: #f1f5f9;
-                                --hover-tbl-dark: rgb(59 7 100 / 0.5);
-                            }
-
-                            [data-theme="light"] {
-                                --hover-tbl: var(--hover-tbl-light);
-                            }
-
-                            [data-theme="dark"] {
-                                --hover-tbl: var(--hover-tbl-dark);
-                            }
-
-                            .hover-tbl-layanan:hover {
-                                background-color: var(--hover-tbl);
-                            }
-
-                            .border-tbl-layanan {
-                                border-color: var(--hover-tbl);
-                                border-style: solid;
-                                border-width: 1px;
-                            }
-                        </style>
                     </table>
                 </div>
             </div>
         </div>
+
+        <style>
+            :root {
+                --hover-tbl-light: #f1f5f9;
+                --hover-tbl-dark: rgb(59 7 100 / 0.5);
+            }
+
+            [data-theme="light"] {
+                --hover-tbl: var(--hover-tbl-light);
+            }
+
+            [data-theme="dark"] {
+                --hover-tbl: var(--hover-tbl-dark);
+            }
+
+            .hover-tbl-layanan:hover {
+                background-color: var(--hover-tbl);
+            }
+
+            .border-tbl-layanan {
+                border-bottom: 1.5px solid var(--hover-tbl);
+            }
+        </style>
+
     </section>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
@@ -245,6 +245,32 @@
             const kategoriItems = document.querySelectorAll('.slider-kategori, .menu-kategori li');
             const tableSection = document.getElementById('table-layanan');
 
+            const tabs = document.querySelectorAll('.tipe-tab');
+            const sliderKategoriItems = document.querySelectorAll('.slider-kategori');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const selectedTipeId = this.getAttribute('data-tipe');
+
+                    tabs.forEach(t => {
+                        t.classList.remove('brightness-90');
+                        t.classList.add('brightness-50');
+                    });
+
+                    this.classList.add('brightness-90');
+                    this.classList.remove('brightness-50')
+
+                    sliderKategoriItems.forEach(item => {
+                        if (item.getAttribute('data-tipe') === selectedTipeId) {
+                            item.style.display = 'block';
+
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
             kategoriItems.forEach((item) => {
                 item.addEventListener('click', () => {
 
@@ -268,13 +294,29 @@
 
                     // Filter layanan
                     const layananRows = document.querySelectorAll('#list-layanan tr');
+                    let hasLayanan = false;
                     layananRows.forEach(row => {
                         if (row.getAttribute('data-kategori') === selectedCategory) {
                             row.style.display = '';
+                            hasLayanan = true;
+
                         } else {
                             row.style.display = 'none';
                         }
                     });
+
+                    if (!hasLayanan) {
+                        const noLayananRow = document.createElement('tr');
+                        noLayananRow.classList.add('hover-tbl-layanan', 'border-tbl-layanan',
+                            'transition-colors',
+                            'light-dark-text', 'p-5');
+                        noLayananRow.innerHTML = `
+                        <td class="light-dark-text text-center h">-</td>
+                        <td class="px-4 py-6 text-start light-dark-text">${selectedCategory}</td>
+                        <td colspan="3" class="px-4 py-6 text-start light-dark-text">Whoops, maaf belum ada layanan untuk kategori ini!</td>
+                    `;
+                        document.querySelector('#list-layanan').appendChild(noLayananRow);
+                    }
 
                     const menuKategoriList = document.querySelector('.menu-kategori');
                     if (menuKategoriList) {
@@ -282,7 +324,8 @@
                     }
 
                     const yOffset = -92;
-                    const yPosition = tableSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    const yPosition = tableSection.getBoundingClientRect().top + window
+                        .pageYOffset + yOffset;
                     window.scrollTo({
                         top: yPosition,
                         behavior: 'smooth'

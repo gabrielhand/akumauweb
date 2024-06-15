@@ -11,8 +11,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $judulWeb = Setting_Web::select('judul_web')->first();
-        $logoHeader = Setting_Web::select('logo_header')->first();
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig')->first();
         $kategori = Kategoris::where('status', 'active')->with('tipe')->get();
         $tipes = Tipes::all()->pluck('name');
 
@@ -23,8 +22,9 @@ class HomeController extends Controller
             });
         }
         return view("page.home", [
-            'judul_web' => $judulWeb ? $judulWeb->judul_web : null,
-            'logo_header' =>  $logoHeader ? $logoHeader->logo_header : null,
+            'judul_web' => $settings->judul_web ?? null,
+            'logo_header' =>  $settings->logo_header ?? null,
+            'url_ig' =>  $settings->url_ig ?? null,
             'tipes' => Tipes::all(),
             'kategori' => $kategori,
             'kategoriByTipe' => $kategoriByTipe,
@@ -32,8 +32,7 @@ class HomeController extends Controller
         ]);
     }
     public function allgames(){
-        $judulWeb = Setting_Web::select('judul_web')->first();
-        $logoHeader = Setting_Web::select('logo_header')->first();
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig')->first();
         $kategori = Kategoris::where('status', 'active')->with('tipe')->get();
         $tipes = Tipes::all()->pluck('name');
 
@@ -45,8 +44,9 @@ class HomeController extends Controller
         }
 
         return view("page.allgames", [
-            'judul_web' => $judulWeb ? $judulWeb->judul_web : null,
-            'logo_header' =>  $logoHeader ? $logoHeader->logo_header : null,
+            'judul_web' => $settings->judul_web ?? null,
+            'logo_header' =>  $settings->logo_header ?? null,
+            'url_ig' =>  $settings->url_ig ?? null,
             'tipes' => Tipes::all(),
             'kategori' => $kategori,
             'kategoriByTipe' => $kategoriByTipe,

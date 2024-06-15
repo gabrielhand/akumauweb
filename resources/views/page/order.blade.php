@@ -62,13 +62,13 @@
                         </svg> Lihat Cara Pembelian
                     </button>
                     <dialog id="my_modal_1" class="modal">
-                        <div class="modal-box">
+                        <div class="modal-box light-dark-text">
                             <h3 class="font-semibold text-lg">Cara Pembelian {{ $kategori->nama }}</h3>
                             <p class="py-4 ms-5">{!! $kategori->ket_layanan !!}</p>
                             <div class="modal-action justify-start">
                                 <form method="dialog">
                                     <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                    <button class="btn">Kembali</button>
+                                    <button class="btn bg-purple-600 text-white">Kembali</button>
                                 </form>
                             </div>
                         </div>
@@ -95,7 +95,8 @@
                                     Produk</span></button></div>
                     </div>
                     <div class="space-y-6 mb-4">
-                        <div class="border shadow-sm bg-slate-200 text-productDetail-card-fg rounded-xl p-4 space-y-3">
+                        <div
+                            class="shadow-sm bg-sidebar-menu light-dark-text text-productDetail-card-fg rounded-xl p-4 space-y-3">
                             <h3 class="text-lg font-medium">Deskripsi {{ $kategori->nama }}</h3>
                             <div class="prose dark:prose-invert">
                                 <div class="text-sm md:text-sm overflow-hidden" style="max-height: 3.8rem;">
@@ -105,7 +106,7 @@
                         </div>
                     </div>
                     <div id="chooseLayanan" class="space-y-4">
-                        <h3 class="text-sm md:text-lg font-medium">Pilih Nominal</h3>
+                        <h3 class="text-sm md:text-lg font-medium light-dark-text">Pilih Nominal</h3>
                         <div class="space-y-1">
                             <div class="mb-4">
                                 @if ($nominal->isEmpty())
@@ -128,7 +129,7 @@
                                         <div class="flex hover:overflow-x-auto pb-2 gap-x-4 w-full">
                                             @foreach ($sub as $index => $subkat)
                                                 <button
-                                                    class="flex-shrink-0 flex-1 px-4 h-24 flex flex-col justify-evenly gap-3 py-2 items-center rounded-xl cursor-pointer relative hover:bg-blue-500 hover:bg-opacity-20 bg-slate-200">
+                                                    class="flex-shrink-0 flex-1 px-4 h-24 flex flex-col justify-evenly gap-3 py-2 items-center rounded-xl cursor-pointer relative hover:bg-purple-500 hover:bg-opacity-20 bg-sidebar-menu light-dark-text">
                                                     @if (isset($subkat['sub_logo']))
                                                         <div class="relative h-10 w-10 py-1">
                                                             <figure style="width: 35px;">
@@ -160,20 +161,23 @@
                                                     <button type="button" role="radio" aria-checked="false"
                                                         data-state="unchecked" value="[object Object]"
                                                         class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
-                                                        id="" tabindex="-1"></button><input type="radio"
-                                                        name="nominal" id="nominal-{{ $nom->id }}"
-                                                        value="{{ $nom->id }}" data-type="diamond"
+                                                        id="" tabindex="-1">
+                                                    </button>
+                                                    <input type="radio" name="nominal"
+                                                        id="nominal-{{ $nom->id }}" value="{{ $nom->id }}"
+                                                        data-type="diamond"
                                                         onchange="select_product('{{ $nom->id }}', '{{ $nom->layanan }}', '{{ $nom->harga }}');"
                                                         style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 16px; height: 16px;"
                                                         {{ Request::get('fs') == $nom->id ? 'checked' : '' }} /><label
                                                         for="nominal-{{ $nom->id }}">
                                                         <div
-                                                            class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer border relative hover:bg-blue-500 hover:bg-opacity-20 bg-slate-200 text-[#111010] h-full">
+                                                            class="px-[16px] py-[9px] min-h-[52px] flex gap-2 justify-between items-center rounded-xl cursor-pointer relative hover:bg-purple-500 hover:bg-opacity-20 bg-sidebar-menu light-dark-text h-full">
                                                             <div class="flex items-center gap-4 w-[80%] text-sm">
                                                                 <div class="flex flex-col gap-1.5">
                                                                     <p class="text-[13px] font-medium leading-6">
                                                                         {{ $nom->layanan }}</p>
-                                                                    <p class="text-[13px]">Rp {{ number_format($nom->harga) }}</p>
+                                                                    <p class="text-[13px]">Rp
+                                                                        {{ number_format($nom->harga) }}</p>
                                                                 </div>
                                                             </div>
                                                             <div class="relative w-[20%] h-10 py-1"></div>
@@ -497,34 +501,39 @@
                     </div>
                 </div>
                 <div class="col-span-12 lg:col-span-5 md:col-span-12 lg:mt-0 mt-8 rounded-xl h-full space-y-4">
-                    <div class="border shadow-sm bg-slate-200 text-black rounded-xl p-4" id="detailAccount">
-                        <h3 class="text-sm md:text-lg font-medium flex items-center gap-4">Masukkan Detil Akun<button
+                    <div class="shadow-sm bg-sidebar-menu light-dark-text rounded-xl p-4" id="detailAccount">
+                        <h3 class="text-sm md:text-lg font-medium flex items-center gap-4">Masukkan Detil Akun
+                            <button
                                 class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap visible"
-                                type="button" fdprocessedid="5e80x"><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-help-circle">
+                                type="button" fdprocessedid="5e80x">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-help-circle">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
                                     <path d="M12 17h.01"></path>
-                                </svg></button></h3>
+                                </svg>
+                            </button>
+                        </h3>
                         <div class="grid mt-6 gap-3 grid-cols-2">
                             <div class="w-full">
                                 <div class="flex flex-col w-full">
                                     <p class="text-xs md:text-sm font-semibold mb-2">User ID </p>
                                     <div class="relative flex items-center"><input name="id" autocomplete="off"
                                             autosave="false" type="text"
-                                            class="text-sm w-full text-black focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-purple-500 focus:outline-1"
-                                            placeholder="User ID"></div>
+                                            class="text-sm w-full light-dark-text focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-purple-500 focus:outline-1"
+                                            placeholder="User ID">
+                                    </div>
                                 </div>
                             </div>
                             <div class="w-full">
                                 <div class="flex flex-col w-full">
                                     <p class="text-xs md:text-sm font-semibold mb-2">Server </p>
-                                    <div class="relative flex items-center"><input name="other_id" autocomplete="off"
-                                            autosave="false" type="text"
-                                            class="text-sm w-full text-black focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-purple-500 focus:outline-1"
-                                            placeholder="Masukkan Server" fdprocessedid="mgk96m"></div>
+                                    <div class="relative flex items-center">
+                                        <input name="other_id" autocomplete="off" autosave="false" type="text"
+                                            class="text-sm w-full light-dark-text focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-purple-500 focus:outline-1"
+                                            placeholder="Masukkan Server">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -534,7 +543,7 @@
                             Server Kamu, Klik Avatar Pada Pojok Kiri Atas Layar Akan Muncul ID &amp; Server Kamu Di Bawah
                             Nickname. Contoh: 12345678 (1234).</p>
                     </div>
-                    <div class="border shadow-sm bg-slate-200 text-black rounded-xl p-4" id="choosePaymentMethod">
+                    <div class="shadow-sm bg-sidebar-menu light-dark-text rounded-xl p-4" id="choosePaymentMethod">
                         <h3 class="text-sm md:text-lg font-medium">Pilih Pembayaran</h3>
                         <div class="mt-4 space-y-2" data-orientation="vertical">
                             <div data-state="closed" data-orientation="vertical"
@@ -1017,37 +1026,43 @@
                             </div>
                         </div>
                     </div>
-                    <div class="border shadow-sm bg-slate-200 text-black rounded-xl p-4">
+                    <div class="shadow-sm bg-sidebar-menu light-dark-text rounded-xl p-4">
                         <h3 class="text-sm md:text-lg font-medium">Kode Promo</h3>
                         <div class="w-full mt-6">
                             <div class="flex flex-col w-full">
-                                <div class="relative flex items-center"><input name="promo_voucher" autocomplete="off"
-                                        autosave="false" type="text"
-                                        class="text-sm w-full ring-1 ring-gray-500 ring-inset text-black focus:outline-none focus:ring-0 h-10 pl-4 pr-10 rounded-l-xl text focus:outline-purple-500 focus:outline-1"
-                                        placeholder="Masukan Kode Promo" fdprocessedid="9o5kai"><button
+                                <div class="relative flex items-center">
+                                    <input name="promo_voucher" autocomplete="off" autosave="false" type="text"
+                                        class="text-sm w-full ring-1 ring-gray-500 ring-inset light-dark-text focus:outline-none focus:ring-0 h-10 pl-4 pr-10 rounded-l-xl text focus:outline-purple-500 focus:outline-1"
+                                        placeholder="Masukan Kode Promo">
+                                    <button
                                         class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 bg-purple-400 text-white hover:bg-purple-500/80 h-10 px-4 py-2 rounded-l-none rounded-r-xl whitespace-nowrap"
-                                        disabled="" type="button"><svg xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" class="mr-2 h-4 w-4 animate-spin hidden">
+                                        disabled="" type="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="mr-2 h-4 w-4 animate-spin hidden">
                                             <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
-                                        </svg>Redeem</button></div>
+                                        </svg>Redeem
+                                    </button>
+                                </div>
                             </div>
-                            <p class="text-xs text-productDetail-card-fg/50 tracking-wide leading-5 mt-3">*Optional: Jika
+                            <p class="text-xs light-dark-text/50 tracking-wide leading-5 mt-3">*Optional: Jika
                                 tidak mempunyai kode promo abaikan saja</p>
                         </div>
                     </div>
-                    <div class="border shadow-sm bg-slate-200 text-productDetail-card-fg rounded-xl p-4"
+                    <div class="shadow-sm bg-sidebar-menu light-dark-text rounded-xl p-4"
                         id="confirmPayment">
                         <h3 class="text-sm md:text-lg font-medium">Selesaikan Pembayaran</h3>
                         <div class="mt-6 space-y-2">
                             <div class="w-full">
                                 <div class="flex flex-col w-full">
                                     <p class="text-xs md:text-sm font-semibold mb-2">Nomor Whatsapp </p>
-                                    <div class="relative flex items-center"><input name="kontak" autocomplete="off"
+                                    <div class="relative flex items-center">
+                                        <input name="kontak" autocomplete="off" type="number"
                                             autosave="false" type="text"
-                                            class="text-sm w-full text-black focus:outline-none focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-blue-500 focus:outline-1"
-                                            placeholder="Masukan Nomor Whatsapp" fdprocessedid="ivroy"></div>
+                                            class="text-sm w-full light-dark-text focus:outline-none focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-purple-500 focus:outline-1"
+                                            placeholder="Masukan Nomor Whatsapp">
+                                        </div>
                                 </div>
                             </div>
                             <p class="text-xs text-productDetail-card-fg/50 tracking-wide leading-5">Dengan membeli
@@ -1064,7 +1079,7 @@
                     </div>
                     <div class="space-y-6 mt-6 block lg:hidden">
                         <div class="space-y-3">
-                            <h3 class="text-lg font-medium">Mungkin Kamu Suka</h3>
+                            <h3 class="text-lg font-medium light-dark-text">Mungkin Kamu Suka</h3>
                             <div
                                 class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode">
                                 <div class="swiper-wrapper" style="transition-duration: 0ms;">

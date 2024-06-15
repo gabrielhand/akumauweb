@@ -12,8 +12,7 @@ class ServicesController extends Controller
 {
     public function services()
     {
-        $judulWeb = Setting_Web::select('judul_web')->first();
-        $logoHeader = Setting_Web::select('logo_header')->first();
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig')->first();
         $kategori = Kategoris::where('status', 'active')->with('tipe', 'layanans')->get();
         $tipes = Tipes::all()->pluck('name');
         $kategoriName = Kategoris::where('status', 'active')->pluck('nama');
@@ -32,8 +31,9 @@ class ServicesController extends Controller
         }
 
         return view("page.services", [
-            'judul_web' => $judulWeb ? $judulWeb->judul_web : null,
-            'logo_header' =>  $logoHeader ? $logoHeader->logo_header : null,
+            'judul_web' => $settings->judul_web ?? null,
+            'logo_header' =>  $settings->logo_header ?? null,
+            'url_ig' =>  $settings->url_ig ?? null,
             'tipes' => Tipes::all(),
             'allKategori' => $allKategori, 
             'kategoriNames' => $kategoriName,

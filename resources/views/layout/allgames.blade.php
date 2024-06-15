@@ -3,27 +3,16 @@
         <div class="mb-7 flex flex-col-reverse justify-between md:flex-row">
             <div dir="ltr" class="relative overflow-hidden w-full whitespace-nowrap" orientation="horizontal"
                 style="position: relative; --radix-scroll-area-corner-width: 0px; --radix-scroll-area-corner-height: 0px;">
-                <style>
-                    [data-radix-scroll-area-viewport] {
-                        scrollbar-width: none;
-                        -ms-overflow-style: none;
-                        -webkit-overflow-scrolling: touch;
-                    }
-
-                    [data-radix-scroll-area-viewport]::-webkit-scrollbar {
-                        display: none
-                    }
-                </style>
-                <div data-radix-scroll-area-viewport="" class="h-full w-full rounded-[inherit]"
+                <div class="h-full w-full rounded-[inherit] no-scrollbar"
                     style="overflow: scroll;">
                     <div style="min-width: 100%; display: table;">
                         <div class="flex w-max space-x-4 pb-4">
-                            <button id="Semua-tab" onclick="showContent('Semua')" class="Semua-tab focus:brightness-50 inline-flex items-center justify-center text-sm font-medium ring-offset-background focus-visible:brightness-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none 
-                            disabled:opacity-50 brightness-75 transition duration-300 hover:brightness-50 h-10 py-2 rounded-full bg-transparent border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0 text-foreground/50">Semua</button>
+                            <button data-tipe="Semua" id="Semua-tab" onclick="showContent('Semua')" class="Semua-tab focus:brightness-50 inline-flex items-center justify-center text-sm font-medium ring-offset-background focus-visible:brightness-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none 
+                            disabled:opacity-50 brightness-75 transition duration-300 hover:brightness-50 h-10 py-2 rounded-full bg-transparent border hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0 light-dark-text">Semua</button>
                             @foreach ($tipes as $tipe)
-                                <button id="{{ $tipe->name }}-tab" onclick="showContent('{{ $tipe->name }}')" 
+                                <button data-tipe="{{ $tipe->name }}" id="{{ $tipe->name }}-tab" onclick="showContent('{{ $tipe->name }}')" 
                                     class="{{ $tipe->name }}-tab focus:brightness-50 inline-flex items-center justify-center text-sm font-medium ring-offset-background focus-visible:brightness-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none 
-                                disabled:opacity-50 brightness-75 transition duration-300 hover:brightness-50 h-10 py-2 rounded-full bg-transparent border border-foreground/50 hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0 text-foreground/50">{{ $tipe->name }}</button>
+                                disabled:opacity-50 brightness-75 transition duration-300 hover:brightness-50 h-10 py-2 rounded-full bg-transparent border hover:text-foreground hover:bg-transparent px-6 whitespace-nowrap shrink-0 light-dark-text">{{ $tipe->name }}</button>
                             @endforeach
                         </div>
                     </div>
@@ -32,8 +21,8 @@
         </div>
         <div class="space-y-9">
             @foreach ($kategoriByTipe as $tipe => $kategori)
-                <div id="{{ $tipe }}-content" class="tipe-content hidden opacity-0 transition-opacity duration-300 ease-in-out">
-                    <h1 id="h1-kategori" class="lg:text-xl md:text-lg sm:text-sm font-medium mb-5">{{ $tipe }}</h1>
+                <div data-tipe="{{ $tipe }}" id="{{ $tipe }}-content" class="tipe-content hidden opacity-0 transition-opacity duration-300 ease-in-out">
+                    <h1 id="h1-kategori" class="lg:text-xl md:text-lg sm:text-sm font-medium mb-5 light-dark-text">{{ $tipe }}</h1>
                     <div class="grid 2xl:grid-cols-6 md:grid-cols-5 grid-cols-3 gap-3 md:gap-4">
                         @foreach ($kategori as $jsgori)
                             <a href="{{ url('') . '/order/' . $jsgori->kode }}">

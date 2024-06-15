@@ -65,51 +65,69 @@
                         tabindex="0"
                         class="mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                         hidden="" style=""></div>
-                    <div data-state="active" data-orientation="horizontal" role="tabpanel"
-                        aria-labelledby="radix-:r3m:-trigger-daftar" id="radix-:r3m:-content-daftar" tabindex="0"
+                    <div
                         class="mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                        <form>
+                        <form id="register-form" action="{{ route('post.register') }}" method="POST">
+                            @csrf
                             <div class="rounded-lg light-dark-text shadow-sm bg-header">
                                 <div class="flex flex-col space-y-1.5 p-6">
                                     <h3 class="text-2xl font-semibold leading-none tracking-tight">Silahkan Daftar</h3>
-                                    <p class="text-sm text-muted-foreground">Masukan informasi pendaftaran dengan benar
+                                    <p class="text-sm text-muted-foreground">Masukkan informasi pendaftaran dengan benar
                                     </p>
                                 </div>
                                 <div class="p-6 pt-0 space-y-6 mb-4">
-                                    <div class="space-y-4">
-                                        <div class="flex flex-col w-full">
-                                            <p class="text-xs md:text-sm font-semibold mb-2">Nama Lengkap </p>
-                                            <div class="relative flex items-center"><input name="daftar.full_name"
-                                                    autocomplete="off" autosave="false" type="text"
-                                                    class="text-sm w-full bg-white text-black outline-none ring-0 outline-black outline-1 focus:outline-none focus:ring-0 h-10 pl-4 pr-4 text rounded-lg focus:outline-purple-500 focus:outline-1"
-                                                    placeholder="Masukan nama lengkap"></div>
-                                        </div>
-                                        <div class="flex flex-col w-full">
-                                            <p class="text-xs md:text-sm font-semibold mb-2">Email </p>
-                                            <div class="relative flex items-center">
-                                                <input name="daftar.email"
-                                                    autocomplete="off" autosave="false" type="text"
-                                                    class="text-sm w-full bg-white text-black outline-none ring-0 outline-black outline-1 focus:outline-none focus:ring-0 h-10 pl-4 pr-4 text rounded-lg focus:outline-purple-500 focus:outline-1"
-                                                    placeholder="Masukan E-mail"></div>
-                                        </div>
-                                        <div class="flex flex-col w-full">
-                                            <p class="text-xs md:text-sm font-semibold mb-2">Nomor Handphone </p>
-                                            <div class="relative flex items-center">
-                                                <input name="daftar.ponsel"
-                                                    autocomplete="off" autosave="false" type="text"
-                                                    class="text-sm w-full bg-white text-black outline-none ring-0 outline-black outline-1 focus:outline-none focus:ring-0 h-10 pl-4 pr-4 text rounded-lg focus:outline-purple-500 focus:outline-1"
-                                                    placeholder="Masukan nomor handphone">
+                                    <div class="space-y-5">
+                                        <div class="flex flex-col w-full gap-y-1">
+                                            <p class="text-xs md:text-sm font-semibold mb-2">Nama</p>
+                                            <div class="relative flex flex-col items-center">
+                                                <input name="name" autocomplete="off" autosave="false" type="text"
+                                                    value="{{ old('name') }}"
+                                                    class="@error('name') outline-1 outline-red-500  @enderror text-sm w-full bg-white text-black outline-none ring-0 outline-black outline-1 focus:outline-none focus:ring-0 h-10 pl-4 pr-4 text rounded-lg focus:outline-purple-500 focus:outline-1"
+                                                    placeholder="Masukkan nama">
+                                                @error('name')
+                                                    <div class="w-full text-start text-xs text-red-500 absolute top-11">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
-                                        <div class="flex flex-col w-full">
+                                        <div class="flex flex-col w-full gap-y-1">
+                                            <p class="text-xs md:text-sm font-semibold mb-2">Username</p>
+                                            <div class="relative flex flex-col items-center">
+                                                <input name="username" autocomplete="off" autosave="false" type="text"
+                                                    value="{{ old('username') }}"
+                                                    class="@error('username') outline-1 outline-red-500  @enderror text-sm w-full bg-white text-black outline-none ring-0 outline-black outline-1 focus:outline-none focus:ring-0 h-10 pl-4 pr-[48px] text rounded-lg focus:outline-purple-500 focus:outline-1"
+                                                    placeholder="Masukkan username">
+                                                @error('username')
+                                                    <div class="w-full text-start text-xs text-red-500 absolute top-11">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col w-full gap-y-1">
+                                            <p class="text-xs md:text-sm font-semibold mb-2">Nomor Whatsapp </p>
+                                            <div class="relative flex items-center">
+                                                <input name="whatsapp" autocomplete="off" autosave="false"
+                                                    type="number" value="{{ old('whatsapp') }}"
+                                                    class="@error('whatsapp') outline-1 outline-red-500  @enderror text-sm w-full bg-white text-black outline-none ring-0 outline-black outline-1 focus:outline-none focus:ring-0 h-10 pl-4 pr-4 text rounded-lg focus:outline-purple-500 focus:outline-1"
+                                                    placeholder="Masukkan nomor whatsapp">
+                                                @error('whatsapp')
+                                                    <div class="w-full text-start text-xs text-red-500 absolute top-11">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col w-full gap-y-1">
                                             <p class="text-xs md:text-sm font-semibold mb-2">Password </p>
                                             <div class="relative flex items-center">
-                                                <input name="daftar.password"
-                                                    autocomplete="new-password" autosave="false" type="password"
-                                                    class="text-sm w-full bg-white text-black outline-none ring-0 outline-black outline-1 focus:outline-none focus:ring-0 h-10 pl-4 pr-[48px] text rounded-lg focus:outline-purple-500 focus:outline-1"
-                                                    placeholder="Masukan password">
-                                                <div
-                                                    class="absolute mr-4 right-0 cursor-pointer pointer-events-auto text-black">
+                                                <input name="password" autocomplete="new-password" autosave="false"
+                                                    type="password"
+                                                    class="@error('password') outline-1 outline-red-500  @enderror text-sm w-full bg-white text-black outline-none ring-0 outline-black outline-1 focus:outline-none focus:ring-0 h-10 pl-4 pr-[48px] text rounded-lg focus:outline-purple-500 focus:outline-1"
+                                                    placeholder="Masukkan password">
+                                                <div class="absolute mr-4 right-0 cursor-pointer pointer-events-auto toggle-password-slash text-black"
+                                                    style="display: block;">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                                         aria-hidden="true" data-slot="icon" class="w-4 h-4">
@@ -118,33 +136,32 @@
                                                         </path>
                                                     </svg>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-col w-full">
-                                            <p class="text-xs md:text-sm font-semibold mb-2">Konfirmasi Password </p>
-                                            <div class="relative flex items-center">
-                                                <input
-                                                    name="daftar.konfirmasi_password" autocomplete="new-password"
-                                                    autosave="false" type="password"
-                                                    class="text-sm w-full bg-white text-black outline-none ring-0 outline-black outline-1 focus:outline-none focus:ring-0 h-10 pl-4 pr-[48px] text rounded-lg focus:outline-purple-500 focus:outline-1"
-                                                    placeholder="Masukan konfirmasi password">
-                                                <div
-                                                    class="absolute mr-4 right-0 cursor-pointer pointer-events-auto text-black">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                        aria-hidden="true" data-slot="icon" class="w-4 h-4">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88">
-                                                        </path>
+                                                <div class="absolute mr-4 right-0 cursor-pointer pointer-events-auto toggle-password-eye text-black"
+                                                    style="display: none;">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                                                        <path
+                                                            d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
                                                     </svg>
                                                 </div>
+                                                @error('password')
+                                                    <div class="w-full text-start text-xs text-red-500 absolute top-11">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
-                                <div class="items-center p-6 pt-0 flex flex-col gap-8"><button
-                                        class="inline-flex items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap h-11 rounded-md px-8 w-full bg-purple-600 hover:bg-purple-700 text-white">
-                                    Daftar</button>
+                                <div class="items-center p-6 pt-0 flex flex-col gap-8">
+                                    <button type="submit" id="submit-button"
+                                        class="inline-flex gap-x-2 items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap h-11 rounded-md px-8 w-full bg-purple-600 hover:bg-purple-700 text-white">
+                                        <span class="loading loading-spinner loading-xs" style="display:none;"></span>
+                                        <span>Daftar</span>
+                                    </button>
                                     <div>Sudah punya akun? <button type="button"
                                             onclick="window.location.href='{{ route('login') }}'"><strong
                                                 class="cursor-pointer">Login Sekarang</strong></button></div>
@@ -157,4 +174,74 @@
             </div>
         </div>
     </div>
+    <style>
+        input::-ms-reveal,
+        input::-ms-clear {
+            display: none;
+        }
+
+        input[type="password"]::-ms-reveal,
+        input[type="password"]::-ms-clear {
+            display: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var togglesSlash = document.querySelectorAll(".toggle-password-slash");
+            var togglesEye = document.querySelectorAll(".toggle-password-eye");
+
+            togglesSlash.forEach(function(toggle) {
+                toggle.addEventListener("click", function() {
+                    var input = toggle.previousElementSibling;
+                    if (input.type === "password") {
+                        input.type = "text";
+                        toggle.style.display = "none";
+                        var eyeIcon = toggle.nextElementSibling;
+                        if (eyeIcon.classList.contains('toggle-password-eye')) {
+                            eyeIcon.style.display = "block";
+                        }
+                    }
+                });
+            });
+
+            togglesEye.forEach(function(toggle) {
+                toggle.addEventListener("click", function() {
+                    var input = toggle.previousElementSibling.previousElementSibling;
+                    if (input.type === "text") {
+                        input.type = "password";
+                        toggle.style.display = "none";
+                        var slashIcon = toggle.previousElementSibling;
+                        if (slashIcon.classList.contains('toggle-password-slash')) {
+                            slashIcon.style.display = "block";
+                        }
+                    }
+                });
+            });
+
+            var submitButton = document.getElementById('submit-button');
+            var form = document.getElementById('register-form');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                submitButton.disabled = true;
+                submitButton.classList.add('disabled:brightness-75');
+
+                document.querySelector('.loading').style.display = 'block';
+
+                form.submit();
+            });
+
+            var inputs = form.querySelectorAll('input');
+            inputs.forEach(function(input) {
+                input.addEventListener('focus', function() {
+                    input.classList.remove('outline-red-500');
+                    var errorText = input.parentElement.querySelector('.text-red-500');
+                    if (errorText) {
+                        errorText.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

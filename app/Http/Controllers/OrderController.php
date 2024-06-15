@@ -16,7 +16,7 @@ class OrderController extends Controller
 {
     public function create(Kategoris $kategori)
     {
-        $logoHeader = Setting_Web::select('logo_header')->first();
+        $settings = Setting_Web::select('logo_header', 'url_ig')->first();
         $data = Kategoris::where('kode', $kategori->kode)->select('nama', 'sub_nama', 'server_id', 'thumbnail', 'id', 'kode', 'tipe_id', 'petunjuk', 'bannerlayanan', 'ket_layanan', 'ket_id', 'placeholder_1', 'placeholder_2')->with('tipe')->first();
 
         $getSubCategory = SubCategories::where('category_id', $data->id)->where('active', 1)->get();
@@ -55,7 +55,8 @@ class OrderController extends Controller
             'kategori' => $data,
             'nominal' => $layanan,
             'harga' => $layanan,
-            'logo_header' =>  $logoHeader ? $logoHeader->logo_header : null,
+            'logo_header' =>  $settings->logo_header ?? null,
+            'url_ig' =>  $settings->url_ig ?? null,
             'pay_method' => Methods::all()
         ]);
     }
