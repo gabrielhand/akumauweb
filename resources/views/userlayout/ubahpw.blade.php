@@ -1,4 +1,4 @@
-<form id="pw-form" action="{{ route('editPassword') }}" method="POST">
+<form id="pw-form">
     @csrf
     <div id="AccountPasswordSettingForm" class="space-y-3 mt-8 light-dark-text">
         <h3 class="text-lg md:text-xl font-semibold">Security Password</h3>
@@ -9,7 +9,7 @@
                         <div class="flex flex-col w-full">
                             <p class="text-xs md:text-sm font-semibold mb-2">Password Lama </p>
                             <div class="relative flex items-center">
-                                <input name="passwordlama" autocomplete="new-password" autosave="false"
+                                <input id="pw-lama" name="passwordlama" autocomplete="new-password" autosave="false"
                                     type="password"
                                     class="@error('passwordlama') ring-1 ring-red-500  @enderror text-sm w-full border border-black text-black focus:outline-none focus:ring-0 h-10 pl-4 pr-[48px] rounded-full bg-white"
                                     placeholder="Masukan password lama">
@@ -43,7 +43,7 @@
                         <div class="flex flex-col w-full">
                             <p class="text-xs md:text-sm font-semibold mb-2">Password Baru </p>
                             <div class="relative flex items-center">
-                                <input name="passwordbaru" autocomplete="new-password" autosave="false"
+                                <input id="pw-baru" name="passwordbaru" autocomplete="new-password" autosave="false"
                                     type="password"
                                     class="@error('passwordbaru') ring-1 ring-red-500  @enderror text-sm w-full border border-black text-black focus:outline-none focus:ring-0 h-10 pl-4 pr-[48px] rounded-full bg-white"
                                     placeholder="Masukan password baru">
@@ -77,7 +77,7 @@
                         <div class="flex flex-col w-full">
                             <p class="text-xs md:text-sm font-semibold mb-2">Konfirmasi Password </p>
                             <div class="relative flex items-center">
-                                <input name="passwordbaru_confirmation" autocomplete="new-password"
+                                <input id="pw-baru-confirmation" name="passwordbaru_confirmation" autocomplete="new-password"
                                     type="password" autosave="false"
                                     class="@error('passwordbaru') ring-1 ring-red-500  @enderror text-sm w-full border border-black text-black focus:outline-none focus:ring-0 h-10 pl-4 pr-[48px] rounded-full bg-white"
                                     placeholder="Masukan konfirmasi password baru">
@@ -109,9 +109,9 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" id="submit-button-pw"
+                    <button type="submit" id="pw-button"
                         class="inline-flex gap-x-2 items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap bg-purple-500 text-white hover:bg-purple-500/80 h-10 px-4 py-2 rounded-full mt-10 float-right">
-                        <span class="loading loading-spinner loading-xs" style="display:none;"></span>
+                        <span id="loading-pw" class="loading loading-spinner loading-xs" style="display:none;"></span>
                         <span>Simpan Perubahan</span>
                     </button>
                 </div>

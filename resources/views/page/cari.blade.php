@@ -18,7 +18,7 @@
                             disini.</p>
                         <div class="w-full md:w-1/2">
                             <div class="flex flex-col w-full">
-                                <form action="{{ url('/cari') }}" method="post">
+                                <form action="{{ route('cari.post') }}" method="POST">
                                     @csrf
                                     <div class="relative flex items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -83,13 +83,14 @@
                         @foreach ($pembelians as $pembelian)
                             <tr class="transition-colors hover-tbl-layanan border-tbl-layanan light-dark-text">
                                 <td class="p-4 align-middle pr-0 font-medium">
-                                    {{ substr($pembelian->order_id, 0, 12) }}****</td>
+                                    {{ substr($pembelian->order_id, 0, 10) }}****</td>
                                 <td class="p-4 align-middle pr-0">{{ $pembelian->layanan }}
                                 </td>
                                 <td class="p-4 align-middle pr-0">{{ $pembelian->harga }}</td>
                                 <td class="p-4 align-middle pr-0">{{ $pembelian->created_at }}
                                 </td>
                                 <td class="p-4 align-middle pr-0">
+                                    
                                     <div
                                         class="bg-{{ getStatusBadgeColor($pembelian->status) }} inline-flex items-center border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 rounded-full py-1 px-4 text-white text-xs md:text-sm">
                                         {{ $pembelian->status }}</div>

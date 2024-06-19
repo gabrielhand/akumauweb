@@ -11,7 +11,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #9CA38F;
+    background-color: #9ca38f;
     border-radius: 10px;
 }
 
@@ -29,6 +29,7 @@ body::-webkit-scrollbar-track {
     --border-st-light: #e2e8f0;
     --st-bg-light: #ffffff;
     --st-hv-light: #d1d5db;
+    --bg-invoice-card-light: #e1e5ed;
 
     --main-dark: #111016;
     --navbar-bg-dark: #161721;
@@ -41,6 +42,7 @@ body::-webkit-scrollbar-track {
     --border-st-dark: #3b0764;
     --st-bg-dark: #000000;
     --st-hv-dark: #3b0764;
+    --bg-invoice-card-dark: #1d1928;
 }
 
 *,
@@ -155,6 +157,7 @@ body::-webkit-scrollbar-track {
     --border-st: var(--border-st-light);
     --st-bg: var(--st-bg-light);
     --st-hv: var(--st-hv-light);
+    --bg-invoice-card: var(--bg-invoice-card-light);
 }
 
 [data-theme="dark"] {
@@ -167,6 +170,7 @@ body::-webkit-scrollbar-track {
     --border-st: var(--border-st-dark);
     --st-bg: var(--st-bg-dark);
     --st-hv: var(--st-hv-dark);
+    --bg-invoice-card: var(--bg-invoice-card-dark);
 }
 
 .bg-main-content {
@@ -179,6 +183,10 @@ body::-webkit-scrollbar-track {
 
 .bg-navbar-bg {
     background-color: var(--navbar-bg);
+}
+
+.bg-invoice-card {
+    background-color: var(--bg-invoice-card);
 }
 
 .swap-theme {
@@ -253,7 +261,7 @@ body::-webkit-scrollbar-track {
     background: none;
 }
 
-.theme-scrollbar::-webkit-scrollbar{
+.theme-scrollbar::-webkit-scrollbar {
     display: none;
 }
 
@@ -262,7 +270,7 @@ body::-webkit-scrollbar-track {
 }
 
 .menu-kategori::-webkit-scrollbar-thumb {
-    background-color: #9CA38F;
+    background-color: #9ca38f;
     border-radius: 10px;
 }
 

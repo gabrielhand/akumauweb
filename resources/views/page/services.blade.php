@@ -238,7 +238,7 @@
                 if (!isDown) return;
                 e.preventDefault();
                 const x = e.pageX - slider.offsetLeft;
-                const walk = (x - startX) * 2; // Adjust the scroll speed if necessary
+                const walk = (x - startX) * 2;
                 slider.scrollLeft = scrollLeft - walk;
             });
 

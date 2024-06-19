@@ -37,20 +37,16 @@
                         <button type="button" id="btn-menu">
                             <span
                                 class="relative flex shrink-0 overflow-hidden rounded-full h-8 w-8 md:h-10 md:w-10 bg-gradient-to-r from-blue-400 via-purple-500 to-orange-500 animate-background-animate">
-                                <img class="aspect-square h-full w-full" alt="profile"
-                                @if (auth()->user()->image) 
-                                   src="{{ asset('storage/' . auth()->user()->image) }}"
-                                @else
-                                   src="https://picsum.photos/400/400"
-                                @endif
-                                >
+                                <img id="navbarImage" class="aspect-square h-full w-full" alt="profile"
+                                    src="{{ auth()->user()->image ? asset('storage/' . auth()->user()->image) : 'https://picsum.photos/400/400' }}"
+                                    style="color: transparent;">
                             </span>
                         </button>
                     </div>
                     <div dir="ltr" class="menu-content hidden absolute end-8 top-16">
                         <div class="z-50 min-w-[8rem] overflow-hidden rounded-md border-menu bg-navbar-bg p-1 light-dark-text shadow-md"
                             style="outline: none;">
-                            <div class="px-2 py-1.5 text-sm font-semibold">{{ auth()->user()->username }}</div>
+                            <div id="usernameNavbar" class="px-2 py-1.5 text-sm font-semibold">{{ auth()->user()->username }}</div>
                             <div class="-mx-1 my-1 h-px border-menu-bottom"></div>
                             <div
                                 class="relative bg-item-menu flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground">

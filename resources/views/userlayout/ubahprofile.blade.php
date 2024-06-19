@@ -17,7 +17,7 @@
     <div id="AccountInfoSettingForm" class="space-y-3 mt-14 light-dark-text">
         <h3 class="text-lg md:text-xl font-semibold">Ubah Profile</h3>
         <div class="rounded-lg border shadow-sm p-5 bg-sidebar-menu border-none grid grid-cols-1 gap-8">
-            <form id="upload-form" enctype="multipart/form-data" action="">
+            <form id="upload-form" enctype="multipart/form-data">
                 @csrf
                 <div class="flex gap-1">
                     <input id="image" onchange="previewImage()" name="image"
@@ -32,8 +32,8 @@
                                 src="https://picsum.photos/400/400" @endif>
                             <div class="hidden group-hover:block">
                                 <div class="absolute inset-0 p-3 z-10 flex flex-col items-end justify-between">
-                                    <div class="w-full grow flex flex-col items-center justify-center"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    <div class="w-full grow flex flex-col items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
                                             class="lucide lucide-upload-cloud">
@@ -41,8 +41,20 @@
                                             </path>
                                             <path d="M12 12v9"></path>
                                             <path d="m16 16-4-4-4 4"></path>
-                                        </svg></div>
+                                        </svg>
+                                    </div>
                                 </div>
+                                <button id="closei-button"
+                                    class="inline-flex items-center justify-center rounded-md font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap h-10 absolute left-2 top-0 text-sm p-0 z-40"
+                                    style="display: none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m15 9-6 6"></path>
+                                        <path d="m9 9 6 6"></path>
+                                    </svg>
+                                </button>
                             </div>
                         </span></label>
                     <div class="ml-4 space-y-4 w-full">
@@ -53,8 +65,11 @@
                         </div>
                         <div class="ml-auto font-medium">
                             <button type="submit" id="upload-button"
-                                class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap border hover:bg-[#A600FF] h-10 px-4 py-2 border-white"
-                                disabled="">UPLOAD</button>
+                                class="inline-flex gap-x-2 items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap border hover:bg-[#A600FF] h-10 px-4 py-2 border-white"
+                                disabled="">
+                                <span id="loading-upload" class="loading loading-spinner loading-xs" style="display:none;"></span>
+                                <span>UPLOAD</span>
+                            </button>
                         </div>
                     </div>
             </form>
@@ -92,117 +107,10 @@
                 </div>
                 <button type="submit" id="editp-button"
                     class="inline-flex gap-x-2 items-center justify-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap bg-purple-500 text-white hover:bg-purple-500/80 h-10 px-4 py-2 rounded-full mt-10 float-right">
-                    <span class="loading loading-spinner loading-xs" style="display:none;"></span>
+                    <span id="loading-editp" class="loading loading-spinner loading-xs" style="display:none;"></span>
                     <span>Simpan Perubahan</span>
                 </button>
             </div>
         </form>
     </div>
 </div>
-<script>
-    function previewImage() {
-
-        const image = document.querySelector('#image');
-        const imgPreview = document.querySelector('.img-preview');
-        var uploadBtn = document.getElementById('upload-button');
-
-        uploadBtn.removeAttribute('disabled');
-
-        imgPreview.style.marginBottom = '0';
-
-        if (image.files[0]) {
-            imgPreview.style.display = 'block';
-
-            const oFReader = new FileReader();
-
-            oFReader.onload = function(oFREvent) {
-                imgPreview.src = oFREvent.target.result;
-            };
-
-            oFReader.readAsDataURL(image.files[0]);
-        }
-    }
-
-    $(document).ready(function() {
-
-        $('#upload-button').click(function(e) {
-            e.preventDefault();
-            var formImage = $('#upload-form').serialize();
-
-            $.ajax({
-                url: '{{ route('editProfileImage') }}',
-                method: 'POST',
-                data: formImage,
-                success: function(response) {
-                    console.log(response);
-                    $('#success-alert').removeClass('hidden');
-                    $('#success-alert p').html(response.success);
-
-                    $('.loading').css('display', 'none');
-
-                    $('#success-alert').css('visibility', 'visible');
-                    $('#success-alert').css('opacity', '1');
-                    $('#success-alert').css('animation', 'slide-up 0.5s ease forwards');
-
-                    setTimeout(() => {
-                        closeAlert('success-alert');
-                    }, 3000);
-
-                    $('#editp-button').prop('disabled', false);
-                    $('#editp-button').removeClass('disabled:brightness-75');
-                }
-            })
-        })
-
-        $('#editp-button').click(function(e) {
-            e.preventDefault();
-            var formData = $('#edit-form').serialize();
-
-            $('#editp-button').prop('disabled', true);
-            $('#editp-button').addClass('disabled:brightness-75');
-
-            $('.loading').css('display', 'block');
-
-            $.ajax({
-                url: '{{ route('editProfile') }}',
-                method: 'POST',
-                data: formData,
-                success: function(response) {
-                    $('#success-alert').removeClass('hidden');
-                    $('#success-alert p').html(response.success);
-
-                    $('.loading').css('display', 'none');
-
-                    $('#success-alert').css('visibility', 'visible');
-                    $('#success-alert').css('opacity', '1');
-                    $('#success-alert').css('animation', 'slide-up 0.5s ease forwards');
-
-                    setTimeout(() => {
-                        closeAlert('success-alert');
-                    }, 3000);
-
-                    $('#editp-button').prop('disabled', false);
-                    $('#editp-button').removeClass('disabled:brightness-75');
-                },
-                error: function(error) {
-                    console.error('Error:', error);
-                    $('#error-alert').removeClass('hidden');
-                    $('#error-alert p').html(error.responseJSON.message);
-
-                    $('.loading').css('display', 'none');
-
-                    $('#error-alert').css('visibility', 'visible');
-                    $('#error-alert').css('opacity', '1');
-                    $('#error-alert').css('animation', 'slide-up 0.5s ease forwards');
-
-                    setTimeout(() => {
-                        closeAlert('error-alert');
-                    }, 3000);
-
-                    $('#editp-button').prop('disabled', false);
-                    $('#editp-button').removeClass('disabled:brightness-75');
-                }
-            });
-        });
-    });
-</script>

@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\CariController;
+use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DukunganController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisterController;
@@ -18,6 +20,7 @@ Route::get('/order/{kategori:kode}', [OrderController::class, 'create']);
 Route::post('/order/harga', [OrderController::class, 'price'])->name('ajax.price');
 Route::get('/cari', [CariController::class, 'create'])->name('cari');
 Route::post('/cari', [CariController::class, 'store'])->name('cari.post');
+Route::get('/pembelian/invoice/{order}', [InvoiceController::class, 'index'])->name('pembelian');
 Route::get('/FAQ', [FaqController::class, 'create'])->name('faq');
 Route::get('/dukungan', [DukunganController::class, 'create'])->name('dukungan');
 
@@ -33,7 +36,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
     Route::get('/me', [DashboardUserController::class, 'profile'])->name('profile');
     Route::get('/riwayat', [DashboardUserController::class, 'riwayat'])->name('riwayat');
+    Route::get('/membership', [DashboardUserController::class, 'membership'])->name('membership');
     Route::post('/me/edit/image', [DashboardUserController::class, 'editProfileImage'])->name('editProfileImage');
     Route::post('/me/edit/profile', [DashboardUserController::class, 'editProfile'])->name('editProfile');
     Route::post('/me/edit/password', [DashboardUserController::class, 'editPassword'])->name('editPassword');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardAdminController::class, 'create'])->name('dashboard');
+
 });

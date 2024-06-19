@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>{{ $judul_web }}</title>
-    <link rel="icon" href="{{ $logo_header }}">
+    <title>Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -18,15 +17,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<body class="bg-main-content">
-    @include('layout.sidebar')
-    <div class="lg:ps-72">
-        @include('layout.navbar')
-        <div class="flex-col flex gap-6 mb-10 min-h-[70vh]">
-            @yield('content')
-        </div>
-        @include('layout.footer')
-    </div>
+<body>
+
 </body>
 
 </html>

@@ -7,6 +7,7 @@ use App\Models\Setting_Web;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,11 +17,20 @@ class DashboardUserController extends Controller
     {
         $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig')->first();
 
+        $pembelian = DB::table('pembelians')
+            ->join('layanans', 'pembelians.layanan', '=', 'layanans.layanan')
+            ->join('kategoris', 'layanans.kategori_id', '=', 'kategoris.id')
+            ->select('pembelians.*', 'layanans.kategori_id', 'kategoris.nama as nama_kategori', 'kategoris.thumbnail')
+            ->where('pembelians.username', auth()->user()->username)
+            ->orderByDesc('pembelians.created_at')
+            ->limit(5)
+            ->get();
+
         return view('page.me', [
             'judul_web' => $settings->judul_web ?? null,
             'logo_header' =>  $settings->logo_header ?? null,
             'url_ig' =>  $settings->url_ig ?? null,
-            'data' => Pembelians::where('user_id', Auth::id())->get(),
+            'data' => $pembelian,
 
         ]);
     }
@@ -53,12 +63,18 @@ class DashboardUserController extends Controller
 
             $imagePath = $request->file('image')->store('assets/profile', 'public');
             User::where('id', auth()->user()->id)->update(['image' => $imagePath]);
+
+            return response()->json([
+                'success' => 'Berhasil mengedit foto profil!',
+                'image_path' => asset('storage/' . $imagePath),
+            ]);
         }
 
         return response()->json([
-            'success' => "Berhasil mengedit foto profil!",
-        ]);
+            'error' => 'Gagal mengedit foto profil. Harap unggah file gambar!',
+        ], 422);
     }
+
 
     public function editProfile(Request $request)
     {
@@ -77,8 +93,11 @@ class DashboardUserController extends Controller
 
         User::where('id', $id)->update(['username' => $username]);
 
+        $updatedUser = User::find($id);
+
         return response()->json([
             'success' => "Berhasil mengedit username!",
+            'username' => $updatedUser->username,
         ]);
     }
 
@@ -97,17 +116,21 @@ class DashboardUserController extends Controller
             'passwordbaru.confirmed' => 'Konfirmasi password baru tidak cocok!',
         ]);
 
-        // Cek pw lama
         if (!Hash::check($request->passwordlama, auth()->user()->password)) {
-            return redirect()->back()->with('error', 'Password lama tidak sesuai');
+            return response()->json([
+                'errors' => ['passwordlama' => ["Password lama tidak sesuai!"]],
+            ], 422);
         }
 
-        // Update pw
         if (!empty($request->passwordbaru)) {
             User::where('id', auth()->user()->id)->update(['password' => Hash::make($request->passwordbaru)]);
-            return redirect()->back()->with('success', 'Password berhasil diubah!');
+            return response()->json([
+                'success' => "Berhasil mengedit password!",
+            ]);
         }
 
-        return redirect()->back()->with('success', 'Tidak ada perubahan pada password!');
+        return response()->json([
+            'success' => "Tidak ada pengeditan password!",
+        ]);
     }
 }
