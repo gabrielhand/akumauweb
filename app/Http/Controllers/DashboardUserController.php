@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pembayarans;
 use App\Models\Pembelians;
 use App\Models\Setting_Web;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +17,7 @@ class DashboardUserController extends Controller
 {
     public function profile()
     {
-        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig')->first();
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig', 'logo_footer')->first();
 
         $pembelian = DB::table('pembelians')
             ->join('layanans', 'pembelians.layanan', '=', 'layanans.layanan')
@@ -30,6 +32,7 @@ class DashboardUserController extends Controller
             'judul_web' => $settings->judul_web ?? null,
             'logo_header' =>  $settings->logo_header ?? null,
             'url_ig' =>  $settings->url_ig ?? null,
+            'logo_footer' =>  $settings->logo_footer ?? null,
             'data' => $pembelian,
 
         ]);
@@ -37,13 +40,51 @@ class DashboardUserController extends Controller
 
     public function riwayat()
     {
-        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig')->first();
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig', 'logo_footer')->first();
+
+        $date = now();
+        $currentDate = Carbon::now()->toDateString(); // Format: YYYY-MM-DD
+        $dayPlusOne = Carbon::Create($date)->addDays(1);
+        $pastWeek = Carbon::create($date)->subWeeks(1);
+
+        $parsingDate = Carbon::parse($date);
+
+        $pembelian = DB::table('pembelians')
+            ->join('layanans', 'pembelians.layanan', '=', 'layanans.layanan')
+            ->join('kategoris', 'layanans.kategori_id', '=', 'kategoris.id')
+            ->select('pembelians.*', 'layanans.kategori_id', 'kategoris.nama as nama_kategori')
+            ->where('pembelians.username', auth()->user()->username)
+            ->orderByDesc('pembelians.created_at')
+            ->paginate(10);
+
+        $banyakPembelianSuccess = Pembelians::where('username', auth()->user()->username)
+            ->where('status', 'Success')
+            ->count();
+
+        $banyakPembelianBatal = Pembelians::where('username', auth()->user()->username)
+            ->where('status', 'Batal')
+            ->count();
+
+        $banyakPembelianPending = Pembelians::where('username', auth()->user()->username)
+            ->where('status', 'Pending')
+            ->count();
+
+            $filterbulan = ['Semua', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+            $filterstatus = ['Semua', 'Not Paid', 'Processing', 'Success', 'Pending', 'Error', 'Batal'];
 
         return view('page.riwayat-transaksi', [
             'data' => Pembelians::where('username', Auth::user()->username)->get(),
             'judul_web' => $settings->judul_web ?? null,
             'logo_header' =>  $settings->logo_header ?? null,
             'url_ig' =>  $settings->url_ig ?? null,
+            'logo_footer' =>  $settings->logo_footer ?? null,
+            'pembelian' => $pembelian,
+            'banyakPembelianSuccess' => $banyakPembelianSuccess,
+            'banyakPembelianBatal' => $banyakPembelianBatal,
+            'banyakPembelianPending' => $banyakPembelianPending,
+            'bulan' => $filterbulan,
+            'status' => $filterstatus,
         ]);
     }
 

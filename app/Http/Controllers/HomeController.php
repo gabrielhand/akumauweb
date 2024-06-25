@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig')->first();
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig', 'logo_footer')->first();
         $kategori = Kategoris::where('status', 'active')->with('tipe')->get();
         $tipes = Tipes::all()->pluck('name');
 
@@ -25,6 +25,7 @@ class HomeController extends Controller
             'judul_web' => $settings->judul_web ?? null,
             'logo_header' =>  $settings->logo_header ?? null,
             'url_ig' =>  $settings->url_ig ?? null,
+            'logo_footer' =>  $settings->logo_footer ?? null,
             'tipes' => Tipes::all(),
             'kategori' => $kategori,
             'kategoriByTipe' => $kategoriByTipe,
@@ -32,7 +33,7 @@ class HomeController extends Controller
         ]);
     }
     public function allgames(){
-        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig')->first();
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig', 'logo_footer')->first();
         $kategori = Kategoris::where('status', 'active')->with('tipe')->get();
         $tipes = Tipes::all()->pluck('name');
 
@@ -47,6 +48,7 @@ class HomeController extends Controller
             'judul_web' => $settings->judul_web ?? null,
             'logo_header' =>  $settings->logo_header ?? null,
             'url_ig' =>  $settings->url_ig ?? null,
+            'logo_footer' =>  $settings->logo_footer ?? null,
             'tipes' => Tipes::all(),
             'kategori' => $kategori,
             'kategoriByTipe' => $kategoriByTipe,

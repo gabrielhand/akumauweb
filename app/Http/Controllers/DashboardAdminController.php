@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Deposits;
 use App\Models\Pembayarans;
 use App\Models\Pembelians;
+use App\Models\Setting_Web;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -12,6 +13,8 @@ class DashboardAdminController extends Controller
 {
     public function create()
     {
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig')->first();
+
         $date = now();
         $currentDate = Carbon::now()->toDateString(); // Format: YYYY-MM-DD
         $dayPlusOne = Carbon::Create($date)->addDays(1);
@@ -123,6 +126,10 @@ class DashboardAdminController extends Controller
 
 
         return view('admin.page.index', [
+        
+            'judul_web' => $settings->judul_web ?? null,
+            'logo_header' =>  $settings->logo_header ?? null,
+            'url_ig' =>  $settings->url_ig ?? null,
             'total_pembelian_today' => $totalPembelianToday,
             'total_pembelian_pending_today' => $totalPembelianPendingToday,
             'total_pembelian_batal_today' => $totalPembelianBatalToday,

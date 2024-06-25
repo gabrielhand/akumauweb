@@ -277,3 +277,29 @@ body::-webkit-scrollbar-track {
 .menu-kategori::-webkit-scrollbar-track {
     background: #d1d5db;
 }
+
+.menu-bulan::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu-bulan::-webkit-scrollbar-thumb {
+    background-color: #9ca38f;
+    border-radius: 10px;
+}
+
+.menu-bulan::-webkit-scrollbar-track {
+    background: #d1d5db;
+}
+
+.menu-status::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu-status::-webkit-scrollbar-thumb {
+    background-color: #9ca38f;
+    border-radius: 10px;
+}
+
+.menu-status::-webkit-scrollbar-track {
+    background: #d1d5db;
+}

@@ -2,7 +2,7 @@
     <section id="product" class="md:px-6 px-4">
         <div class="mb-7 flex flex-col-reverse justify-between md:flex-row">
             <div dir="ltr" class="relative overflow-hidden w-full whitespace-nowrap" orientation="horizontal"
-                style="position: relative; --radix-scroll-area-corner-width: 0px; --radix-scroll-area-corner-height: 0px;">
+                style="position: relative">
                 <div class="h-full w-full rounded-[inherit] no-scrollbar"
                     style="overflow: scroll;">
                     <div style="min-width: 100%; display: table;">

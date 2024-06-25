@@ -1,0 +1,207 @@
+:root {
+    --main-admin-light: #f2f7ff;
+    --sidebar-light: #ffffff;
+    --sidebar--menu-light: rgb(229 231 235 / 0.8);
+    --sidebar-text-light: #ffffff;
+    --sidebar-text-light-inactive: #000000;
+    --input-tbl-splight: #e1e5ed;
+    --hover-tbl-light: #f1f5f9;
+    --border-light: #000000;
+    --bg-input-light: #ffffff;
+    --border-input-light: #000000;
+
+    --main-admin-dark: #151521;
+    --sidebar-dark: #1e1e2d;
+    --sidebar-menu-dark: rgb(88 28 135 / 0.6);
+    --sidebar-text-dark: #000000;
+    --sidebar-text-dark-inactive: #ffffff;
+    --input-tbl-spdark: #000000;
+    --hover-tbl-dark: rgb(59 7 100 / 0.5);
+    --border-dark: #ffffff;
+    --bg-input-dark: #151521;
+    --border-input-dark: #ffffff;
+}
+
+[data-theme="light"] {
+    --main-admin: var(--main-admin-light);
+    --sidebar: var(--sidebar-light);
+    --sidebar-menu: var(--sidebar-menu-light);
+    --sidebar-text: var(--sidebar-text-light);
+    --sidebar-text-inactive: var(--sidebar-text-light-inactive);
+    --input-tbl-sp: var(--input-tbl-splight);
+    --hover-tbl: var(--hover-tbl-light);
+    --border: var(--border-light);
+    --bg-input: var(--bg-input-light);
+    --border-input: var(--border-input-light);
+}
+
+[data-theme="dark"] {
+    --main-admin: var(--main-admin-dark);
+    --sidebar: var(--sidebar-dark);
+    --sidebar-menu: var(--sidebar-menu-dark);
+    --sidebar-text-inactive: var(--sidebar-text-dark-inactive);
+    --sidebar-text: var(--sidebar-text-dark);
+    --input-tbl-sp: var(--input-tbl-spdark);
+    --hover-tbl: var(--hover-tbl-dark);
+    --border: var(--border-dark);
+    --bg-input: var(--bg-input-dark);
+    --border-input: var(--border-input-dark);
+}
+
+#sidebar-admin {
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-container {
+    overflow-y: auto;
+    position: relative;
+}
+
+.sidebar-container:hover::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-container:hover::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.sidebar-container:hover::-webkit-scrollbar-track {
+    background: none;
+}
+
+.sidebar-container::-webkit-scrollbar {
+    width: 6px;
+    position: absolute;
+    right: 0;
+}
+
+.bg-main-content-admin {
+    background-color: var(--main-admin);
+}
+
+.bg-sidebar-admin {
+    background-color: var(--sidebar);
+}
+
+.bg-sidebar-menu-admin:hover {
+    background-color: var(--sidebar-menu);
+}
+
+.sidebar-text {
+    color: var(--sidebar-text);
+}
+
+.sidebar-text-inactive {
+    color: var(--sidebar-text-inactive);
+}
+
+.input-tbl-sp {
+    background-color: var(--input-tbl-sp);
+}
+
+.border-tbl-riwayat {
+    border-top: 1.5px solid var(--hover-tbl);
+}
+
+.light-dark-border {
+    border: 1px solid var(--border);
+}
+
+.tbl-semuap::-webkit-scrollbar {
+    height: 12px;
+    display: block;
+}
+
+.tbl-semuap::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.tbl-semuap::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.tbl-semuajoki::-webkit-scrollbar {
+    height: 12px;
+    display: block;
+}
+
+.tbl-semuajoki::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.tbl-semuajoki::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.tbl-semuagiftskin::-webkit-scrollbar {
+    height: 12px;
+    display: block;
+}
+
+.tbl-semuagiftskin::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.tbl-semuagiftskin::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.tbl-semuavilog::-webkit-scrollbar {
+    height: 12px;
+    display: block;
+}
+
+.tbl-semuavilog::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.tbl-semuavilog::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.tbl-semuapayment::-webkit-scrollbar {
+    height: 12px;
+    display: block;
+}
+
+.tbl-semuapayment::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.tbl-semuapayment::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.bg-input-form-admin {
+    background-color: var(--bg-input);
+}
+
+.border-input-form-admin {
+    border: 1.5px solid var(--border-input);
+}
+
+.textarea-form-admin::-webkit-scrollbar {
+    width: 6px;
+    display: block;
+}
+
+.textarea-form-admin::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.textarea-form-admin::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}

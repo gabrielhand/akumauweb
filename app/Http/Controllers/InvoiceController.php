@@ -11,7 +11,7 @@ class InvoiceController extends Controller
 {
     public function index($order)
     {
-        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig')->first();
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig', 'logo_footer')->first();
 
         $data = Pembelians::where('pembelians.order_id', $order)
             ->join('pembayarans', 'pembelians.order_id', '=', 'pembayarans.order_id')
@@ -48,6 +48,7 @@ class InvoiceController extends Controller
             'judul_web' => $settings->judul_web ?? null,
             'logo_header' =>  $settings->logo_header ?? null,
             'url_ig' =>  $settings->url_ig ?? null,
+            'logo_footer' =>  $settings->logo_footer ?? null,
             'data' => $data,
             'expired' => $expired,
         ]);

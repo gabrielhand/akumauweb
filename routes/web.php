@@ -1,16 +1,25 @@
 <?php
 
+use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\CariController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\DataDMVilogController;
+use App\Http\Controllers\DataGiftSkinController;
+use App\Http\Controllers\DataJokiController;
 use App\Http\Controllers\DukunganController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MethodController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\SettingWebController;
+use App\Http\Controllers\UserDepositController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -42,7 +51,58 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/me/edit/password', [DashboardUserController::class, 'editPassword'])->name('editPassword');
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [DashboardAdminController::class, 'create'])->name('dashboard');
 
+    Route::get('/pesanan', [AdminOrderController::class, 'create'])->name('pesanan');
+    Route::get('/order-status/{order_id}/{status}', [AdminOrderController::class, 'update']);
+
+    Route::get('/data/joki', [DataJokiController::class, 'dataJoki'])->name('data.joki');
+    Route::get('/joki-status/{order_id}/{status}', [DataJokiController::class, 'statusJoki']);
+    Route::get('/joki/hapus/{id}', [DataJokiController::class, 'hapusJoki']);
+
+    Route::get('/data/giftskin', [DataGiftSkinController::class, 'dataGiftSkin'])->name('data.giftskin');
+    Route::get('/giftskin-status/{order_id}/{status}', [DataGiftSkinController::class, 'statusGiftSkin']);
+    Route::get('/giftskin/hapus/{id}', [DataGiftSkinController::class, 'hapusGiftSkin']);
+
+    Route::get('/data/dmvilog', [DataDMVilogController::class, 'dataDMVilog'])->name('data.dmvilog');
+    Route::get('/dmvilog-status/{order_id}/{status}', [DataDMVilogController::class, 'statusDMVilog']);
+    Route::get('/dmvilog/hapus/{id}', [DataDMVilogController::class, 'hapusDMVilog']);
+
+    Route::get('/member', [MemberController::class, 'create'])->name('kmember');
+    Route::get('/member/{id}/delete', [MemberController::class, 'delete'])->name('member.delete');
+    Route::post('/member', [MemberController::class, 'store'])->name('member.post');
+    Route::post('/send-balance', [MemberController::class, 'send'])->name('saldo.post');
+    Route::get('/member/{id}/detail', [MemberController::class, 'show'])->name('member.detail');
+    Route::post('/member/update', [MemberController::class, 'patch'])->name('member.detail.update');
+
+    Route::get('/user-deposit', [UserDepositController::class, 'create'])->name('user.deposit');
+    Route::get('/user-deposit/{id}/{status}', [UserDepositController::class, 'patch'])->name('confirm.deposit');
+
+    Route::get('/berita', [BeritaController::class, 'create'])->name('berita');
+    Route::post('/berita', [BeritaController::class, 'post'])->name('berita.post');
+    Route::get('/berita/hapus/{id}', [BeritaController::class, 'delete'])->name('berita.delete');
+
+    //Payment
+    Route::get('/method', [MethodController::class, 'create'])->name('method');
+    Route::post('/method', [MethodController::class, 'store'])->name('method.post');
+    Route::get('/method/hapus/{id}', [MethodController::class, 'delete'])->name('method.delete');
+    Route::post('/method/update', [MethodController::class, 'patch'])->name('method.detail.update');
+
+    Route::get('/method/{id}/detail', [MethodController::class, 'detail'])->name('method.detail');
+    Route::post('/method/{id}/detail', [MethodController::class, 'patch'])->name('method.detail.update');
+
+    Route::get('/setting/web', [SettingWebController::class, 'settingWeb'])->name('setting-web.index');
+    Route::post('/setting/web', [SettingWebController::class, 'saveSettingWeb'])->name('setting-web.post');
+    Route::post('/setting/snk', [SettingWebController::class, 'saveSyaratKetentuan']);
+    Route::post('/setting/warnaweb', [SettingWebController::class, 'saveSettingWarna'])->name('warna-web.post');
+    Route::post('/setting/hargamembership', [SettingWebController::class, 'saveHargaMembership'])->name('harga-mbr.post');
+    Route::post('/setting/tripay', [SettingWebController::class, 'saveSettingTripay'])->name('tripay.post');
+    Route::post('/setting/digiflazz', [SettingWebController::class, 'saveSettingDigiflazz'])->name('digiflazz.post');
+    Route::post('/setting/apigames', [SettingWebController::class, 'saveSettingApigames'])->name('apigames.post');
+    Route::post('/setting/vip', [SettingWebController::class, 'saveSettingVip'])->name('vip-reseller.post');
+    Route::post('/setting/wagateway', [SettingWebController::class, 'saveSettingWagateway']);
+    Route::post('/setting/mutasi', [SettingWebController::class, 'saveSettingMutasi'])->name('mutasi-ewallet.post');
+    Route::post('/setting/sloganweb', [SettingWebController::class, 'saveSlogan'])->name('slogan-web.post');
+    Route::post('/setting/tentang-kami', [SettingWebController::class, 'saveAbout'])->name('tentang-kami.post');
 });

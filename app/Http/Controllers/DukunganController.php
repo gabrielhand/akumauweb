@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class DukunganController extends Controller
 {
     public function create() {
-        $settings = Setting_Web::select('judul_web', 'logo_header', 'deskripsi_web', 'visi', 'misi', 'nomor_admin', 'url_ig')->first();
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'logo_footer' , 'deskripsi_web', 'visi', 'misi', 'nomor_admin', 'url_ig')->first();
 
         return view('page.dukungan', [
             'judul_web' => $settings->judul_web ?? null,
@@ -18,6 +18,7 @@ class DukunganController extends Controller
             'misi' =>  $settings->misi ?? null,
             'nomor_admin' =>  $settings->nomor_admin ?? null,
             'url_ig' =>  $settings->url_ig ?? null,
+            'logo_footer' =>  $settings->logo_footer ?? null,
         ]);
     }
 }

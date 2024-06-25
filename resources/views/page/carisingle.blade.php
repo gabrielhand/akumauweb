@@ -43,7 +43,7 @@
                 <div class="relative mx-auto max-w-7xl lg:py-12 px-4 py-10"></div>
             </div>
             <div class="flex flex-col px-4 md:px-8 light-dark-text gap-4">
-                @if ($data->status_pembayaran === 'Lunas')
+                @if ($data->status_pembayaran === 'Lunas' && $data->status_pembelian === 'Success')
                     <div class="flex flex-col lg:flex-row justify-between gap-3">
                         <div class="flex flex-col md:flex-row items-start md:items-center gap-3 justify-between">
                             <div class="flex items-center">
@@ -61,13 +61,12 @@
                                 </button>
                             </div>
                             <p class="text-xs md:text-sm ml-0 md:ml-4 opacity-80 light-dark-text">Tanggal Transaksi
-                                2024-06-01
-                                14:11:23</p>
+                                {{ $data->created_at }}</p>
                         </div>
                         <div class="flex items-center gap-3 justify-between">
                             <p class="text-xs md:text-sm">Status Pembayaran : </p>
                             <div class="rounded-full py-1 px-4 text-white text-xs md:text-sm bg-green-500">
-                                {{ $data->status_pembelian }}</div>
+                                {{ $data->status_pembayaran }}</div>
                         </div>
                     </div>
                     <div class="divider bg-white/25 h-[1px]"></div>
@@ -195,6 +194,158 @@
                             </ul>
                         </div>
                     </div>
+                @elseif($data->status_pembayaran === 'Lunas' && $data->status_pembelian === 'Batal')
+                    <div class="flex flex-col lg:flex-row justify-between gap-3">
+                        <div class="flex flex-col md:flex-row items-start md:items-center gap-3 justify-between">
+                            <div class="flex items-center">
+                                <p id="orderId" class="font-bold italic md:text-lg light-dark-text">
+                                    {{ $data->id_pembelian }}</p>
+                                <button id="copyButton"
+                                    class="btn-salin-id light-dark-text inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-75 whitespace-nowrap h-10 px-4 py-2 cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy">
+                                        <rect width="14" height="14" x="8" y="8" rx="2" ry="2">
+                                        </rect>
+                                        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="text-xs md:text-sm ml-0 md:ml-4 opacity-80 light-dark-text">Tanggal Transaksi
+                                {{ $data->created_at }}</p>
+                        </div>
+                        <div class="flex items-center gap-3 justify-between">
+                            <p class="text-xs md:text-sm">Status Pembayaran : </p>
+                            <div class="rounded-full py-1 px-4 text-white text-xs md:text-sm bg-green-500">
+                                {{ $data->status_pembayaran }}</div>
+                        </div>
+                    </div>
+                    <div class="divider bg-white/25 h-[1px]"></div>
+                    <div class="flex flex-col gap-3 md:flex-row md:gap-2">
+                        <div
+                            class="h-10 md:h-14 w-full skew-x-[-16deg] rounded-sm flex items-center justify-center gap-3 bg-red-600 text-white">
+                            <div class="flex skew-x-[16deg] gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-credit-card">
+                                    <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                                    <line x1="2" x2="22" y1="10" y2="10"></line>
+                                </svg> Pembayaran
+                            </div>
+                        </div>
+                        <div
+                            class="h-10 md:h-14 w-full skew-x-[-16deg] rounded-sm flex items-center justify-center gap-3 bg-red-600 text-white">
+                            <div class="flex skew-x-[16deg] gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-refresh-ccw">
+                                    <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                                    <path d="M3 3v5h5"></path>
+                                    <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path>
+                                    <path d="M16 16h5v5"></path>
+                                </svg> Proses</div>
+                        </div>
+                        <div
+                            class="h-10 md:h-14 w-full skew-x-[-16deg] rounded-sm flex items-center justify-center gap-3 bg-red-600 text-white">
+                            <div class="flex skew-x-[16deg] gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-xcircle">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="m15 9-6 6"></path>
+                                    <path d="m9 9 6 6"></path>
+                                </svg> Pesanan Selesai
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-x-0 gap-y-8 md:grid-cols-3 mt-4 md:gap-x-6 ">
+                        <div class="flex flex-col gap-5 w-full">
+                            <div class="flex items-center gap-2">
+                                <div class="h-16 w-16 relative rounded-xl shrink-0 flex">
+                                    <figure class="h-full w-full ">
+                                        <img alt="Gambar-{{ $data->nama_kategori }}" loading="lazy" decoding="async"
+                                            data-nimg="fill"
+                                            class="h-full w-full object-cover object-center group-hover:blur-sm group-hover:brightness-50 transition-all duration-200 ease-in-out rounded-xl"
+                                            sizes="(max-width: 768px) 100vw, 100px" src="{{ $data->thumbnail }}"
+                                            style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+                                    </figure>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="text-xs md:text-sm font-semibold">{{ $data->layanan }}</p>
+                                    <p class="text-[10px] md:text-xs font-medium">{{ $data->nama_kategori }}</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col w-full gap-3">
+                                <div class="flex justify-between w-full text-xs">
+                                    <p>Harga</p>
+                                    <p>Rp {{ $data->harga_pembayaran }},-</p>
+                                </div>
+                                {{-- <div class="flex justify-between w-full text-xs">
+                        <p>Fee</p>
+                        <p>Rp 15,-</p>
+                    </div> --}}
+                                <div class="flex justify-between w-full text-sm text-orange-500 font-bold">
+                                    <p>Total Bayar</p>
+                                    <p>Rp {{ $data->harga_pembayaran }},-</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <div class="w-full h-36 relative">
+                                <figure>
+                                    <img alt="gif-{{ $data->status_pembelian }}" loading="lazy" decoding="async"
+                                        data-nimg="fill" class="object-contain" sizes="(max-width: 768px) 100vw, 100px"
+                                        src="/assets/gif/pesanan_cancel.gif"
+                                        style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            <ul role="list">
+                                <li class="py-1 flex flex-col md:flex-row w-full">
+                                    <div
+                                        class="w-full md:w-[40%] text-xs text-center bg-invoice-card-header justify-center items-center p-2 flex">
+                                        Data</div>
+                                    <div
+                                        class="w-full md:w-[60%] bg-white text-black font-semibold text-sm justify-center items-center p-2 flex">
+                                        {{ $data->user_id }}|{{ $data->zone }}</div>
+                                </li>
+                                <li class="py-1 flex flex-col md:flex-row w-full">
+                                    <div
+                                        class="w-full md:w-[40%] text-xs text-center bg-invoice-card-header justify-center items-center p-2 flex">
+                                        No Whatsapp</div>
+                                    <div
+                                        class="w-full md:w-[60%] bg-white text-black font-semibold text-sm justify-center items-center p-2 flex">
+                                        62895346404969</div>
+                                </li>
+                                <li class="py-1 flex flex-col md:flex-row w-full">
+                                    <div
+                                        class="w-full md:w-[40%] text-xs text-center bg-invoice-card-header justify-center items-center p-2 flex">
+                                        Pembayaran</div>
+                                    <div
+                                        class="w-full md:w-[60%] bg-white text-black font-semibold text-sm justify-center items-center p-2 flex">
+                                        <figure style="width: 50px;"><img
+                                                alt="https://is3.cloudhost.id/carenindonesia/bisacash/qr.png"
+                                                loading="lazy" width="50" height="50" decoding="async"
+                                                data-nimg="1" class="" sizes="(max-width: 768px) 100vw, 100px"
+                                                src="https://mobafams.com/_next/image?url=https%3A%2F%2Fis3.cloudhost.id%2Fcarenindonesia%2Fbisacash%2Fqr.png&amp;w=3840&amp;q=75"
+                                                style="color: transparent;"></figure>
+                                    </div>
+                                </li>
+                                <li class="py-1 flex flex-col md:flex-row w-full">
+                                    <div
+                                        class="w-full md:w-[40%] text-xs text-center bg-invoice-card-header justify-center items-center p-2 flex">
+                                        Status</div>
+                                    <div
+                                        class="w-full md:w-[60%] bg-white text-black font-semibold text-sm justify-center items-center p-2 flex">
+                                        <div class="rounded-full py-1 px-4 text-white text-xs md:text-sm bg-red-500">
+                                            {{ $data->status_pembelian }}
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 @elseif($data->status_pembayaran === 'Belum Lunas')
                     <div class="flex flex-col lg:flex-row justify-between gap-3">
                         <div class="flex flex-col md:flex-row items-start md:items-center gap-3 justify-between">
@@ -213,13 +364,12 @@
                                 </button>
                             </div>
                             <p class="text-xs md:text-sm ml-0 md:ml-4 opacity-80 light-dark-text">Tanggal Transaksi
-                                2024-06-01
-                                14:11:23</p>
+                                {{ $data->created_at }}</p>
                         </div>
                         <div class="flex items-center gap-3 justify-between">
                             <p class="text-xs md:text-sm">Status Pembayaran : </p>
                             <div class="rounded-full py-1 px-4 text-white text-xs md:text-sm bg-red-500">
-                                {{ $data->status_pembelian }}</div>
+                                {{ $data->status_pembayaran }}</div>
                         </div>
                     </div>
                     <div class="divider bg-white/25 h-[1px]"></div>
@@ -348,7 +498,7 @@
                             </ul>
                         </div>
                     </div>
-                @elseif($data->status_pembayaran === 'Pending')
+                @elseif($data->status_pembayaran === 'Pending' && $data->status_pembelian === 'Pending')
                     <div class="flex flex-col lg:flex-row justify-between gap-3">
                         <div class="flex flex-col md:flex-row items-start md:items-center gap-3 justify-between">
                             <div class="flex items-center">
@@ -366,13 +516,12 @@
                                 </button>
                             </div>
                             <p class="text-xs md:text-sm ml-0 md:ml-4 opacity-80 light-dark-text">Tanggal Transaksi
-                                2024-06-01
-                                14:11:23</p>
+                                {{ $data->created_at }}</p>
                         </div>
                         <div class="flex items-center gap-3 justify-between">
                             <p class="text-xs md:text-sm">Status Pembayaran : </p>
                             <div class="rounded-full py-1 px-4 text-white text-xs md:text-sm bg-green-500">
-                                {{ $data->status_pembelian }}</div>
+                                {{ $data->status_pembayaran }}</div>
                         </div>
                     </div>
                     <div class="divider bg-white/25 h-[1px]"></div>

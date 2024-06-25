@@ -1,8 +1,12 @@
 <div class="col-span-12 flex flex-col md:col-span-4 space-y-4 light-dark-text">
     <h1 class="text-lg md:text-xl font-semibold md:-mt-5 lg:-mt-10">5 Pesanan Terakhir</h1>
-    @foreach ($data as $pembelian)
-        <a href="{{ url('/pembelian/invoice/' . $pembelian->order_id) }}">
-            <div
+    @if ($data->isEmpty())
+        <div class="light-dark-text lg:text-xl text-lg">
+            Maaf, anda belum memiliki pesanan!
+        </div>
+    @else
+        @foreach ($data as $pembelian)
+            <div tabindex="0" onclick="window.location.href='{{ url('/pembelian/invoice/' . $pembelian->order_id) }}'"
                 class="rounded-lg border shadow-sm bg-sidebar-menu border-none space-y-3 relative flex flex-col justify-center cursor-pointer">
                 <div class="relative flex min-h-[3rem]">
                     <div class="absolute left-0 top-0 w-full">
@@ -33,8 +37,8 @@
                     </div>
                 </div>
             </div>
-        </a>
-    @endforeach
+        @endforeach
+    @endif
 </div>
 <script>
     @php

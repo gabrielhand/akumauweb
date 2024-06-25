@@ -5,7 +5,7 @@
                 <div class="h-14 items-center flex max-w-72">
                     <figure class="block cursor-pointer w-full h-full relative"><img alt="logo" loading="lazy"
                             decoding="async" data-nimg="fill" class="object-contain object-left"
-                            sizes="(max-width: 768px) 100vw, 100px" src="{{ $logo_header }}"
+                            sizes="(max-width: 768px) 100vw, 100px" src="{{ $logo_footer }}"
                             style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                     </figure>
                     <p class="text-4xl font-medium text-start">{{ ENV('APP_NAME') }}</p>
@@ -45,9 +45,6 @@
                         <li><a target="_self"
                                 class="text-sm leading-6 text-footer-foreground hover:text-footer-foregroundHover"
                                 href="/redeemsaldo">Klaim Voucher</a></li>
-                        <li><a target="_self"
-                                class="text-sm leading-6 text-footer-foreground hover:text-footer-foregroundHover"
-                                href="/point">Tukar Point</a></li>
                         <li><a target="_self"
                                 class="text-sm leading-6 text-footer-foreground hover:text-footer-foregroundHover"
                                 href="/allreviews">Semua Review</a></li>

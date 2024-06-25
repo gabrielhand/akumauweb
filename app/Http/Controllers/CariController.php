@@ -10,7 +10,7 @@ class CariController extends Controller
 {
     public function create()
     {
-        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig')->first();
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig', 'logo_footer')->first();
         $pembelians = Pembelians::join('pembayarans', 'pembelians.order_id', 'pembayarans.order_id')
             ->leftJoin('data_joki', 'pembelians.order_id', 'data_joki.order_id')
             ->select('data_joki.status_joki AS status_joki', 'pembelians.*', 'pembayarans.status AS status_pembayaran', 'metode')
@@ -22,6 +22,7 @@ class CariController extends Controller
             'judul_web' => $settings->judul_web ?? null,
             'logo_header' =>  $settings->logo_header ?? null,
             'url_ig' =>  $settings->url_ig ?? null,
+            'logo_footer' =>  $settings->logo_footer ?? null,
             'pembelians' => $pembelians,
         ]);
     }

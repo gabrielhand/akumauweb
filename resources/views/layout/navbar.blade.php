@@ -46,12 +46,20 @@
                     <div dir="ltr" class="menu-content hidden absolute end-8 top-16">
                         <div class="z-50 min-w-[8rem] overflow-hidden rounded-md border-menu bg-navbar-bg p-1 light-dark-text shadow-md"
                             style="outline: none;">
-                            <div id="usernameNavbar" class="px-2 py-1.5 text-sm font-semibold">{{ auth()->user()->username }}</div>
+                            <div id="usernameNavbar" class="px-2 py-1.5 text-sm font-semibold">
+                                {{ auth()->user()->username }}</div>
                             <div class="-mx-1 my-1 h-px border-menu-bottom"></div>
-                            <div
-                                class="relative bg-item-menu flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground">
-                                Akun
-                            </div>
+                            @if (auth()->user()->role === 'Admin')
+                                <div onclick="window.location.href='{{ route('dashboard') }}'"
+                                    class="relative bg-item-menu flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground">
+                                    Dashboard
+                                </div>
+                            @else
+                                <div onclick="window.location.href='{{ route('profile') }}'"
+                                    class="relative bg-item-menu flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground">
+                                    Akun
+                                </div>
+                            @endif
                             <div
                                 class="relative bg-item-menu flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground">
                                 <div class="flex gap-8">Mode Gelap
