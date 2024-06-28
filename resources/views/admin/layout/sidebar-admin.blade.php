@@ -1,8 +1,8 @@
-<div id="sidebar-admin" class="hidden fixed lg:inset-y-0 lg:z-50 lg:flex w-80 lg:flex-col shadow-sm">
+<div class="fixed lg:inset-y-0 z-50 flex w-80 flex-col shadow-sm translate-x-2">
     <div class="sidebar-container bg-sidebar-admin pb-4 flex grow flex-col gap-y-3">
         <div class="flex h-16 md:h-[4.5rem] shrink-0 items-center px-10 justify-between gap-x-8 mt-6">
             <figure class="hidden lg:block cursor-pointer w-full relative justify-end">
-                <img src="{{ request()->is('data/joki', 'data/giftskin', 'data/dmvilog') ? $settings->logo_header : $logo_header }}"
+                <img src="{{ request()->is('data/joki', 'data/giftskin', 'data/dmvilog', 'kategori', 'pesanan/manual') ? $settings->logo_header : $logo_header }}"
                     class="object-contain object-center" alt="logo-{{ ENV('APP_NAME') }}"
                     onclick="window.location.href='{{ route('home') }}'">
             </figure>
@@ -94,7 +94,7 @@
             <div tabindex="0" class="collapse rounded-lg p-0">
                 <div class="collapse-title p-0">
                     <div
-                        class="{{ request()->is('berita', 'method', 'data/giftskin', 'data/dmvilog') ? 'bg-purple-500 hover:bg-purple-500/80 flex gap-x-4 items-center rounded-lg text-white px-3 py-3' : 'bg-sidebar-menu-admin duration-500 sidebar-text-inactive flex gap-x-4 items-center rounded-lg border border-purple-500 px-3 py-3' }}">
+                        class="{{ request()->is('berita', 'method', 'setting/web') ? 'bg-purple-500 hover:bg-purple-500/80 flex gap-x-4 items-center rounded-lg text-white px-3 py-3' : 'bg-sidebar-menu-admin duration-500 sidebar-text-inactive flex gap-x-4 items-center rounded-lg border border-purple-500 px-3 py-3' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-pen-fill" viewBox="0 0 16 16">
                             <path
@@ -115,17 +115,59 @@
                         onclick="window.location.href='{{ route('method') }}'">Payment</div>
                     <div class="{{ request()->is('setting/web') ? 'text-purple-600' : 'sidebar-text-inactive' }} hover:text-purple-500 duration-300 hover:translate-x-3 cursor-pointer text-sm"
                         onclick="window.location.href='{{ route('setting-web.index') }}'">Website</div>
-                    <div class="{{ request()->is('data/dmvilog') ? 'text-purple-600' : 'sidebar-text-inactive' }} hover:text-purple-500 duration-300 hover:translate-x-3 cursor-pointer text-sm"
-                        onclick="window.location.href='{{ route('data.dmvilog') }}'">Footer</div>
                 </div>
             </div>
+        </div>
+        <div id="bagian-product" class="px-10 flex flex-col gap-y-2 lg:text-base text-sm">
+            <div class="py-2 px-3">
+                Product
+            </div>
+            <div tabindex="0" class="collapse rounded-lg p-0">
+                <div class="collapse-title p-0">
+                    <div
+                        class="{{ request()->is('kategori', 'subkategori', 'tipes', 'layanan', 'voucher') ? 'bg-purple-500 hover:bg-purple-500/80 flex gap-x-4 items-center rounded-lg text-white px-3 py-3' : 'bg-sidebar-menu-admin duration-500 sidebar-text-inactive flex gap-x-4 items-center rounded-lg border border-purple-500 px-3 py-3' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-grid-1x2-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M0 1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm9 0a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1zm0 9a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1z" />
+                        </svg>
+                        <p class="flex-grow">Produk</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="collapse-content flex flex-col ps-10 text-start gap-y-4">
+                    <div class="{{ request()->is('kategori') ? 'text-purple-500' : 'sidebar-text-inactive' }} hover:text-purple-500 duration-300 hover:translate-x-3 mt-2 cursor-pointer text-sm"
+                        onclick="window.location.href='{{ route('kategori') }}'">Kategori</div>
+                    <div class="{{ request()->is('subkategori') ? 'text-purple-600' : 'sidebar-text-inactive' }} hover:text-purple-500 duration-300 hover:translate-x-3 cursor-pointer text-sm"
+                        onclick="window.location.href='{{ route('subkategori') }}'">Sub Kategori</div>
+                    <div class="{{ request()->is('tipes') ? 'text-purple-600' : 'sidebar-text-inactive' }} hover:text-purple-500 duration-300 hover:translate-x-3 cursor-pointer text-sm"
+                        onclick="window.location.href='{{ route('tipes.index') }}'">Tipe</div>
+                    <div class="{{ request()->is('layanan') ? 'text-purple-600' : 'sidebar-text-inactive' }} hover:text-purple-500 duration-300 hover:translate-x-3 cursor-pointer text-sm"
+                        onclick="window.location.href='{{ route('layanan') }}'">Layanan</div>
+                    <div class="{{ request()->is('voucher') ? 'text-purple-600' : 'sidebar-text-inactive' }} hover:text-purple-500 duration-300 hover:translate-x-3 cursor-pointer text-sm"
+                        onclick="window.location.href='{{ route('voucher') }}'">Voucher</div>
+                </div>
+            </div>
+            <a href="{{ route('orderManual') }}"
+                class="{{ request()->is('pesanan/manual') ? 'bg-purple-500 hover:bg-purple-500/80 flex duration-500 py-3 px-3 rounded-lg items-center gap-x-4 text-white' : 'bg-sidebar-menu-admin sidebar-text-inactive flex py-3 px-3 rounded-lg items-center gap-x-4 border border-purple-500' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-cloud-arrow-up-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 5.146a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0z" />
+                </svg>
+                <p>Pesanan Manual</p>
+            </a>
         </div>
         <div id="bagian-logout" class="px-10 flex flex-col gap-y-2 lg:text-base text-sm">
             <div class="py-2 px-3">
                 Logout
             </div>
             <a href="{{ route('home') }}"
-                class="bg-sidebar-menu-admin flex sidebar-text duration-500 py-3 px-3 rounded-lg text-white items-center gap-x-4">
+                class="bg-sidebar-menu-kembali-home flex light-dark-text duration-500 py-3 px-3 rounded-lg items-center gap-x-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-grid-fill" viewBox="0 0 16 16">
                     <path

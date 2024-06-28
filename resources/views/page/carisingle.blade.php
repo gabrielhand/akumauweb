@@ -9,7 +9,7 @@
                         <figure>
                             <img alt="invoice-bg" loading="lazy" decoding="async" data-nimg="fill"
                                 class="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 100px"
-                                src="https://mobafams.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fheader.webp&amp;w=3840&amp;q=75"
+                                src="{{ $banner_cari_single }}"
                                 style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                         </figure>
                         <div class="absolute inset-0 bg-black/30 mix-blend-multiply rounded-lg" aria-hidden="true"></div>

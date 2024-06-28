@@ -20,11 +20,11 @@
 
 <body class="bg-main-content">
     @include('layout.sidebar')
-    <div class="lg:ps-72">
+    <div class="lg:pl-72">
         @include('layout.navbar')
-        <div class="flex-col flex gap-6 mb-10 min-h-[70vh]">
+        <main class="flex flex-col gap-6 mb-10 min-h-[70vh]">
             @yield('content')
-        </div>
+        </main>
         @include('layout.footer')
     </div>
 </body>

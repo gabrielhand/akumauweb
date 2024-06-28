@@ -5,9 +5,10 @@
         <div class="relative">
             <div class="absolute inset-0 max-h-[12rem] overflow-hidden rounded-lg">
                 <div class="relative h-full w-full">
-                    <figure><img alt="invoice_bg_2" loading="lazy" decoding="async" data-nimg="fill"
+                    <figure>
+                        <img alt="invoice_bg_2" loading="lazy" decoding="async" data-nimg="fill"
                             class="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 100px"
-                            src="/assets/thumbnail/headercari.webp"
+                            src="{{ $banner_cek_transaksi }}"
                             style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"></figure>
                     <div class="absolute inset-0 bg-black/30 mix-blend-multiply rounded-lg" aria-hidden="true"></div>
                     <div

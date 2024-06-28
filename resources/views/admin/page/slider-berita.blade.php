@@ -24,7 +24,7 @@
                                 <label class="col-span-1">Pilih Gambar <span class="text-error">*</span></label>
                                 <div class="col-span-5">
                                     <input type="file" name="image"
-                                        class="file-input file-input-bordered w-full light-dark-text @error('image') border-red-500 @enderror" />
+                                        class="bg-input-form-admin file-input file-input-bordered w-full light-dark-text @error('image') file-input-error @enderror" />
                                     @error('image')
                                         <div class="text-red-500">
                                             {{ $message }}
@@ -34,7 +34,7 @@
                                 <label class="col-span-1">Dekripsi <span class="text-error">*</span></label>
                                 <div class="col-span-5">
                                     <textarea name="deskripsi" id="deskripsi"
-                                        class="textarea textarea-bordered w-full light-dark-text @error('deskripsi') border-red-500 @enderror"></textarea>
+                                        class="bg-input-form-admin textarea textarea-bordered w-full light-dark-text textarea-form-admin @error('deskripsi') border-red-500 @enderror"></textarea>
                                     @error('deskripsi')
                                         <div class="text-red-500">
                                             {{ $message }}
@@ -44,7 +44,7 @@
                                 <label class="col-span-1">Tipe <span class="text-error">*</span></label>
                                 <div class="col-span-5">
                                     <select name="tipe" id="tipe"
-                                        class="select select-bordered w-full @error('tipe') border-red-500 @enderror">
+                                        class="bg-input-form-admin select select-bordered w-full @error('tipe') border-red-500 @enderror">
                                         <option value="banner">Banner</option>
                                         <option value="popup">Popup</option>
                                         <option value="logoheader">Logo Header</option>
@@ -62,7 +62,7 @@
                                     class="bg-purple-600 text-white hover:bg-purple-500 rounded-md px-3 py-2 duration-300">
                                     Simpan
                                 </button>
-                                <button id="btn-reset-tmember" type="button"
+                                <button id="btn-reset-tmember" type="reset"
                                     class="bg-gray-300 text-black hover:bg-gray-400 rounded-md px-3 py-2 duration-300">Reset</button>
                             </div>
                         </form>
@@ -73,9 +73,9 @@
                 <div id="tabel-semuagambar"
                     class="border light-dark-text shadow-sm p-2 rounded-xl border-none bg-invoice-card mt-8">
                     <div>
-                        <p class="lg:text-2xl text-lg light-dark-text font-semibold m-4">Daftar Semua Member</p>
+                        <p class="lg:text-2xl text-lg light-dark-text font-semibold m-4">Daftar Semua Slider</p>
                         <div class="px-4 my-2">
-                            <input type="text" name="" id="searchInput" placeholder="Cari Data Member..."
+                            <input type="text" name="" id="searchInput" placeholder="Cari Data Slider..."
                                 class="light-dark-border w-full input-tbl-sp rounded-lg lg:text-base text-sm px-3 py-2">
                         </div>
                     </div>

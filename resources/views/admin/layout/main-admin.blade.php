@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/css/app.css', 'resources/css/adminapp.css', 'resources/js/app.js'])
-    <title>{{ request()->is('data/joki', 'data/giftskin', 'data/dmvilog') ? $settings->judul_web : $judul_web }}</title>
+    <title>{{ ENV('APP_NAME') }} - Dashboard admin</title>
     <link rel="icon"
-        href="{{ request()->is('data/joki', 'data/giftskin', 'data/dmvilog') ? $settings->logo_header : $logo_header }}">
+        href="{{ request()->is('data/joki', 'data/giftskin', 'data/dmvilog', 'kategori', 'pesanan/manual') ? $settings->logo_header : $logo_header }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -20,7 +20,9 @@
 </head>
 
 <body class="bg-main-content-admin">
-    @include('admin.layout.sidebar-admin')
+    <div id="sidebar-admin" class="hidden lg:block h-full">
+        @include('admin.layout.sidebar-admin')
+    </div>
     <div class="lg:ps-80">
         <div id="main" class="p-8 overflow-auto h-screen">
             <button id="menu-btn"
@@ -52,54 +54,7 @@
             @endif
         </div>
     </div>
-    <style>
-        .alert {
-            animation: slide-up 0.5s ease forwards;
-            transition: visibility 0s, opacity 0.5s linear;
-        }
-
-        @keyframes slide-up {
-            from {
-                opacity: 0;
-                transform: translateY(100%);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slide-down {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            to {
-                opacity: 0;
-                transform: translateY(100%);
-            }
-        }
-    </style>
     <script>
-        document.getElementById('searchInput').addEventListener('input', function() {
-            let filter = this.value.toUpperCase();
-            let rows = document.querySelectorAll('#tabel-semuamember tbody tr');
-
-            rows.forEach(row => {
-                let orderIdCell = row.querySelector('.username');
-                if (orderIdCell) {
-                    let orderIdText = orderIdCell.textContent || orderIdCell.innerText;
-                    if (orderIdText.toUpperCase().indexOf(filter) > -1) {
-                        row.style.display = "";
-                    } else {
-                        row.style.display = "none";
-                    }
-                }
-            });
-        });
-
         function closeAlert(alertId) {
             const alert = document.getElementById(alertId);
             if (alert) {
@@ -118,7 +73,7 @@
 
         $(document).ready(function() {
             $('#menu-btn').on('click', function() {
-                $('#sidebar-admin').removeClass('hidden');
+                $('#sidebar-admin').toggleClass('hidden');
             });
 
             $(document).on('click', function(event) {

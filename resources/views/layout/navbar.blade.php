@@ -12,7 +12,6 @@
         <a class="p-0 relative" href="/">
             <figure class="cursor-pointer p-0 flex items-center justify-center h-full gap-2">
                 <img alt="logo" class="h-6 w-12" src="{{ $logo_header }}">
-                <p class="text-lg font-semibold light-dark-text">{{ ENV('APP_NAME') }}</p>
             </figure>
         </a>
     </div>
@@ -77,7 +76,7 @@
                         </div>
                     </div>
                 @else
-                    <div class="flex gap-x-3">
+                    <div class="hidden lg:flex gap-x-3">
                         <a id="header-login-link"
                             class="bg-gradient-to-r from-[#a600ff] to-[#8217bc] text-white gap-x-3 rounded-xl h-11 px-8 py-2 inline-flex items-center justify-center ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85"
                             href="/login">

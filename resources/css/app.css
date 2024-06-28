@@ -24,6 +24,7 @@ body::-webkit-scrollbar-track {
     --navbar-bg-light: #ffffff;
     --sidebar-light: #ffffff;
     --sidebar-menu-light: #e1e5ed;
+    --tentang-light: #ffffff;
     --light-text: #161721;
     --sidebar-card-light: #e1e5ed;
     --border-st-light: #e2e8f0;
@@ -35,6 +36,7 @@ body::-webkit-scrollbar-track {
     --navbar-bg-dark: #161721;
     --sidebar-dark: #1d1928;
     --sidebar-menu-dark: #21222e;
+    --tentang-dark: #21222e;
     --dark-text: #ffffff;
     --sidebar-card-dark: #312740;
     --hero-grad-from: 249, 100%, 99%, 0.21;
@@ -150,6 +152,7 @@ body::-webkit-scrollbar-track {
 [data-theme="light"] {
     --navbar-bg: var(--navbar-bg-light);
     --sidebar-menu: var(--sidebar-menu-light);
+    --tentang: var(--tentang-light);
     --light-dark-text: var(--light-text);
     --main: var(--main-light);
     --sidebar: var(--sidebar-light);
@@ -163,6 +166,7 @@ body::-webkit-scrollbar-track {
 [data-theme="dark"] {
     --navbar-bg: var(--navbar-bg-dark);
     --sidebar-menu: var(--sidebar-menu-dark);
+    --tentang: var(--tentang-dark);
     --light-dark-text: var(--dark-text);
     --main: var(--main-dark);
     --sidebar: var(--sidebar-dark);
@@ -183,6 +187,10 @@ body::-webkit-scrollbar-track {
 
 .bg-navbar-bg {
     background-color: var(--navbar-bg);
+}
+
+.bg-tentang {
+    background-color: var(--tentang);
 }
 
 .bg-invoice-card {

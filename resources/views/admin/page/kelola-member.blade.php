@@ -192,4 +192,22 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+            let filter = this.value.toUpperCase();
+            let rows = document.querySelectorAll('#tabel-semuamember tbody tr');
+
+            rows.forEach(row => {
+                let orderIdCell = row.querySelector('.username');
+                if (orderIdCell) {
+                    let orderIdText = orderIdCell.textContent || orderIdCell.innerText;
+                    if (orderIdText.toUpperCase().indexOf(filter) > -1) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                }
+            });
+        });
+    </script>
 @endsection

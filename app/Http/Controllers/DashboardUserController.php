@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Methods;
 use App\Models\Pembayarans;
 use App\Models\Pembelians;
 use App\Models\Setting_Web;
@@ -17,7 +18,7 @@ class DashboardUserController extends Controller
 {
     public function profile()
     {
-        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig', 'logo_footer')->first();
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'banner_user_profile', 'slogan_web', 'url_ig', 'logo_footer', 'logo_sidebar_bawah', 'nomor_admin')->first();
 
         $pembelian = DB::table('pembelians')
             ->join('layanans', 'pembelians.layanan', '=', 'layanans.layanan')
@@ -31,8 +32,12 @@ class DashboardUserController extends Controller
         return view('page.me', [
             'judul_web' => $settings->judul_web ?? null,
             'logo_header' =>  $settings->logo_header ?? null,
+            'banner_user_profile' =>  $settings->banner_user_profile ?? null,
+            'slogan_web' =>  $settings->slogan_web ?? null,
             'url_ig' =>  $settings->url_ig ?? null,
             'logo_footer' =>  $settings->logo_footer ?? null,
+            'logo_sidebar_bawah' =>  $settings->logo_sidebar_bawah ?? null,
+            'nomor_admin' =>  $settings->nomor_admin ?? null,
             'data' => $pembelian,
 
         ]);
@@ -40,7 +45,7 @@ class DashboardUserController extends Controller
 
     public function riwayat()
     {
-        $settings = Setting_Web::select('judul_web', 'logo_header', 'url_ig', 'logo_footer')->first();
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'banner_user_profile', 'pattern', 'slogan_web', 'url_ig', 'logo_footer', 'logo_sidebar_bawah', 'nomor_admin')->first();
 
         $date = now();
         $currentDate = Carbon::now()->toDateString(); // Format: YYYY-MM-DD
@@ -77,8 +82,13 @@ class DashboardUserController extends Controller
             'data' => Pembelians::where('username', Auth::user()->username)->get(),
             'judul_web' => $settings->judul_web ?? null,
             'logo_header' =>  $settings->logo_header ?? null,
+            'banner_user_profile' =>  $settings->banner_user_profile ?? null,
+            'pattern' =>  $settings->pattern ?? null,
+            'slogan_web' =>  $settings->slogan_web ?? null,
             'url_ig' =>  $settings->url_ig ?? null,
             'logo_footer' =>  $settings->logo_footer ?? null,
+            'logo_sidebar_bawah' =>  $settings->logo_sidebar_bawah ?? null,
+            'nomor_admin' =>  $settings->nomor_admin ?? null,
             'pembelian' => $pembelian,
             'banyakPembelianSuccess' => $banyakPembelianSuccess,
             'banyakPembelianBatal' => $banyakPembelianBatal,
@@ -172,6 +182,34 @@ class DashboardUserController extends Controller
 
         return response()->json([
             'success' => "Tidak ada pengeditan password!",
+        ]);
+    }
+
+    public function membership()
+    {
+        $settings = Setting_Web::select('judul_web', 'logo_header', 'banner_user_profile', 'slogan_web', 'url_ig', 'logo_footer', 'logo_sidebar_bawah', 'nomor_admin')->first();
+
+        $pembelian = DB::table('pembelians')
+            ->join('layanans', 'pembelians.layanan', '=', 'layanans.layanan')
+            ->join('kategoris', 'layanans.kategori_id', '=', 'kategoris.id')
+            ->select('pembelians.*', 'layanans.kategori_id', 'kategoris.nama as nama_kategori', 'kategoris.thumbnail')
+            ->where('pembelians.username', auth()->user()->username)
+            ->orderByDesc('pembelians.created_at')
+            ->limit(5)
+            ->get();
+
+        return view('page.membership', [
+            'judul_web' => $settings->judul_web ?? null,
+            'logo_header' =>  $settings->logo_header ?? null,
+            'banner_user_profile' =>  $settings->banner_user_profile ?? null,
+            'slogan_web' =>  $settings->slogan_web ?? null,
+            'url_ig' =>  $settings->url_ig ?? null,
+            'logo_footer' =>  $settings->logo_footer ?? null,
+            'logo_sidebar_bawah' =>  $settings->logo_sidebar_bawah ?? null,
+            'nomor_admin' =>  $settings->nomor_admin ?? null,
+            'data' => $pembelian,
+            'pay_method' => Methods::all()
+
         ]);
     }
 }

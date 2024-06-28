@@ -4,13 +4,13 @@
         @php $count = 0 @endphp
         @foreach ($kategori as $jsgori)
             @if ($jsgori->populer == '1' && $count < 8)
-                <a href="{{ url('') . '/order/' . $jsgori->kode }}">
+                <div onclick="window.location.href='{{ url('') . '/order/' . $jsgori->kode }}'">
                     <div
                         class="border shadow-sm relative w-full h-16 md:h-24 border-none rounded-xl cursor-pointer flex flex-col justify-center p-0 text-white bg-purple-700">
                         <figure class="top-0">
                             <img alt="pattern-1" loading="lazy" decoding="async" data-nimg="fill"
                                 class="object-cover object-left rounded-xl" sizes="(max-width: 768px) 100vw, 100px"
-                                src="https://mobafams.com/_next/image?url=%2Fimages%2Fpattern-1.png&amp;w=3840&amp;q=75"
+                                src="{{ $pattern }}"
                                 style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                         </figure>
                         <div class="flex gap-3 items-center z-10 p-2">
@@ -26,7 +26,7 @@
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
                 @php $count++ @endphp
             @endif
         @endforeach

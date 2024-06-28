@@ -1,7 +1,8 @@
 :root {
     --main-admin-light: #f2f7ff;
     --sidebar-light: #ffffff;
-    --sidebar--menu-light: rgb(229 231 235 / 0.8);
+    --sidebar-menu-light: rgb(229 231 235 / 0.8);
+    --sidebar-menu-kembali-light: rgb(229 231 235 / 0.8);
     --sidebar-text-light: #ffffff;
     --sidebar-text-light-inactive: #000000;
     --input-tbl-splight: #e1e5ed;
@@ -13,6 +14,7 @@
     --main-admin-dark: #151521;
     --sidebar-dark: #1e1e2d;
     --sidebar-menu-dark: rgb(88 28 135 / 0.6);
+    --sidebar-menu-kembali-dark: #1e1e2d;
     --sidebar-text-dark: #000000;
     --sidebar-text-dark-inactive: #ffffff;
     --input-tbl-spdark: #000000;
@@ -26,6 +28,7 @@
     --main-admin: var(--main-admin-light);
     --sidebar: var(--sidebar-light);
     --sidebar-menu: var(--sidebar-menu-light);
+    --sidebar-menu-kembali: var(--sidebar-menu-kembali-light);
     --sidebar-text: var(--sidebar-text-light);
     --sidebar-text-inactive: var(--sidebar-text-light-inactive);
     --input-tbl-sp: var(--input-tbl-splight);
@@ -39,6 +42,7 @@
     --main-admin: var(--main-admin-dark);
     --sidebar: var(--sidebar-dark);
     --sidebar-menu: var(--sidebar-menu-dark);
+    --sidebar-menu-kembali: var(--sidebar-menu-kembali-dark);
     --sidebar-text-inactive: var(--sidebar-text-dark-inactive);
     --sidebar-text: var(--sidebar-text-dark);
     --input-tbl-sp: var(--input-tbl-spdark);
@@ -52,9 +56,39 @@
     transition: transform 0.3s ease-in-out;
 }
 
+.alert {
+    animation: slide-up 0.5s ease forwards;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
 .sidebar-container {
     overflow-y: auto;
     position: relative;
+    height: 100vh;
 }
 
 .sidebar-container:hover::-webkit-scrollbar {
@@ -86,6 +120,32 @@
 
 .bg-sidebar-menu-admin:hover {
     background-color: var(--sidebar-menu);
+}
+
+.bg-sidebar-menu-kembali-home {
+    background-color: var(--sidebar-menu-kembali);
+}
+.bg-sidebar-menu-kembali-home:hover {
+    background-color: var(--sidebar-menu);
+}
+
+#main::-webkit-scrollbar {
+    width: 6px;
+}
+
+#main::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+#main::-webkit-scrollbar-track {
+    background: none;
+}
+
+#main::-webkit-scrollbar {
+    width: 6px;
+    position: absolute;
+    right: 0;
 }
 
 .sidebar-text {
@@ -183,6 +243,50 @@
     border-radius: 10px;
 }
 
+.tbl-semuakategori::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.tbl-semuakategori::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.tbl-semuakategori::-webkit-scrollbar {
+    height: 12px;
+    display: block;
+}
+
+.tbl-semualayanan::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.tbl-semualayanan::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.tbl-semualayanan::-webkit-scrollbar {
+    height: 12px;
+    display: block;
+}
+
+.tbl-semua-order-manual::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.tbl-semua-order-manual::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}
+.tbl-semua-order-manual::-webkit-scrollbar {
+    height: 12px;
+    display: block;
+}
+
 .bg-input-form-admin {
     background-color: var(--bg-input);
 }
@@ -202,6 +306,21 @@
 }
 
 .textarea-form-admin::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.modal-form-admin::-webkit-scrollbar {
+    width: 6px;
+    display: block;
+}
+
+.modal-form-admin::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.modal-form-admin::-webkit-scrollbar-track {
     background: #ffffff;
     border-radius: 10px;
 }

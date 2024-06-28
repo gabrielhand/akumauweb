@@ -261,7 +261,7 @@
                                                             class="bg-purple-600 text-white hover:bg-purple-500 rounded-md px-3 py-2 duration-300">
                                                             Kirim
                                                         </button>
-                                                        <button id="btn-reset-tmember" type="button"
+                                                        <button id="btn-reset-tmember" type="reset"
                                                             class="bg-gray-300 text-black hover:bg-gray-400 rounded-md px-3 py-2 duration-300">
                                                             Reset
                                                         </button>
@@ -301,7 +301,7 @@
                                                         class="bg-purple-600 text-white hover:bg-purple-500 rounded-md px-3 py-2 duration-300">
                                                         Kirim
                                                     </button>
-                                                    <button id="btn-reset-tmember" type="button"
+                                                    <button id="btn-reset-tmember" type="reset"
                                                         class="bg-gray-300 text-black hover:bg-gray-400 rounded-md px-3 py-2 duration-300">
                                                         Reset
                                                     </button>
@@ -386,7 +386,7 @@
                                                 class="bg-purple-600 text-white hover:bg-purple-500 rounded-md px-3 py-2 duration-300">
                                                 Kirim
                                             </button>
-                                            <button id="btn-reset-mutasi-ewallet-bank" type="button"
+                                            <button id="btn-reset-mutasi-ewallet-bank" type="reset"
                                                 class="bg-gray-300 text-black hover:bg-gray-400 rounded-md px-3 py-2 duration-300">
                                                 Reset
                                             </button>
@@ -404,7 +404,7 @@
                             <div class="bg-sidebar-admin border-gray-400 rounded-xl p-6 light-dark-text">
                                 <p class="lg:text-2xl text-xl font-medium">Konfigurasi Tentang Kami</p>
                                 <p class="font-medium mt-4">HALAMAN TENTANG KAMI YANG MANA? <span
-                                        onclick="window.location.href='{{ route('dashboard') }}'"
+                                        onclick="window.location.href='{{ route('about') }}'"
                                         class="cursor-pointer text-warning">KLIK DISINI</span></p>
                                 <div class="mt-8">
                                     <form action="{{ route('tentang-kami.post') }}" method="POST"
@@ -505,7 +505,7 @@
                                                     class="bg-purple-600 text-white hover:bg-purple-500 rounded-md px-3 py-2 duration-300">
                                                     Kirim
                                                 </button>
-                                                <button id="btn-reset-konfigurasi-tentang-kami" type="button"
+                                                <button id="btn-reset-konfigurasi-tentang-kami" type="reset"
                                                     class="bg-gray-300 text-black hover:bg-gray-400 rounded-md px-3 py-2 duration-300">
                                                     Reset
                                                 </button>
@@ -515,7 +515,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div id="tab-content-3" class="tab-content-custom hidden">
@@ -562,7 +561,7 @@
                                                 class="bg-purple-600 text-white hover:bg-purple-500 rounded-md px-3 py-2 duration-300">
                                                 Simpan
                                             </button>
-                                            <button id="btn-reset-tripay" type="button"
+                                            <button id="btn-reset-tripay" type="reset"
                                                 class="bg-gray-300 text-black hover:bg-gray-400 rounded-md px-3 py-2 duration-300">
                                                 Reset
                                             </button>
@@ -604,7 +603,7 @@
                                                 class="bg-purple-600 text-white hover:bg-purple-500 rounded-md px-3 py-2 duration-300">
                                                 Get Layanan
                                             </button>
-                                            <button id="btn-reset-digiflazz" type="button"
+                                            <button id="btn-reset-digiflazz" type="reset"
                                                 class="bg-gray-300 text-black hover:bg-gray-400 rounded-md px-3 py-2 duration-300">
                                                 Reset
                                             </button>
@@ -643,7 +642,7 @@
                                                 class="bg-purple-600 text-white hover:bg-purple-500 rounded-md px-3 py-2 duration-300">
                                                 Simpan
                                             </button>
-                                            <button id="btn-reset-apigames" type="button"
+                                            <button id="btn-reset-apigames" type="reset"
                                                 class="bg-gray-300 text-black hover:bg-gray-400 rounded-md px-3 py-2 duration-300">
                                                 Reset
                                             </button>
@@ -681,7 +680,7 @@
                                                 class="bg-purple-600 text-white hover:bg-purple-500 rounded-md px-3 py-2 duration-300">
                                                 Simpan
                                             </button>
-                                            <button id="btn-reset-vip-reseller" type="button"
+                                            <button id="btn-reset-vip-reseller" type="reset"
                                                 class="bg-gray-300 text-black hover:bg-gray-400 rounded-md px-3 py-2 duration-300">
                                                 Reset
                                             </button>
@@ -693,9 +692,10 @@
                         <div id="form-konfigurasi-wa-gateway">
                             <div class="bg-sidebar-admin border-gray-400 rounded-xl p-6 light-dark-text">
                                 <p class="lg:text-2xl text-xl font-medium">Konfigurasi WA Gateway</p>
-                                <p onclick="window.location.href='https://wa.me/62895346404969'" class="mt-4 text-error cursor-pointer">Klik Disini Untuk Hubungi Developer</p>
+                                <p onclick="window.location.href='https://wa.me/62895346404969'"
+                                    class="mt-4 text-error cursor-pointer">Klik Disini Untuk Hubungi Developer</p>
                                 <div class="mt-8">
-                                    <form action="{{ route('tripay.post') }}" method="POST">
+                                    <form action="{{ route('wagateway.post') }}" method="POST">
                                         @csrf
                                         <div class="flex flex-col gap-y-4">
                                             <div class="grid lg:grid-cols-10 lg:grid-rows-1 items-center">
@@ -728,7 +728,7 @@
                                                 class="bg-purple-600 text-white hover:bg-purple-500 rounded-md px-3 py-2 duration-300">
                                                 Simpan
                                             </button>
-                                            <button id="btn-reset-wa-gateway" type="button"
+                                            <button id="btn-reset-wa-gateway" type="reset"
                                                 class="bg-gray-300 text-black hover:bg-gray-400 rounded-md px-3 py-2 duration-300">
                                                 Reset
                                             </button>

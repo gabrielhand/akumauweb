@@ -5,9 +5,10 @@
         <div class="relative">
             <div class="absolute inset-0 max-h-[12rem] overflow-hidden rounded-lg">
                 <div class="relative h-full w-full">
-                    <figure><img alt="invoice_bg_2" loading="lazy" decoding="async" data-nimg="fill"
+                    <figure>
+                        <img alt="invoice_bg_2" loading="lazy" decoding="async" data-nimg="fill"
                             class="object-cover rounded-lg" sizes="(max-width: 768px) 100vw, 100px"
-                            src="https://mobafams.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2Fb1d79b8bbee7475eab6c15cd3d13cd4d%3Anextopup%2Fp%2Fheader.webp&amp;w=3840&amp;q=75"
+                            src="{{ $banner_services }}"
                             style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                     </figure>
                     <div class="absolute inset-0 bg-black/30 mix-blend-multiply rounded-lg" aria-hidden="true"></div>
@@ -98,7 +99,7 @@
                 <div class="relative flex gap-x-2 py-1 h-auto whitespace-nowrap overflow-x-auto no-scrollbar">
                     @foreach ($allKategori as $kat)
                         <div data-tipe="{{ $kat->tipe_id }}" data-kategori="{{ $kat->nama }}"
-                            class="slider-kategori flex flex-col items-center flex-none rounded-xl border border-1 border-primary shadow-sm overflow-hidden shrink-0 w-[110px] h-[160px] md:w-[120px] md:h-[180px] lg:w-[116.25px] lg:h-[170px]">
+                            class="slider-kategori cursor-pointer flex flex-col items-center flex-none rounded-xl border border-1 border-primary shadow-sm overflow-hidden shrink-0 w-[110px] h-[160px] md:w-[120px] md:h-[180px] lg:w-[116.25px] lg:h-[170px]">
                             <div class="relative w-full h-full">
                                 <div class="overflow-hidden rounded-xl">
                                     <div class="relative w-full h-full">

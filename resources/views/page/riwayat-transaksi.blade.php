@@ -9,7 +9,7 @@
                     class="border shadow-sm w-full h-[100px] border-none rounded-xl flex flex-col justify-center relative text-white bg-[#3F6EE3]">
                     <figure class="top-0"><img alt="pattern-1" loading="lazy" decoding="async" data-nimg="fill"
                             class="object-cover object-left rounded-xl" sizes="(max-width: 768px) 100vw, 100px"
-                            src="https://mobafams.com/_next/image?url=%2Fimages%2Fpattern-1.png&amp;w=3840&amp;q=75"
+                            src="{{ $pattern }}"
                             style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"></figure>
                     <div class="flex p-2 gap-1.5 items-center z-10">
                         <figure style="width: 60px;"><img alt="1" loading="lazy" width="60" height="60"
@@ -29,7 +29,7 @@
                     <figure class="top-0">
                         <img alt="pattern-1" loading="lazy" decoding="async" data-nimg="fill"
                             class="object-cover object-left rounded-xl" sizes="(max-width: 768px) 100vw, 100px"
-                            src="https://mobafams.com/_next/image?url=%2Fimages%2Fpattern-1.png&amp;w=3840&amp;q=75"
+                            src="{{ $pattern }}"
                             style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                     </figure>
                     <div class="flex p-2 gap-1.5 items-center z-10">
@@ -50,7 +50,7 @@
                     class="border shadow-sm w-full h-[100px] border-none rounded-xl flex flex-col justify-center relative text-white bg-[#EF8B10]">
                     <figure class="top-0"><img alt="pattern-1" loading="lazy" decoding="async" data-nimg="fill"
                             class="object-cover object-left rounded-xl" sizes="(max-width: 768px) 100vw, 100px"
-                            src="https://mobafams.com/_next/image?url=%2Fimages%2Fpattern-1.png&amp;w=3840&amp;q=75"
+                            src="{{ $pattern }}"
                             style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"></figure>
                     <div class="flex p-2 gap-1.5 items-center z-10">
                         <figure style="width: 60px;">
@@ -71,7 +71,7 @@
                     <figure class="top-0">
                         <img alt="pattern-1" loading="lazy" decoding="async" data-nimg="fill"
                             class="object-cover object-left rounded-xl" sizes="(max-width: 768px) 100vw, 100px"
-                            src="https://mobafams.com/_next/image?url=%2Fimages%2Fpattern-1.png&amp;w=3840&amp;q=75"
+                            src="{{ $pattern }}"
                             style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                     </figure>
                     <div class="flex p-2 gap-1.5 items-center z-10">
@@ -93,7 +93,7 @@
                     <figure class="top-0">
                         <img alt="pattern-1" loading="lazy" decoding="async" data-nimg="fill"
                             class="object-cover object-left rounded-xl" sizes="(max-width: 768px) 100vw, 100px"
-                            src="https://mobafams.com/_next/image?url=%2Fimages%2Fpattern-1.png&amp;w=3840&amp;q=75"
+                            src="{{ $pattern }}"
                             style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                     </figure>
                     <div class="flex p-2 gap-1.5 items-center z-10">
@@ -115,7 +115,7 @@
                     <figure class="top-0">
                         <img alt="pattern-1" loading="lazy" decoding="async" data-nimg="fill"
                             class="object-cover object-left rounded-xl" sizes="(max-width: 768px) 100vw, 100px"
-                            src="https://mobafams.com/_next/image?url=%2Fimages%2Fpattern-1.png&amp;w=3840&amp;q=75"
+                            src="{{ $pattern }}"
                             style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                     </figure>
                     <div class="flex p-2 gap-1.5 items-center z-10">

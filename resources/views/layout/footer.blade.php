@@ -8,10 +8,8 @@
                             sizes="(max-width: 768px) 100vw, 100px" src="{{ $logo_footer }}"
                             style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                     </figure>
-                    <p class="text-4xl font-medium text-start">{{ ENV('APP_NAME') }}</p>
                 </div>
-                <p class="text-sm leading-6 my-8">Nikmati pengalaman pembelian Voucher dan Top Up
-                    Game otomatis kapan pun di manapun kamu mau.</p>
+                <p class="text-sm leading-6 my-8">{{ $slogan_web }}</p>
                 <div class="flex space-x-6"><a target="_blank"
                         class=""
                         href="{{ $url_ig }}"><span class="sr-only light-dark-text">Instagram</span><svg
@@ -33,7 +31,7 @@
                                 href="/FAQ">FAQ</a></li>
                         <li><a target="_self"
                                 class="text-sm leading-6 text-footer-foreground hover:text-footer-foregroundHover"
-                                href="/termandconditional">Syarat &amp; Ketentuan Layanan</a></li>
+                                href="{{ route('terms-and-conditions') }}">Syarat &amp; Ketentuan Layanan</a></li>
                     </ul>
                 </div>
                 <div class="md:mt-0">
@@ -61,10 +59,10 @@
                                 href="/dukungan">Dukungan Pelanggan</a></li>
                         <li><a target="_self"
                                 class="text-sm leading-6 text-footer-foreground hover:text-footer-foregroundHover"
-                                href="/termandconditional">Syarat &amp; Ketentuan Layanan</a></li>
+                                href="{{ route('terms-and-conditions') }}">Syarat &amp; Ketentuan Layanan</a></li>
                         <li><a target="_self"
                                 class="text-sm leading-6 text-footer-foreground hover:text-footer-foregroundHover"
-                                href="/privacy">Kebijakan Privasi</a></li>
+                                href="{{ route('privacy') }}">Kebijakan Privasi</a></li>
                         <li><a target="__blank"
                                 class="text-sm leading-6 text-footer-foreground hover:text-footer-foregroundHover"
                                 href="https://docs.mobafams.com">API</a></li>

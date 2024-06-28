@@ -25,8 +25,8 @@
                     <h1 id="h1-kategori" class="lg:text-xl md:text-lg sm:text-sm font-medium mb-5 light-dark-text">{{ $tipe }}</h1>
                     <div class="grid 2xl:grid-cols-6 md:grid-cols-5 grid-cols-3 gap-3 md:gap-4">
                         @foreach ($kategori as $jsgori)
-                            <a href="{{ url('') . '/order/' . $jsgori->kode }}">
-                                <div data-radix-aspect-ratio-wrapper=""
+                            <div onclick="window.location.href='{{ url('') . '/order/' . $jsgori->kode }}'">
+                                <div
                                     style="position: relative; width: 100%; padding-bottom: 150%;">
                                     <div style="position: absolute; inset: 0px;">
                                         <div
@@ -63,7 +63,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         @endforeach
                     </div>
                 </div>
