@@ -42,6 +42,8 @@ Route::post('/cari', [CariController::class, 'store'])->name('cari.post');
 Route::get('/pembelian/invoice/{order}', [InvoiceController::class, 'index'])->name('pembelian');
 Route::get('/FAQ', [FaqController::class, 'create'])->name('faq');
 Route::get('/dukungan', [DukunganController::class, 'create'])->name('dukungan');
+Route::post('/dukungan', [DukunganController::class, 'postMessage'])->name('dukungan.post');
+Route::get('/dukungan/message', [DukunganController::class, 'msg']);
 Route::get('/about', [AboutController::class, 'create'])->name('about');
 Route::get('/termandconditional', [TermsAndConditionalController::class, 'create'])->name('terms-and-conditions');
 Route::get('/privacy', [PrivacyController::class, 'create'])->name('privacy');

@@ -11,9 +11,7 @@
                         class="shrink-0 overflow-hidden flex h-28 w-28 items-center justify-center space-y-0 border rounded-lg relative cursor-pointer group">
                         <img class="img-preview aspect-square h-full w-full duration-500 group-hover:blur-sm group-hover:brightness-50 object-cover"
                             alt="Avatar" unoptimized="1"
-                            @if (auth()->user()->image) src="{{ asset('storage/' . auth()->user()->image) }}"
-                            @else
-                                src="https://picsum.photos/400/400" @endif>
+                            src="{{ auth()->user()->image ? auth()->user()->image : 'https://picsum.photos/400/400' }}">
                         <div class="hidden group-hover:block">
                             <div class="absolute inset-0 p-3 z-10 flex flex-col items-end justify-between">
                                 <div class="w-full grow flex flex-col items-center justify-center">

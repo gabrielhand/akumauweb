@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Berita;
+
+use App\Models\Beritas;
 use App\Models\Kategoris;
+use App\Models\Layanans;
 use App\Models\Setting_Web;
 use App\Models\Tipes;
 use Illuminate\Http\Request;
@@ -33,6 +35,9 @@ class HomeController extends Controller
             'tipes' => Tipes::all(),
             'kategori' => $kategori,
             'kategoriByTipe' => $kategoriByTipe,
+            'banner' => Beritas::where('tipe', 'banner')->get(),
+            'popup' => Beritas::where('tipe', 'popup')->latest()->first(),
+            'flashsale' => Layanans::join('kategoris', 'kategoris.id', 'layanans.kategori_id')->select('kategoris.thumbnail AS gmr_thumb', 'kategoris.kode AS kode_game', 'layanans.*')->where('layanans.is_flash_sale', 1)->where('layanans.expired_flash_sale', '>=', date('Y-m-d'))->get(),
 
         ]);
     }

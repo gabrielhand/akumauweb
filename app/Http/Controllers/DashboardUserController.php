@@ -74,9 +74,9 @@ class DashboardUserController extends Controller
             ->where('status', 'Pending')
             ->count();
 
-            $filterbulan = ['Semua', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        $filterbulan = ['Semua', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 
-            $filterstatus = ['Semua', 'Not Paid', 'Processing', 'Success', 'Pending', 'Error', 'Batal'];
+        $filterstatus = ['Semua', 'Not Paid', 'Processing', 'Success', 'Pending', 'Error', 'Batal'];
 
         return view('page.riwayat-transaksi', [
             'data' => Pembelians::where('username', Auth::user()->username)->get(),
@@ -108,16 +108,27 @@ class DashboardUserController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
             if (auth()->user()->image) {
-                Storage::disk('public')->delete(auth()->user()->image);
+                $oldImagePath = public_path(auth()->user()->image);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
             }
 
-            $imagePath = $request->file('image')->store('assets/profile', 'public');
+            // Dapatkan file gambar dan tentukan path baru
+            $image = $request->file('image');
+            $imagePath = '/assets/profile/' . time() . '_' . $image->getClientOriginalName();
+
+            // Pindahkan file gambar ke folder yang ditentukan
+            $image->move(public_path('/assets/profile'), $imagePath);
+
+            // Update path gambar di database
             User::where('id', auth()->user()->id)->update(['image' => $imagePath]);
 
             return response()->json([
                 'success' => 'Berhasil mengedit foto profil!',
-                'image_path' => asset('storage/' . $imagePath),
+                'image_path' => asset($imagePath),
             ]);
         }
 

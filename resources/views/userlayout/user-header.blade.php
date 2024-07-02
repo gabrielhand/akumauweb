@@ -14,10 +14,10 @@
             <div
                 class="w-32 h-32 xl:w-36 xl:h-36 2xl:w-40 2xl:h-40 relative p-1 rounded-full backdrop-blur-lg bg-gradient-to-r from-blue-400 via-purple-500 to-orange-500 animate-background-animate">
                 <figure class="h-full w-full">
-                    <img id="profileImage" alt="{{ auth()->user()->username }}" loading="lazy" width="400"
+                    <img id="profileImage" alt="Gambar-{{ auth()->user()->name }}" loading="lazy" width="400"
                         height="400" decoding="async" data-nimg="1"
                         class="object-cover rounded-full h-full w-full"
-                        src="{{ auth()->user()->image ? asset('storage/' . auth()->user()->image) : 'https://picsum.photos/400/400' }}"
+                        src="{{ auth()->user()->image ? auth()->user()->image : 'https://picsum.photos/400/400' }}"
                         style="color: transparent;" style="color: transparent;">
                 </figure>
             </div>

@@ -129,7 +129,7 @@
                                         data-nimg="fill"
                                         class="object-cover object-center duration-300 group-hover:blur-sm group-hover:brightness-50 transition-all ease-in-out rounded-xl w-24 h-24"
                                         sizes="(max-width: 768px) 100vw, 100px"
-                                        srcset="{{ url('') }}{{ $kat->thumbnail }}" src="{{ $kat->thumbnail }}"
+                                        src="{{ $kat->thumbnail }}"
                                         style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                                 </figure>
                             </div>

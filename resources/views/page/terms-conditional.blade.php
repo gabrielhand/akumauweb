@@ -2,8 +2,8 @@
 
 @section('content')
     <section id="content-tnc" class="md:px-6 px-4 pt-8">
-        <h1 class="text-center font-bold text-lg">Syarat &amp; Ketentuan Layanan</h1>
-        <div class="rounded-lg border light-dark-text shadow-sm p-6 mt-3 bg-sidebar-menu">
+        <h1 class="text-center font-bold text-lg light-dark-text">Syarat &amp; Ketentuan Layanan</h1>
+        <div class="rounded-lg light-dark-text shadow-sm p-6 mt-3 bg-sidebar-menu">
             <article class="prose dark:prose-invert">
                 <h5>Umum</h5><br>
                 <ul class="ms-5 flex flex-col gap-3 leading-loose">
@@ -27,13 +27,12 @@
                 </ul><br>
                 <h5>Pembayaran</h5><br>
                 <p class="leading-loose">{{ ENV('APP_NAME') }} bekerjasama dengan penyedia jasa sistem pembayaran resmi yang di awasi oleh<br>Otoritas Jasa
-                    Keuangan (OJK)<br>adapun channel pembayaran yang kami sediakan yaitu:</p>
+                    Keuangan (OJK)<br>adapun channel pembayaran yang kami sediakan yaitu:</p> <br>
                 <ul class="ms-5 flex flex-col gap-3 leading-loose">
-                    <li>1. Transfer Bank</li>
-                    <li>2. Virtual Account</li>
-                    <li>3. Qris</li>
-                    <li>4. E-wallet</li>
-                    <li>5. Retail</li>
+                    <li>1. Virtual Account</li>
+                    <li>2. Qris</li>
+                    <li>3. E-wallet</li>
+                    <li>4. Saldo</li>
                 </ul><br>
                 <h5>Pengguna</h5><br>
                 <ul class="ms-5 flex flex-col gap-3 leading-loose">

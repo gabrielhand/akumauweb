@@ -27,6 +27,48 @@
         </main>
         @include('layout.footer')
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const allThemeControllers = document.querySelectorAll('.theme-controller');
+
+            const applyTheme = (theme) => {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                allThemeControllers.forEach(controller => {
+                    controller.checked = theme === 'dark';
+                });
+            };
+
+            const storedTheme = localStorage.getItem('theme') || 'dark';
+            applyTheme(storedTheme);
+
+            allThemeControllers.forEach(controller => {
+                controller.addEventListener('change', (event) => {
+                    const theme = event.target.checked ? 'dark' : 'light';
+                    applyTheme(theme);
+                });
+            });
+        });
+
+        function openSidebar() {
+            const sidebar = document.getElementById('sidebar-index-sm');
+            const sidebarContent = document.getElementById('sidebar-index-sm-content');
+            sidebar.classList.remove('hidden');
+            sidebarContent.classList.remove('sidebar-close');
+            sidebarContent.classList.add('sidebar-open');
+        }
+
+        function closeSidebar() {
+            const sidebar = document.getElementById('sidebar-index-sm');
+            const sidebarContent = document.getElementById('sidebar-index-sm-content');
+            sidebarContent.classList.remove('sidebar-open');
+            sidebarContent.classList.add('sidebar-close');
+
+            setTimeout(() => {
+                sidebar.classList.add('hidden');
+            }, 300);
+        }
+    </script>
 </body>
 
 </html>
