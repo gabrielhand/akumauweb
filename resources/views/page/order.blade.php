@@ -92,8 +92,7 @@
                         <div class="inline-flex"><button
                                 class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap hover:bg-purple-500/80 h-10 py-2 px-4 text-white bg-purple-500"
                                 type="button">
-                                <span
-                                    class="font-medium line-clamp-1">Produk
+                                <span class="font-medium line-clamp-1">Produk
                                 </span>
                             </button>
                         </div>
@@ -317,7 +316,7 @@
                                         <div class="relative flex items-center">
                                             <input id="user_id" name="ID ML" autocomplete="off" autosave="false"
                                                 type="number" value=""
-                                                class="bg-white text-sm w-full light-dark-text focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl focus:outline-purple-500 focus:outline-1"
+                                                class="bg-white games-input text-sm w-full light-dark-text focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl focus:outline-purple-500 focus:outline-1"
                                                 placeholder="{{ $kategori->placeholder_1 }}">
                                         </div>
                                     </div>
@@ -328,7 +327,7 @@
                                         <div class="relative flex items-center">
                                             <input id="zone" name="zone" autocomplete="off" autosave="false"
                                                 value="" type="text"
-                                                class="bg-white text-sm w-full light-dark-text focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl focus:outline-purple-500 focus:outline-1"
+                                                class="bg-white games-input text-sm w-full light-dark-text focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl focus:outline-purple-500 focus:outline-1"
                                                 placeholder="{{ $kategori->placeholder_2 }}">
                                         </div>
                                     </div>
@@ -366,7 +365,7 @@
                                         <div class="relative flex items-center">
                                             <input id="user_id" name="ID ML" autocomplete="off" autosave="false"
                                                 type="text"
-                                                class="bg-white text-sm w-full text-black focus:outline-none focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-blue-500 focus:outline-1"
+                                                class="bg-white games-input text-sm w-full text-black focus:outline-none focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-blue-500 focus:outline-1"
                                                 placeholder="{{ $kategori->placeholder_1 }}">
                                         </div>
                                     </div>
@@ -1898,6 +1897,87 @@
                                 Server Kamu Berada Di Tengah Layar . {!! $kategori->ket_id !!}.</p>
                             <div class="note"></div>
                         </div>
+                    @elseif($kategori->kode == 'dm_vilog')
+                    <div class="shadow-sm bg-sidebar-menu light-dark-text rounded-xl p-4" id="detailAccount">
+                        <h3 class="text-sm md:text-lg font-medium flex items-center gap-4">Masukkan Detil Akun
+                            <button
+                                class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap visible"
+                                type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-help-circle">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                    <path d="M12 17h.01"></path>
+                                </svg>
+                            </button>
+                        </h3>
+                        <div class="grid mt-6 gap-3 grid-cols-row-4">
+                            <div class="w-full">
+                                <div class="flex flex-col w-full">
+                                    <p class="text-xs md:text-sm font-semibold mb-2">Email </p>
+                                    <div class="relative flex items-center">
+                                        <input id="email_joki" name="email_joki" autocomplete="off" autosave="false"
+                                            type="email" value=""
+                                            class="bg-white games-input text-sm w-full light-dark-text focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl focus:outline-purple-500 focus:outline-1"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full">
+                                <div class="flex flex-col w-full">
+                                    <p class="text-xs md:text-sm font-semibold mb-2">Password </p>
+                                    <div class="relative flex items-center">
+                                        <input id="password_joki" name="password_joki" autocomplete="off" autosave="false"
+                                            value="" type="password"
+                                            class="bg-white games-input text-sm w-full light-dark-text focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl focus:outline-purple-500 focus:outline-1"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full">
+                                <div class="flex flex-col w-full">
+                                    <p class="text-xs md:text-sm font-semibold mb-2">Request </p>
+                                    <div class="relative flex items-center">
+                                        <input id="request_joki" name="request_joki" autocomplete="off" autosave="false"
+                                            value="" type="text"
+                                            class="bg-white games-input text-sm w-full light-dark-text focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl focus:outline-purple-500 focus:outline-1"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full">
+                                <div class="flex flex-col w-full">
+                                    <p class="text-xs md:text-sm font-semibold mb-2">Catatan </p>
+                                    <div class="relative flex items-center">
+                                        <input id="catatan_joki" name="nickname_joki" autocomplete="off" autosave="false"
+                                            value="" type="text"
+                                            class="bg-white games-input text-sm w-full light-dark-text focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl focus:outline-purple-500 focus:outline-1"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full">
+                                <div class="flex flex-col w-full">
+                                    <p class="text-xs md:text-sm font-semibold mb-2">Nickname </p>
+                                    <div class="relative flex items-center">
+                                        <input id="catatan_joki" name="catatan_joki" autocomplete="off" autosave="false"
+                                            value="" type="text"
+                                            class="bg-white games-input text-sm w-full light-dark-text focus:outline-none ring-1 ring-gray-500 focus:ring-0 h-10 pl-4 pr-4 rounded-xl focus:outline-purple-500 focus:outline-1"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-orientation="horizontal" role="none"
+                            class="shrink-0 h-[1px] w-full mt-3 mb-2 bg-white/50"></div>
+                        <p class="text-xs text-productDetail-card-fg/50 tracking-wide leading-5">Untuk Menemukan ID
+                            &amp;
+                            Server Kamu, Klik Avatar Pada Pojok Kiri Atas Layar Akan Muncul ID &amp; Server Kamu Di
+                            Bawah
+                            Nickname. {!! $kategori->ket_id !!}</p>
+                        <div class="note"></div>
+                    </div>
                     @else
                         <div class="shadow-sm bg-sidebar-menu light-dark-text rounded-xl p-4" id="detailAccount">
                             <h3 class="text-sm md:text-lg font-medium flex items-center gap-4">Masukan Detil Akun
@@ -1958,8 +2038,18 @@
                                             <div class="pb-4 pt-0">
                                                 <div role="radiogroup" class="grid grid-cols-1 gap-3 p-2"
                                                     tabindex="0" style="outline: none;">
-                                                    <div
-                                                        class="border text-card-foreground shadow-sm bg-productDetail-accord-item relative rounded-lg hover:cursor-pointer border-none hover:bg-purple-500 duration-300 hover:bg-opacity-20">
+                                                    <div id="content-method-{{ $p->id }}"
+                                                        class="content-method border text-card-foreground shadow-sm relative rounded-lg hover:cursor-pointer hover:bg-purple-500 duration-300 hover:bg-opacity-20">
+                                                        <div id="select-method-checklist-{{ $p->id }}"
+                                                            class="select-method-checklist hidden absolute right-0 top-0 bg-purple-500 text-white rounded-bl-lg rounded-tr-lg p-0.5">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                                height="14" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="lucide lucide-check">
+                                                                <path d="M20 6 9 17l-5-5"></path>
+                                                            </svg>
+                                                        </div>
                                                         <button type="button" role="radio" aria-checked="false"
                                                             data-state="unchecked"
                                                             class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
@@ -1978,7 +2068,7 @@
                                                                         <p class="text-black text-sm font-medium">
                                                                             {{ $p->name }}</p>
                                                                         <div id="method-{{ $p->id }}price"
-                                                                            class="price GOPAY text-lg text-blue-600 font-medium">
+                                                                            class="price GOPAY text-lg text-purple-600 font-medium">
                                                                             Rp
                                                                             {{ $p->price }}
                                                                         </div>
@@ -2048,8 +2138,18 @@
                                             style="outline: none;">
                                             @foreach ($pay_method as $p)
                                                 @if ($p->tipe == 'virtual-account')
-                                                    <div
-                                                        class="border text-card-foreground shadow-sm bg-productDetail-accord-item relative rounded-lg hover:cursor-pointer border-none hover:bg-purple-500 duration-300 hover:bg-opacity-20">
+                                                    <div id="content-method-{{ $p->id }}"
+                                                        class="content-method border text-card-foreground shadow-sm relative rounded-lg hover:cursor-pointer hover:bg-purple-500 duration-300 hover:bg-opacity-20">
+                                                        <div id="select-method-checklist-{{ $p->id }}"
+                                                            class="select-method-checklist hidden absolute right-0 top-0 bg-purple-500 text-white rounded-bl-lg rounded-tr-lg p-0.5">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                                height="14" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="lucide lucide-check">
+                                                                <path d="M20 6 9 17l-5-5"></path>
+                                                            </svg>
+                                                        </div>
                                                         <button type="button" role="radio" aria-checked="false"
                                                             data-state="unchecked"
                                                             class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
@@ -2068,7 +2168,7 @@
                                                                         <p class="name text-black text-sm font-medium">
                                                                             {{ $p->name }}</p>
                                                                         <div id="method-{{ $p->id }}price"
-                                                                            class="price GOPAY text-lg text-blue-600 font-medium">
+                                                                            class="price GOPAY text-lg text-purple-600 font-medium">
                                                                             Rp
                                                                             {{ $p->price }}
                                                                         </div>
@@ -2141,8 +2241,18 @@
                                             style="outline: none;">
                                             @foreach ($pay_method as $p)
                                                 @if ($p->tipe == 'convenience-store')
-                                                    <div
-                                                        class="border text-card-foreground shadow-sm bg-productDetail-accord-item relative rounded-lg hover:cursor-pointer border-none hover:bg-purple-500 duration-300 hover:bg-opacity-20">
+                                                    <div id="content-method-{{ $p->id }}"
+                                                        class="content-method border text-card-foreground shadow-sm relative rounded-lg hover:cursor-pointer hover:bg-purple-500 duration-300 hover:bg-opacity-20">
+                                                        <div id="select-method-checklist-{{ $p->id }}"
+                                                            class="select-method-checklist hidden absolute right-0 top-0 bg-purple-500 text-white rounded-bl-lg rounded-tr-lg p-0.5">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                                height="14" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="lucide lucide-check">
+                                                                <path d="M20 6 9 17l-5-5"></path>
+                                                            </svg>
+                                                        </div>
                                                         <button type="button" role="radio" aria-checked="false"
                                                             data-state="unchecked"
                                                             class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
@@ -2161,7 +2271,7 @@
                                                                         <p class="text-black text-sm font-medium">
                                                                             {{ $p->name }}</p>
                                                                         <div id="method-{{ $p->id }}price"
-                                                                            class="price GOPAY text-lg text-blue-600 font-medium">
+                                                                            class="price GOPAY text-lg text-purple-600 font-medium">
                                                                             Rp
                                                                             {{ $p->price }}
                                                                         </div>
@@ -2232,8 +2342,17 @@
                                     <div class="pb-4 pt-0">
                                         <div role="radiogroup" class="grid grid-cols-1 gap-3 p-2" tabindex="0"
                                             style="outline: none;">
-                                            <div
-                                                class="border text-card-foreground shadow-sm bg-productDetail-accord-item relative rounded-lg hover:cursor-pointer border-none hover:bg-purple-500 duration-300 hover:bg-opacity-20">
+                                            <div id="content-method-{{ $p->id }}"
+                                                class="content-method border text-card-foreground shadow-sm relative rounded-lg hover:cursor-pointer hover:bg-purple-500 duration-300 hover:bg-opacity-20">
+                                                <div id="select-method-checklist-{{ $p->id }}"
+                                                    class="select-method-checklist hidden absolute right-0 top-0 bg-purple-500 text-white rounded-bl-lg rounded-tr-lg p-0.5">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                        height="14" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="lucide lucide-check">
+                                                        <path d="M20 6 9 17l-5-5"></path>
+                                                    </svg>
+                                                </div>
                                                 <button type="button" role="radio" aria-checked="false"
                                                     data-state="unchecked"
                                                     class="aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"
@@ -2250,7 +2369,7 @@
                                                                 <p class="text-black text-sm font-medium">
                                                                     Saldo Akun</p>
                                                                 <div id="method-saldo-price"
-                                                                    class="price GOPAY text-lg text-blue-600 font-medium">
+                                                                    class="price GOPAY text-lg text-purple-600 font-medium">
                                                                     Rp
                                                                     <p></p>
                                                                 </div>
@@ -2326,7 +2445,7 @@
                                 <div class="flex flex-col w-full">
                                     <p class="text-xs md:text-sm font-semibold mb-2">Nomor Whatsapp </p>
                                     <div class="relative flex items-center">
-                                        <input name="kontak" autocomplete="off" type="number" autosave="false"
+                                        <input id="nomor" name="nomor" autocomplete="off" type="number" autosave="false"
                                             type="text"
                                             class="text-sm w-full light-dark-text focus:outline-none focus:ring-0 h-10 pl-4 pr-4 rounded-xl text focus:outline-purple-500 focus:outline-1"
                                             placeholder="Masukan Nomor Whatsapp">
@@ -2336,14 +2455,16 @@
                             <p class="text-xs text-productDetail-card-fg/50 tracking-wide leading-5">Dengan membeli
                                 otomatis saya menyutujui <a class="underline" href="/termandconditional">Ketentuan
                                     Layanan</a></p>
-                        </div><button
+                        </div>
+                        <button id="btn-order" onclick="showOrderModal();" type="button"
                             class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition duration-300 hover:brightness-85 whitespace-nowrap bg-purple-500 text-white hover:bg-purple-500/80 h-10 py-2 mt-5 px-8">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round"
                                 class="mr-2 h-4 w-4 animate-spin hidden">
                                 <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
-                            </svg>Beli Sekarang</button>
+                            </svg>Beli Sekarang
+                        </button>
                     </div>
                     <div class="space-y-6 mt-6 block lg:hidden">
                         <div class="space-y-3">
@@ -2399,6 +2520,26 @@
                 </div>
             </div>
         </form>
+        <dialog id="modal_confirm_order" class="modal">
+            <div class="absolute inset-0 bg-zinc-950/30"></div>
+            <div
+                class="bg-zinc-800/5 modal-box modal-form-order backdrop-blur-lg rounded-lg overflow-y-auto max-h-screen border max-w-xl">
+                <form method="dialog">
+                    <button class="btn btn-sm btn-circle btn-ghost text-white absolute right-2 top-2">✕</button>
+                </form>
+                <div class="absolute left-0 top-0 ">
+                    <figure class="w-full">
+                        <img alt="element-order" loading="lazy" width="230" height="100" decoding="async"
+                            data-nimg="1" class="rounded-tl-lg" src="https://mobafams.com/svgs/element_order.svg"
+                            style="color: transparent;">
+                    </figure>
+                </div>
+                <div id="content-confirm-data">
+
+                </div>
+            </div>
+            </div>
+        </dialog>
     </section>
     <style>
         .transition-max-height {
@@ -2456,6 +2597,10 @@
         function selectOption(option) {
             const textServer = document.getElementById("text-server");
             textServer.textContent = option.textContent.trim();
+
+            const selectedValue = option.getAttribute('value');
+            $("#zone").val(selectedValue);
+
             toggleDropdown();
         }
 
@@ -2488,15 +2633,15 @@
             $('html, body').animate({
                 scrollTop: $("#detailAccount").offset().top
             }, 500);
-            
+
             $(".content-layanan").removeClass('border border-purple-500');
             $("#content-nominal-" + id).addClass('border border-purple-500');
-            
+
             $(".payment-method").removeClass('pointer-events-none');
             $(".grayscale-image-method").removeClass('grayscale');
             $(".select-product-checklist").addClass('hidden');
             $("#select-product-checklist-" + id).removeClass('hidden');
-            
+
             $("input[name=nominal]").val(id);
             $("#nominal1").text(name);
             $("#nominal").text(name);
@@ -2538,17 +2683,420 @@
         //     }
         // }
 
+        // function order_confirm() {
+        //     $("#nickname").addClass('d-none');
+        //     var uid = $("#user_id").val();
+        //     var zone = $("#zone").val();
+        //     var email_joki = $("#email_joki").val();
+        //     var password_joki = $("#password_joki").val();
+        //     var loginvia_joki = $("#loginvia_joki").val();
+        //     var nickname_joki = $("#nickname_joki").val();
+        //     var request_joki = $("#request_joki").val();
+        //     var catatan_joki = $("#catatan_joki").val();
+        //     var email_vilog = $("#email_vilog").val();
+        //     var password_vilog = $("#password_vilog").val();
+        //     var loginvia_vilog = $("#loginvia_vilog").val();
+        //     var ktg_tipe = $("#ktg_tipe").val();
+        //     var service = $("input[name='nominal']:checked").val();
+        //     var pembayaran = $("input[name='pembayaran']:checked").val();
+        //     var nomor = $("input[name='nomor']").val();
+        //     var voucher = $("#voucher").val();
+
+        //     var target = $('.games-input').map(function() {
+        //         return this.value;
+        //     }).get().join(',');
+
+        //     if (!service) {
+        //         toastr.warning('Nominal produk belum dipilih');
+        //     } else if (!target || target == ' ' || target == '' || target == ',') {
+        //         toastr.warning('Tujuan masih kosong');
+        //     } else if (!pembayaran) {
+        //         toastr.warning('Silakan pilih metode pembayaran');
+        //     } else if (!nomor) {
+        //         toastr.error('No. Whatsapp belum diisi');
+        //     } else if (nomor.length < 10 || nomor.length > 14) {
+        //         toastr.warning('No. Whatsapp tidak sesuai');
+        //     } else {
+        //         $.ajax({
+        //             url: "<?php echo route('ajax.confirm-data'); ?>",
+        //             dataType: "JSON",
+        //             type: "POST",
+        //             data: {
+        //                 '_token': '<?php echo csrf_token(); ?>',
+        //                 'uid': uid,
+        //                 'zone': zone,
+        //                 'email_joki': email_joki,
+        //                 'password_joki': password_joki,
+        //                 'loginvia_joki': loginvia_joki,
+        //                 'nickname_joki': nickname_joki,
+        //                 'request_joki': request_joki,
+        //                 'catatan_joki': catatan_joki,
+        //                 'email_vilog': email_vilog,
+        //                 'password_vilog': password_vilog,
+        //                 'loginvia_vilog': loginvia_vilog,
+        //                 'ktg_tipe': ktg_tipe,
+        //                 'service': service,
+        //                 'payment_method': pembayaran,
+        //                 'nomor': nomor,
+        //                 'voucher': voucher
+        //             },
+        //             beforeSend: function() {
+        //                 $("#content-confirm-data").html('<p>Loading...</p>');
+        //             },
+        //             success: function(res) {
+        //                 Swal.close(); // Menutup SweetAlert setelah permintaan berhasil
+        //                 if (res.status == true) {
+        //                     Swal.fire({
+        //                         title: 'Detail Pesanan',
+        //                         html: `${res.data}`,
+        //                         showCancelButton: true,
+        //                         confirmButtonText: 'Beli Sekarang',
+        //                         cancelButtonText: 'Batal',
+        //                         customClass: {
+        //                             title: 'text-lg font-bold leading-6',
+        //                             htmlContainer: 'swal-text',
+        //                             confirmButton: 'swal2-cancel btn btn-primary mt-3 d-inline-flex justify-content-center align-items-center px-4 py-2 sm-mt-0 sm-w-auto sm-text-sm btn-block text-000000 w-100 swal2-styled',
+        //                             cancelButton: 'btn btn-secondary mt-2 d-inline-flex justify-content-center align-items-center px-4 py-2 sm-mt-0 sm-w-auto sm-text-sm btn-block text-000000 w-100'
+        //                         }
+        //                     }).then(resp => {
+        //                         if (resp.isConfirmed) {
+        //                             var nickname = $("#nick").text();
+        //                             var nohp = $("input[name='nomor']").val();
+        //                             $.ajax({
+        //                                 url: "<?php echo route('order'); ?>",
+        //                                 dataType: "JSON",
+        //                                 type: "POST",
+        //                                 data: {
+        //                                     '_token': '<?php echo csrf_token(); ?>',
+        //                                     'nickname': nickname,
+        //                                     'uid': uid,
+        //                                     'zone': zone,
+        //                                     'email_joki': email_joki,
+        //                                     'password_joki': password_joki,
+        //                                     'loginvia_joki': loginvia_joki,
+        //                                     'nickname_joki': nickname_joki,
+        //                                     'request_joki': request_joki,
+        //                                     'catatan_joki': catatan_joki,
+        //                                     'email_vilog': email_vilog,
+        //                                     'password_vilog': password_vilog,
+        //                                     'loginvia_vilog': loginvia_vilog,
+        //                                     'ktg_tipe': ktg_tipe,
+        //                                     'service': service,
+        //                                     'payment_method': pembayaran,
+        //                                     'nomor': nohp,
+        //                                     'voucher': voucher
+        //                                 },
+        //                                 beforeSend: function() {
+        //                                     let timerInterval;
+        //                                     Swal.fire({
+        //                                         title: 'Tunggu Sebentar',
+        //                                         timerProgressBar: false,
+        //                                         didOpen: () => {
+        //                                             Swal.showLoading()
+        //                                             const b = Swal
+        //                                                 .getHtmlContainer()
+        //                                                 .querySelector('b')
+        //                                             if (b) {
+        //                                                 timerInterval =
+        //                                                     setInterval(() => {
+        //                                                         b.textContent =
+        //                                                             Swal
+        //                                                             .getTimerLeft();
+        //                                                     }, 100);
+        //                                             }
+        //                                         },
+        //                                         willClose: () => {
+        //                                             clearInterval(timerInterval)
+        //                                         }
+        //                                     }).then((result) => {
+        //                                         if (result.dismiss === Swal
+        //                                             .DismissReason.timer) {
+        //                                             console.log(
+        //                                                 'I was closed by the timer'
+        //                                             );
+        //                                         }
+        //                                     });
+        //                                 },
+        //                                 success: function(resOrder) {
+        //                                     if (resOrder.status) {
+        //                                         Swal.fire({
+        //                                             title: 'Berhasil memesan',
+        //                                             text: `Order ID : ${resOrder.order_id}`,
+        //                                             icon: 'success',
+        //                                             showConfirmButton: false,
+        //                                             allowOutsideClick: false,
+        //                                         });
+        //                                         window.location =
+        //                                             `/pembelian/invoice/${resOrder.order_id}`;
+        //                                     } else {
+        //                                         Swal.fire({
+        //                                             title: 'Gagal...',
+        //                                             text: `${resOrder.data}`,
+        //                                             icon: 'error',
+        //                                         });
+        //                                     }
+        //                                 }
+        //                             });
+        //                         }
+        //                     });
+        //                 } else if (res.status == false) {
+        //                     Swal.fire({
+        //                         title: 'Oops...',
+        //                         text: res.data,
+        //                         icon: 'error',
+        //                     });
+        //                 } else {
+        //                     Swal.fire({
+        //                         title: 'Oops...',
+        //                         text: 'User ID tidak ditemukan.',
+        //                         icon: 'error',
+        //                     });
+        //                 }
+        //             },
+        //             error: function(e) {
+        //                 Swal.close(); // Menutup SweetAlert setelah permintaan berhasil
+        //                 if (e.status == 422) {
+        //                     Swal.fire({
+        //                         title: 'Oops...',
+        //                         text: 'Pastikan anda sudah mengisi semua data yang diperlukan.',
+        //                         icon: 'error',
+        //                     });
+        //                 }
+        //             }
+        //         });
+        //     }
+        // }
+
+        // function order_confirm() {
+        //     $("#nickname").addClass('d-none');
+        //     var uid = $("#user_id").val();
+        //     var zone = $("#zone").val();
+        //     var email_joki = $("#email_joki").val();
+        //     var password_joki = $("#password_joki").val();
+        //     var loginvia_joki = $("#loginvia_joki").val();
+        //     var nickname_joki = $("#nickname_joki").val();
+        //     var request_joki = $("#request_joki").val();
+        //     var catatan_joki = $("#catatan_joki").val();
+        //     var email_vilog = $("#email_vilog").val();
+        //     var password_vilog = $("#password_vilog").val();
+        //     var loginvia_vilog = $("#loginvia_vilog").val();
+        //     var ktg_tipe = $("#ktg_tipe").val();
+        //     var service = $("input[name='nominal']:checked").val();
+        //     var pembayaran = $("input[name='pembayaran']:checked").val();
+        //     var nomor = $("input[name='nomor']").val();
+        //     var voucher = $("#voucher").val();
+
+        //     var target = $('.games-input').map(function() {
+        //         return this.value;
+        //     }).get().join(',');
+
+        //     if (!service) {
+        //         toastr.warning('Nominal produk belum dipilih');
+        //     } else if (!target || target == ' ' || target == '' || target == ',') {
+        //         toastr.warning('Tujuan masih kosong');
+        //     } else if (!pembayaran) {
+        //         toastr.warning('Silakan pilih metode pembayaran');
+        //     } else if (!nomor) {
+        //         toastr.error('No. Whatsapp belum diisi');
+        //     } else if (nomor.length < 10 || nomor.length > 14) {
+        //         toastr.warning('No. Whatsapp tidak sesuai');
+        //     } else {
+        //         $.ajax({
+        //             url: "<?php echo route('ajax.confirm-data'); ?>",
+        //             dataType: "JSON",
+        //             type: "POST",
+        //             data: {
+        //                 '_token': '<?php echo csrf_token(); ?>',
+        //                 'uid': uid,
+        //                 'zone': zone,
+        //                 'email_joki': email_joki,
+        //                 'password_joki': password_joki,
+        //                 'loginvia_joki': loginvia_joki,
+        //                 'nickname_joki': nickname_joki,
+        //                 'request_joki': request_joki,
+        //                 'catatan_joki': catatan_joki,
+        //                 'email_vilog': email_vilog,
+        //                 'password_vilog': password_vilog,
+        //                 'loginvia_vilog': loginvia_vilog,
+        //                 'ktg_tipe': ktg_tipe,
+        //                 'service': service,
+        //                 'payment_method': pembayaran,
+        //                 'nomor': nomor,
+        //                 'voucher': voucher
+        //             },
+        //             beforeSend: function() {
+        //                 // Optional: Menambahkan loading state sebelum request dikirim
+        //                 $("#content-confirm-data").html('<p>Loading...</p>');
+        //             },
+        //             success: function(res) {
+        //                 if (res.status == true) {
+        //                     // Mengganti konten div dengan id 'content-confirm-data' dengan data dari server
+        //                     $("#content-confirm-data").html(res.data);
+
+        //                     // Menambahkan event listener pada tombol 'Beli Sekarang' yang baru dimuat
+        //                     $("#confirm-order-button").on("click", function() {
+        //                         var nickname = $("#nick").text();
+        //                         var nohp = $("input[name='nomor']").val();
+        //                         $.ajax({
+        //                             url: "<?php echo route('order'); ?>",
+        //                             dataType: "JSON",
+        //                             type: "POST",
+        //                             data: {
+        //                                 '_token': '<?php echo csrf_token(); ?>',
+        //                                 'nickname': nickname,
+        //                                 'uid': uid,
+        //                                 'zone': zone,
+        //                                 'email_joki': email_joki,
+        //                                 'password_joki': password_joki,
+        //                                 'loginvia_joki': loginvia_joki,
+        //                                 'nickname_joki': nickname_joki,
+        //                                 'request_joki': request_joki,
+        //                                 'catatan_joki': catatan_joki,
+        //                                 'email_vilog': email_vilog,
+        //                                 'password_vilog': password_vilog,
+        //                                 'loginvia_vilog': loginvia_vilog,
+        //                                 'ktg_tipe': ktg_tipe,
+        //                                 'service': service,
+        //                                 'payment_method': pembayaran,
+        //                                 'nomor': nohp,
+        //                                 'voucher': voucher
+        //                             },
+        //                             beforeSend: function() {
+        //                                 // Menambahkan loading state
+        //                                 $("#content-confirm-data").html(
+        //                                     '<p>Processing order...</p>');
+        //                             },
+        //                             success: function(resOrder) {
+        //                                 if (resOrder.status) {
+        //                                     $("#content-confirm-data").html(
+        //                                         `<p>Order successful! Order ID: ${resOrder.order_id}</p>`
+        //                                         );
+        //                                     window.location =
+        //                                         `/pembelian/invoice/${resOrder.order_id}`;
+        //                                 } else {
+        //                                     $("#content-confirm-data").html(
+        //                                         `<p>Order failed: ${resOrder.data}</p>`);
+        //                                 }
+        //                             },
+        //                             error: function() {
+        //                                 $("#content-confirm-data").html(
+        //                                     '<p>Order failed. Please try again later.</p>'
+        //                                     );
+        //                             }
+        //                         });
+        //                     });
+        //                 } else if (res.status == false) {
+        //                     $("#content-confirm-data").html(`<p>${res.data}</p>`);
+        //                 } else {
+        //                     $("#content-confirm-data").html('<p>User ID tidak ditemukan.</p>');
+        //                 }
+        //             },
+        //             error: function(e) {
+        //                 if (e.status == 422) {
+        //                     $("#content-confirm-data").html(
+        //                         '<p>Pastikan anda sudah mengisi semua data yang diperlukan.</p>');
+        //                 } else {
+        //                     $("#content-confirm-data").html(
+        //                         '<p>Terjadi kesalahan, silakan coba lagi nanti.</p>');
+        //                 }
+        //             }
+        //         });
+        //     }
+        // }
+
+        function order_confirm() {
+            $("#nickname").addClass('d-none');
+            var uid = $("#user_id").val();
+            var zone = $("#zone").val();
+            var email_joki = $("#email_joki").val();
+            var password_joki = $("#password_joki").val();
+            var loginvia_joki = $("#loginvia_joki").val();
+            var nickname_joki = $("#nickname_joki").val();
+            var request_joki = $("#request_joki").val();
+            var catatan_joki = $("#catatan_joki").val();
+            var email_vilog = $("#email_vilog").val();
+            var password_vilog = $("#password_vilog").val();
+            var loginvia_vilog = $("#loginvia_vilog").val();
+            var ktg_tipe = $("#ktg_tipe").val();
+            var service = $("input[name='nominal']:checked").val();
+            var pembayaran = $("input[name='pembayaran']:checked").val();
+            var nomor = $("input[name='nomor']").val();
+            var voucher = $("#voucher").val();
+
+            var target = $('.games-input').map(function() {
+                return this.value;
+            }).get().join(',');
+
+            console.log(target);
+
+            $.ajax({
+                url: "<?php echo route('ajax.confirm-data'); ?>",
+                dataType: "JSON",
+                type: "POST",
+                data: {
+                    '_token': '<?php echo csrf_token(); ?>',
+                    'uid': uid,
+                    'zone': zone,
+                    'email_joki': email_joki,
+                    'password_joki': password_joki,
+                    'loginvia_joki': loginvia_joki,
+                    'nickname_joki': nickname_joki,
+                    'request_joki': request_joki,
+                    'catatan_joki': catatan_joki,
+                    'email_vilog': email_vilog,
+                    'password_vilog': password_vilog,
+                    'loginvia_vilog': loginvia_vilog,
+                    'ktg_tipe': ktg_tipe,
+                    'service': service,
+                    'payment_method': pembayaran,
+                    'nomor': nomor,
+                    'voucher': voucher
+                },
+                beforeSend: function() {
+                    // Optional: Menambahkan loading state sebelum request dikirim
+                    $("#content-confirm-data").html('<p>Loading...</p>');
+                },
+                success: function(res) {
+                    if (res.status == true) {
+                        // Mengganti konten div dengan id 'content-confirm-data' dengan data dari server
+                        $("#content-confirm-data").html(res.data);
+                    } else if (res.status == false) {
+                        $("#content-confirm-data").html(`<p>${res.data}</p>`);
+                    } else {
+                        $("#content-confirm-data").html('<p>User ID tidak ditemukan.</p>');
+                    }
+                },
+                error: function(e) {
+                    console.log(e);
+                    if (e.status == 422) {
+                        $("#content-confirm-data").html(
+                            '<p>Pastikan anda sudah mengisi semua data yang diperlukan.</p>');
+                    } else {
+                        $("#content-confirm-data").html(
+                            '<p>Terjadi kesalahan, silakan coba lagi nanti.</p>');
+                    }
+                }
+            });
+        }
+
+        function showOrderModal() {
+            order_confirm();
+            document.getElementById('modal_confirm_order').showModal();
+        }
+
         function select_method(id, name) {
 
             var product = $("input[name=nominal]:checked").val();
-            console.log(product);
 
             if (!product) {
                 toastr.warning('Silahkan pilih produk dahulu');
             } else {
 
-                $(".method").removeClass('active');
-                $("#method-" + id).addClass('active');
+                $(".content-method").removeClass('border border-purple-500');
+                $("#content-method-" + id).addClass('border border-purple-500');
+                $(".select-method-checklist").addClass('hidden');
+                $("#select-method-checklist-" + id).removeClass('hidden');
+
 
                 $("input[name=method]").val(id);
                 $("#metode_bayar").text(name);

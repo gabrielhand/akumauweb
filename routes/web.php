@@ -37,6 +37,8 @@ Route::get('/allgames', [HomeController::class, 'allgames'])->name('allgames');
 Route::get('/services', [ServicesController::class, 'services'])->name('services');
 Route::get('/order/{kategori:kode}', [OrderController::class, 'create']);
 Route::post('/order/harga', [OrderController::class, 'price'])->name('ajax.price');
+Route::post('/order/konfirmasi-data', [OrderController::class, 'confirm'])->name('ajax.confirm-data');
+Route::post('/order/pembelian', [OrderController::class, 'store'])->name('order');
 Route::get('/cari', [CariController::class, 'create'])->name('cari');
 Route::post('/cari', [CariController::class, 'store'])->name('cari.post');
 Route::get('/pembelian/invoice/{order}', [InvoiceController::class, 'index'])->name('pembelian');

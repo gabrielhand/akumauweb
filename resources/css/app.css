@@ -356,3 +356,18 @@ body::-webkit-scrollbar-track {
 .menu-laporan-scrollbar::-webkit-scrollbar-track {
     background: #d1d5db;
 }
+
+.modal-form-order::-webkit-scrollbar {
+    width: 6px;
+    display: block;
+}
+
+.modal-form-order::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.modal-form-order::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}

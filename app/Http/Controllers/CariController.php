@@ -33,6 +33,10 @@ class CariController extends Controller
 
     public function store(Request $request)
     {
+        if (empty($request->id)) {
+            return back()->with('error', 'Maaf, nomor invoice tidak boleh kosong!');
+        }    
+
         $request->validate([
             'id' => 'required'
         ]);

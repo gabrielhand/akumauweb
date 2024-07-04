@@ -16,7 +16,6 @@ class ApiCheckController extends Controller
             'user_id' => $user_id,
             'zone_id' => $zone_id
         ];
-        info($params);
         
         $result = $this->connect($params);
         
@@ -35,6 +34,7 @@ class ApiCheckController extends Controller
     
     public function connect($data = null)
     {
+        info($data);
         $ch = curl_init();
         
         curl_setopt($ch, CURLOPT_URL, 'https://ruukastore.com/api/v1/check-game');
